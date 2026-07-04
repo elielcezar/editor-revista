@@ -38,6 +38,22 @@ Todo movimento é **salvo automaticamente** no CSS ao soltar o mouse (ou meio
 segundo depois do último toque de seta). O toast verde no canto confirma o
 arquivo gravado.
 
+## Box "CSS da regra" (edição livre)
+
+Na parte de baixo do painel há um box de texto com **todas as declarações da
+regra** do elemento selecionado — não só posição. Dá para trocar `overflow`,
+adicionar `border`, `border-radius`, `background` etc. sem abrir o arquivo:
+
+1. Selecione o elemento; o box mostra o CSS da regra principal dele.
+2. Se o elemento tem mais de uma regra (ex.: `.principal-lay--013` +
+   `.z-deco-bg-mid`), o dropdown acima do box troca qual regra você edita.
+3. Edite à vontade: alterar valores, **adicionar linhas novas** ou **apagar
+   linhas** (a propriedade é removida do arquivo).
+4. Clique **💾 Salvar CSS** (ou `Ctrl+S` dentro do box).
+
+Declarações inválidas são ignoradas com aviso; o salvamento entra no
+histórico normal do Ctrl+Z.
+
 ## Modo "empurrar elementos abaixo"
 
 É o recurso feito para o problema clássico deste projeto: reduzir um

@@ -487,6 +487,7 @@
       ui.arquivo.textContent = prim.file;
     }
     atualizarPainelValores();
+    preencherCssBox();
     ui.btnUndo.disabled = !undoStack.length;
     ui.btnRedo.disabled = !redoStack.length;
   }
@@ -518,6 +519,119 @@
     var before = {}; before[prop] = antes;
     var after = {}; after[prop] = depois;
     commitBatch([{ entry: en, file: en.file, selector: en.selector, before: before, after: after }]);
+  }
+
+  /* ──────────────────── box de CSS livre da regra ─────────────────── */
+
+  var cssBoxEntry = null; // regra exibida no textarea
+
+  /* divide declarações por ';' ignorando ';' dentro de parênteses (url(data:...)) */
+  function splitDecls(texto) {
+    var partes = [];
+    var atual = "";
+    var depth = 0;
+    for (var i = 0; i < texto.length; i++) {
+      var ch = texto[i];
+      if (ch === "(") depth++;
+      else if (ch === ")") depth = Math.max(0, depth - 1);
+      if (ch === ";" && depth === 0) { partes.push(atual); atual = ""; continue; }
+      atual += ch;
+    }
+    partes.push(atual);
+    return partes.map(function (p) { return p.trim(); }).filter(Boolean);
+  }
+
+  /* aceita prop normal (left), com prefixo (-webkit-mask) e custom (--minha-var) */
+  var RE_DECL = /^(-{0,2}[a-zA-Z][\w-]*)\s*:\s*([\s\S]+)$/;
+
+  function nomeProp(bruto) {
+    return bruto.indexOf("--") === 0 ? bruto : bruto.toLowerCase();
+  }
+
+  function declsParaMapa(cssText) {
+    var mapa = {};
+    splitDecls(cssText).forEach(function (d) {
+      var m = d.match(RE_DECL);
+      if (m) mapa[nomeProp(m[1])] = m[2].trim().replace(/\s+/g, " ");
+    });
+    return mapa;
+  }
+
+  function preencherCssBox() {
+    var map = selection.length ? mapOf(selection[0]) : null;
+    ui.selRegra.innerHTML = "";
+    if (!map) {
+      cssBoxEntry = null;
+      ui.txtCss.value = "";
+      ui.txtCss.disabled = true;
+      ui.btnCssSalvar.disabled = true;
+      return;
+    }
+    map.cands.forEach(function (en, i) {
+      var opt = document.createElement("option");
+      opt.value = String(i);
+      opt.textContent = en.selector + "  (" + en.file.replace(/^css\//, "") + ")";
+      ui.selRegra.appendChild(opt);
+    });
+    var idx = map.cands.indexOf(cssBoxEntry);
+    if (idx === -1) { cssBoxEntry = map.prim; idx = map.cands.indexOf(map.prim); }
+    ui.selRegra.value = String(idx);
+    ui.txtCss.disabled = false;
+    ui.btnCssSalvar.disabled = false;
+    if (document.activeElement !== ui.txtCss) {
+      ui.txtCss.value = splitDecls(cssBoxEntry.style.cssText)
+        .map(function (d) { return d + ";"; })
+        .join("\n");
+    }
+  }
+
+  function salvarCssBox() {
+    if (!cssBoxEntry) return;
+    var en = cssBoxEntry;
+    var atual = declsParaMapa(en.style.cssText);
+    var novo = {};
+    var invalidas = [];
+    var probe = document.createElement("div");
+    splitDecls(ui.txtCss.value).forEach(function (d) {
+      var m = d.match(RE_DECL);
+      if (!m) { if (d) invalidas.push(d); return; }
+      var prop = nomeProp(m[1]);
+      var valor = m[2].trim().replace(/\s+/g, " ");
+      probe.style.cssText = "";
+      probe.style.setProperty(prop, valor);
+      if (prop.indexOf("--") !== 0 && probe.style.getPropertyValue(prop) === "") {
+        invalidas.push(d);
+        return;
+      }
+      novo[prop] = valor;
+    });
+    if (invalidas.length) {
+      toast("⚠ declaração inválida ignorada: " + invalidas[0], true);
+    }
+
+    // diff atual → novo (inclui remoções)
+    var before = {}, after = {};
+    var mudou = false;
+    for (var p in novo) {
+      if (atual[p] === undefined || atual[p] !== novo[p]) {
+        before[p] = atual[p] === undefined ? null : atual[p];
+        after[p] = novo[p];
+        mudou = true;
+      }
+    }
+    for (var q in atual) {
+      if (novo[q] === undefined) {
+        before[q] = atual[q];
+        after[q] = null;
+        mudou = true;
+      }
+    }
+    if (!mudou) { toast("nada mudou"); return; }
+
+    applyProps(en, after);
+    commitBatch([{ entry: en, file: en.file, selector: en.selector, before: before, after: after }]);
+    preencherCssBox();
+    posicionarCaixas();
   }
 
   /* ─────────────────────── eventos de mouse ───────────────────────── */
@@ -660,6 +774,18 @@
     ".rev-ed-botoes button:disabled{opacity:.35;cursor:default}",
     ".rev-ed-atalhos{margin-top:8px;color:#8b949e;font-size:10px;line-height:1.7}",
     ".rev-ed-atalhos b{color:#c9d1d9;font-weight:600}",
+    ".rev-ed-css-sec{margin-top:10px;border-top:1px solid #30363d;padding-top:8px}",
+    ".rev-ed-css-titulo{font-size:10px;color:#8b949e;text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px}",
+    "#rev-ed-css-regra{width:100%;box-sizing:border-box;background:#0d1117;color:#79c0ff;border:1px solid #30363d;",
+    " border-radius:5px;font:10px monospace;padding:3px 4px;margin-bottom:5px}",
+    "#rev-ed-css{width:100%;box-sizing:border-box;background:#0d1117;color:#e6edf3;border:1px solid #30363d;",
+    " border-radius:5px;padding:6px;font:11px/1.55 monospace;resize:vertical;min-height:90px}",
+    "#rev-ed-css:focus{border-color:#1f6feb;outline:none}",
+    "#rev-ed-css-salvar{width:100%;margin-top:6px;background:#238636;color:#fff;border:none;border-radius:5px;",
+    " padding:5px 0;cursor:pointer;font-size:11px;font-weight:600}",
+    "#rev-ed-css-salvar:disabled{opacity:.35;cursor:default}",
+    "#rev-ed-css-salvar span{font-weight:400;opacity:.7}",
+    "#rev-ed-painel{max-height:calc(100vh - 28px);overflow-y:auto}",
     "#rev-ed-caixas,#rev-ed-guias{position:absolute;inset:0;pointer-events:none;z-index:2147483600}",
     ".rev-ed-box{position:absolute;outline:1.5px solid #1f6feb;outline-offset:1px;background:rgba(31,111,235,.06)}",
     ".rev-ed-box--prim{outline-color:#e5534b;background:rgba(229,83,75,.05)}",
@@ -706,6 +832,12 @@
       '<button id="rev-ed-undo">↩ desfazer</button>' +
       '<button id="rev-ed-redo">↪ refazer</button>' +
       "</div>" +
+      '<div class="rev-ed-css-sec">' +
+      '<div class="rev-ed-css-titulo">CSS da regra</div>' +
+      '<select id="rev-ed-css-regra" title="Regra exibida"></select>' +
+      '<textarea id="rev-ed-css" rows="9" spellcheck="false" placeholder="selecione um elemento" disabled></textarea>' +
+      '<button id="rev-ed-css-salvar" disabled>💾 Salvar CSS <span>(Ctrl+S)</span></button>' +
+      "</div>" +
       '<div class="rev-ed-atalhos">' +
       "<b>clique</b> seleciona · <b>shift+clique</b> multi<br>" +
       "<b>alt+clique</b> elemento de baixo<br>" +
@@ -722,6 +854,26 @@
     ui.btnRedo = ui.painel.querySelector("#rev-ed-redo");
     ui.btnUndo.addEventListener("click", undo);
     ui.btnRedo.addEventListener("click", redo);
+
+    ui.selRegra = ui.painel.querySelector("#rev-ed-css-regra");
+    ui.txtCss = ui.painel.querySelector("#rev-ed-css");
+    ui.btnCssSalvar = ui.painel.querySelector("#rev-ed-css-salvar");
+    ui.selRegra.addEventListener("change", function () {
+      var map = selection.length ? mapOf(selection[0]) : null;
+      if (!map) return;
+      cssBoxEntry = map.cands[Number(ui.selRegra.value)] || map.prim;
+      ui.txtCss.blur();
+      preencherCssBox();
+    });
+    ui.btnCssSalvar.addEventListener("click", salvarCssBox);
+    ui.txtCss.addEventListener("keydown", function (ev) {
+      if ((ev.ctrlKey || ev.metaKey) && ev.key === "s") {
+        ev.preventDefault();
+        salvarCssBox();
+        ui.txtCss.blur();
+      }
+      if (ev.key === "Escape") ui.txtCss.blur();
+    });
 
     var grid = ui.painel.querySelector("#rev-ed-campos");
     ui.campos = {};
