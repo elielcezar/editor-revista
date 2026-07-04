@@ -1,6 +1,5 @@
 {
   "permissions": {
-    "defaultMode": "dontAsk",
     "allow": [
       "Bash(ffmpeg -version)",
       "PowerShell(Get-Command ffmpeg -ErrorAction SilentlyContinue)",

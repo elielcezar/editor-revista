@@ -72,7 +72,7 @@
     .page-gestao {
       position: relative;
       width: 402px;
-      height: 6544px;
+      height: 6574px;
       background: #ffffff;
       overflow-x: hidden;
       overflow-y: visible;
@@ -145,9 +145,10 @@
       margin: 0;
       font-family: "Raspoutine Classic", Georgia, serif;
       font-weight: 400;
-      font-size: 20px;
+      font-size: 18px;
       line-height: 23px;
       color: #666666;
+      letter-spacing: 1px;
     }
     .t-corp {
       margin: 0;
@@ -390,7 +391,7 @@
     /* Calculadora — frame 1303:50 (layout_1C7YM5 + effect_4UU4X4) */
     .calc {
       left: 0;
-      top: 3709.26px;
+      top: 3739.26px;
       width: 402px;
       background: #ffffff;
       border-radius: 13.611518859863281px;
@@ -532,45 +533,45 @@
   
 
 /* ─── Layout (hoist de styles inline — gestao) ─── */
-.gestao-lay--001 { left:25px; top:2961px; width:356px; height:209px; background:rgba(255,115,0,0.2); border-radius:20px; z-index:1; }
-.gestao-lay--002 { left:-1px; top:3385px; width:403px; height:1388px; background:#ff7300; z-index:2; }
-.gestao-lay--003 { left:0; top:1671px; width:402px; height:661px; z-index:3; }
-.gestao-lay--004 { left:-2px; top:1063px; width:404px; height:429px; z-index:4; }
-.gestao-lay--005 { left:-2px; top:1311px; width:404px; height:217px; z-index:5; }
-.gestao-lay--006 { left:-2px; top:1937px; width:404px; height:432px; z-index:6; }
-.gestao-lay--007 { left:-2px; top:1149px; width:404px; height:379px; z-index:7; }
-.gestao-lay--008 { left:-2px; top:1755px; width:404px; height:603px; z-index:8; }
-.gestao-lay--009 { left:-2px; top:2167px; width:404px; height:243px; z-index:9; }
+.gestao-lay--001 { left:25px; top:2991px; width:356px; height:209px; background:rgba(255,115,0,0.2); border-radius:20px; z-index:1; }
+.gestao-lay--002 { left:-1px; top:3415px; width:403px; height:1388px; background:#ff7300; z-index:2; }
+.gestao-lay--003 { left:0; top:1661px; width:402px; height:661px; z-index:3; }
+.gestao-lay--004 { left:-2px; top:1053px; width:404px; height:429px; z-index:4; }
+.gestao-lay--005 { left:-2px; top:1301px; width:404px; height:217px; z-index:5; }
+.gestao-lay--006 { left:-2px; top:1927px; width:404px; height:432px; z-index:6; }
+.gestao-lay--007 { left:-2px; top:1139px; width:404px; height:379px; z-index:7; }
+.gestao-lay--008 { left:-2px; top:1745px; width:404px; height:603px; z-index:8; }
+.gestao-lay--009 { left:-2px; top:2157px; width:404px; height:243px; z-index:9; }
 .gestao-lay--010 { left:19px; top:512px; width:361px; height:66px; z-index:10; }
 .gestao-lay--011 { left:19px; top:479px; width:332px; height:37px; z-index:10; }
-.gestao-lay--012 { left:25px; top:710px; z-index:10; }
-.gestao-lay--013 { left:26px; top:749px; width:165px; height:23px; z-index:10; margin:0; font-family:'FS Lola',serif; font-weight:500; font-style:italic; font-size:18px; color:#000; }
-.gestao-lay--014 { left:24px; top:576px; width:247px; height:95px; z-index:10; }
+.gestao-lay--012 { left:25px; top:700px; z-index:10; }
+.gestao-lay--013 { left:26px; top:739px; width:165px; height:23px; z-index:10; margin:0; font-family:'FS Lola',serif; font-weight:500; font-style:italic; font-size:18px; color:#000; }
+.gestao-lay--014 { left:24px; top:566px; width:247px; height:95px; z-index:10; }
 .gestao-lay--015 { left:-98px; top:158px; z-index:12; }
-.gestao-lay--016 { left:25px; top:803px; width:352px; height:188px; z-index:14; }
-.gestao-lay--017 { left:25px; top:1519px; width:352px; height:130px; z-index:14; }
-.gestao-lay--018 { left:64px; top:1249px; width:271px; height:72px; z-index:14; color:#ffffff; }
-.gestao-lay--019 { left:41px; top:1855px; width:321px; height:72px; z-index:14; color:#ffffff; }
-.gestao-lay--020 { left:51px; top:1423px; width:298px; height:49px; z-index:14; color:#ffffff; }
-.gestao-lay--021 { left:25px; top:2049px; width:352px; height:56px; z-index:14; color:#ffffff; }
-.gestao-lay--022 { left:23px; top:2271px; width:354px; height:49px; z-index:14; color:#ffffff; }
-.gestao-lay--023 { left:25px; top:1090px; width:350px; height:66px; z-index:14; margin:0; font-family:'FS Lola',serif; font-weight:700; font-style:italic; font-size:20px; line-height:22px; text-align:center; color:#ffffff; }
-.gestao-lay--024 { left:25px; top:1700px; width:350px; height:44px; z-index:14; margin:0; font-family:'FS Lola',serif; font-weight:700; font-style:italic; font-size:20px; line-height:22px; text-align:center; color:#ffffff; }
-.gestao-lay--025 { left:171px; top:2181px; width:57px; height:57px; z-index:14; }
-.gestao-lay--026 { left:131px; top:1221px; width:138px; height:23px; z-index:14; }
-.gestao-lay--027 { left:121px; top:1827px; width:159px; height:23px; z-index:14; }
-.gestao-lay--028 { left:169px; top:1393px; width:62px; height:23px; z-index:14; }
-.gestao-lay--029 { left:79px; top:2019px; width:242px; height:23px; z-index:14; }
-.gestao-lay--030 { left:130px; top:2247px; width:141px; height:23px; z-index:14; }
-.gestao-lay--031 { left:174px; top:1326px; width:52px; height:52px; z-index:14; }
-.gestao-lay--032 { left:242px; top:648px; width:116px; height:116px; z-index:14; }
-.gestao-lay--033 { left:25px; top:2533px; width:351px; height:56px; z-index:16; }
-.gestao-lay--034 { left:25px; top:2597px; width:356px; height:209px; background:rgba(255,115,0,0.2); border-radius:20px; z-index:15; }
-.gestao-lay--035 { left:25px; top:3214px; width:350px; height:144px; z-index:18; }
-.gestao-lay--036 { left:0; top:3385px; width:402px; height:252px; z-index:17; }
-.gestao-lay--037 { left:23px; top:4605px; width:352px; height:72px; z-index:18; }
-.gestao-lay--038 { left:44px; top:4350px; width:310px; height:72px; z-index:18; margin:0; font-family:'FS Lola',serif; font-weight:700; font-style:italic; font-size:20px; text-align:center; color:#ffffff; }
-.gestao-lay--039 { left:23px; top:4825px; width:352px; height:886px; z-index:20; }
+.gestao-lay--016 { left:25px; top:793px; width:352px; height:188px; z-index:14; }
+.gestao-lay--017 { left:25px; top:1509px; width:352px; height:130px; z-index:14; }
+.gestao-lay--018 { left:64px; top:1239px; width:271px; height:72px; z-index:14; color:#ffffff; }
+.gestao-lay--019 { left:41px; top:1845px; width:321px; height:72px; z-index:14; color:#ffffff; }
+.gestao-lay--020 { left:51px; top:1413px; width:298px; height:49px; z-index:14; color:#ffffff; }
+.gestao-lay--021 { left:25px; top:2039px; width:352px; height:56px; z-index:14; color:#ffffff; }
+.gestao-lay--022 { left:23px; top:2261px; width:354px; height:49px; z-index:14; color:#ffffff; }
+.gestao-lay--023 { left:25px; top:1080px; width:350px; height:66px; z-index:14; margin:0; font-family:'FS Lola',serif; font-weight:700; font-style:italic; font-size:20px; line-height:22px; text-align:center; color:#ffffff; }
+.gestao-lay--024 { left:25px; top:1690px; width:350px; height:44px; z-index:14; margin:0; font-family:'FS Lola',serif; font-weight:700; font-style:italic; font-size:20px; line-height:22px; text-align:center; color:#ffffff; }
+.gestao-lay--025 { left:171px; top:2171px; width:57px; height:57px; z-index:14; }
+.gestao-lay--026 { left:131px; top:1211px; width:138px; height:23px; z-index:14; }
+.gestao-lay--027 { left:121px; top:1817px; width:159px; height:23px; z-index:14; }
+.gestao-lay--028 { left:169px; top:1383px; width:62px; height:23px; z-index:14; }
+.gestao-lay--029 { left:79px; top:2009px; width:242px; height:23px; z-index:14; }
+.gestao-lay--030 { left:130px; top:2237px; width:141px; height:23px; z-index:14; }
+.gestao-lay--031 { left:174px; top:1316px; width:52px; height:52px; z-index:14; }
+.gestao-lay--032 { left:242px; top:638px; width:116px; height:116px; z-index:14; }
+.gestao-lay--033 { left:25px; top:2563px; width:351px; height:56px; z-index:16; }
+.gestao-lay--034 { left:25px; top:2627px; width:356px; height:209px; background:rgba(255,115,0,0.2); border-radius:20px; z-index:15; }
+.gestao-lay--035 { left:25px; top:3244px; width:350px; height:144px; z-index:18; }
+.gestao-lay--036 { left:0; top:3415px; width:402px; height:252px; z-index:17; }
+.gestao-lay--037 { left:23px; top:4625px; width:352px; height:72px; z-index:18; }
+.gestao-lay--038 { left:44px; top:4370px; width:310px; height:72px; z-index:18; margin:0; font-family:'FS Lola',serif; font-weight:700; font-style:italic; font-size:20px; text-align:center; color:#ffffff; }
+.gestao-lay--039 { left:23px; top:4855px; width:352px; height:886px; z-index:20; }
 .gestao-lay--040 { position:absolute; left:2px; top:0; width:350px; height:65px; margin:0; }
 .gestao-lay--041 { position:absolute; left:0; top:75px; width:352px; height:330px; }
 .gestao-lay--042 { margin:0; }
@@ -579,45 +580,45 @@
 .gestao-lay--045 { margin:14px 0 0; }
 .gestao-lay--046 { margin:14px 0 0; }
 .gestao-lay--047 { position:absolute; left:2px; top:466px; width:350px; height:65px; margin:0; }
-.gestao-lay--048 { position:absolute; left:0; top:556px; width:352px; height:330px; }
+.gestao-lay--048 { position:absolute; left:0; top:546px; width:352px; height:330px; }
 .gestao-lay--049 { margin:0; }
 .gestao-lay--050 { margin:14px 0 0; }
 .gestao-lay--051 { margin:14px 0 0; }
 .gestao-lay--052 { margin:14px 0 0; }
 .gestao-lay--053 { margin:14px 0 0; }
-.gestao-lay--054 { left:-0.17px; top:3576px; width:403.16px; height:166px; z-index:18; pointer-events:none; }
-.gestao-lay--055 { left:168px; top:3567px; width:80px; height:80px; z-index:19; }
-.gestao-lay--056 { left:25px; top:3654px; width:350px; height:47px; z-index:19; margin:0; font-family:'FS Lola',serif; font-weight:700; font-style:italic; font-size:20px; line-height:22px; text-align:center; }
+.gestao-lay--054 { left:-0.17px; top:3606px; width:403.16px; height:166px; z-index:18; pointer-events:none; }
+.gestao-lay--055 { left:168px; top:3597px; width:80px; height:80px; z-index:19; }
+.gestao-lay--056 { left:25px; top:3684px; width:350px; height:47px; z-index:19; margin:0; font-family:'FS Lola',serif; font-weight:700; font-style:italic; font-size:20px; line-height:22px; text-align:center; }
 .gestao-lay--057 { color:#ffdc00; }
 .gestao-lay--058 { font-weight:400; font-size:18px; font-style:normal; color:#ffffff; }
-.gestao-lay--059 { left:176px; top:1768px; width:52px; height:52px; z-index:14; }
-.gestao-lay--060 { left:174px; top:1956px; width:51px; height:51px; z-index:14; }
-.gestao-lay--061 { left:25px; top:2402px; width:352px; height:112px; z-index:18; }
-.gestao-lay--062 { left:25px; top:2850px; width:352px; height:84px; z-index:18; }
-.gestao-lay--063 { left:220px; top:2633px; width:152px; height:17px; z-index:18; margin:0; font-family:'FS Lola',serif; font-weight:700; font-size:18px; color:#000; }
-.gestao-lay--064 { left:220px; top:2755px; width:152px; height:17px; z-index:18; margin:0; font-family:'FS Lola',serif; font-weight:700; font-size:18px; color:#000; }
-.gestao-lay--065 { left:210px; top:2671px; width:152px; height:17px; z-index:18; }
-.gestao-lay--066 { left:210px; top:2707px; width:152px; height:17px; z-index:18; }
-.gestao-lay--067 { left:24px; top:3033px; width:352px; height:22px; z-index:18; }
-.gestao-lay--068 { left:45px; top:3091px; width:310px; height:56px; z-index:18; }
-.gestao-lay--069 { left:52px; top:2633px; width:138px; z-index:18; }
+.gestao-lay--059 { left:176px; top:1758px; width:52px; height:52px; z-index:14; }
+.gestao-lay--060 { left:174px; top:1946px; width:51px; height:51px; z-index:14; }
+.gestao-lay--061 { left:25px; top:2392px; width:352px; height:112px; z-index:18; }
+.gestao-lay--062 { left:25px; top:2880px; width:352px; height:84px; z-index:18; }
+.gestao-lay--063 { left:220px; top:2663px; width:152px; height:17px; z-index:18; margin:0; font-family:'FS Lola',serif; font-weight:700; font-size:18px; color:#000; }
+.gestao-lay--064 { left:220px; top:2785px; width:152px; height:17px; z-index:18; margin:0; font-family:'FS Lola',serif; font-weight:700; font-size:18px; color:#000; }
+.gestao-lay--065 { left:210px; top:2701px; width:152px; height:17px; z-index:18; }
+.gestao-lay--066 { left:210px; top:2737px; width:152px; height:17px; z-index:18; }
+.gestao-lay--067 { left:24px; top:3053px; width:352px; height:22px; z-index:18; }
+.gestao-lay--068 { left:45px; top:3111px; width:310px; height:56px; z-index:18; }
+.gestao-lay--069 { left:52px; top:2663px; width:138px; z-index:18; }
 .gestao-lay--070 { text-align:right; color:#004696; }
 .gestao-lay--071 { height:13px; }
 .gestao-lay--072 { text-align:right; color:#f0051e; }
 .gestao-lay--073 { height:13px; }
 .gestao-lay--074 { text-align:right; color:#f0051e; }
-.gestao-lay--075 { left:52px; top:2755px; width:138px; z-index:18; }
+.gestao-lay--075 { left:52px; top:2785px; width:138px; z-index:18; }
 .gestao-lay--076 { text-align:right; color:#004696; }
-.gestao-lay--077 { left:24px; top:3000px; width:351px; height:23px; z-index:18; text-align:center; }
+.gestao-lay--077 { left:24px; top:3020px; width:351px; height:23px; z-index:18; text-align:center; }
 .gestao-lay--078 { display:inline-block; text-align:center; width:100%; color:#004696; }
-.gestao-lay--079 { left:54px; top:2745px; width:288px; height:1px; background:#000; z-index:18; }
-.gestao-lay--080 { left:91px; top:4450px; width:208.52px; height:123px; z-index:22; }
-.gestao-lay--081 { left:26px; top:5739px; width:349px; height:22px; z-index:400; margin:0; font-family:'FS Lola',serif; font-weight:400; font-size:12px; color:#666666; }
-.gestao-lay--082 { left:0; top:5761px; width:402px; height:714.67px; overflow:hidden; z-index:390; }
-.gestao-lay--083 { left:174px; top:1174.69px; width:35.42px; height:35.42px; z-index:410; }
-.gestao-lay--084 { left:191.32px; top:1160px; width:44.8px; height:44.8px; z-index:410; }
-.gestao-lay--085 { left:23px; top:4699px; z-index:420; }
-.gestao-lay--086 { left:-2px; top:6430px; width:404px; height:114px; z-index:500; }
+.gestao-lay--079 { left:54px; top:2775px; width:288px; height:1px; background:#000; z-index:18; }
+.gestao-lay--080 { left:91px; top:4472px; width:208.52px; height:123px; z-index:22; }
+.gestao-lay--081 { left:26px; top:5769px; width:349px; height:22px; z-index:400; margin:0; font-family:'FS Lola',serif; font-weight:400; font-size:12px; color:#666666; }
+.gestao-lay--082 { left:0; top:5791px; width:402px; height:714.67px; overflow:hidden; z-index:390; }
+.gestao-lay--083 { left:174px; top:1164.69px; width:35.42px; height:35.42px; z-index:410; }
+.gestao-lay--084 { left:191.32px; top:1150px; width:44.8px; height:44.8px; z-index:410; }
+.gestao-lay--085 { left:23px; top:4729px; z-index:420; }
+.gestao-lay--086 { left:-2px; top:6460px; width:404px; height:114px; z-index:500; }
 .gestao-lay--087 { left:1px; top:45px; width:402px; height:69px; }
 .gestao-lay--088 { left:291px; top:76px; z-index:2; }
 .gestao-lay--089 { left:25.63px; top:71.37px; width:18.76px; height:18.02px; z-index:2; display:flex; align-items:center; justify-content:center; }
@@ -630,7 +631,7 @@
 .gestao-lay--096 { left:0; top:0; width:402px; height:141px; background:#f0051e; z-index:1; }
 .gestao-lay--097 { left:0; top:141px; width:402px; height:41px; background:#ffffff; z-index:1; }
 .gestao-lay--098 { left:54px; top:78px; width:282.71px; height:30.71px; z-index:3; pointer-events:none; object-fit:contain; }
-.gestao-lay--099 { left:-2px; top:1671px; width:404px; height:161px; z-index:13; }
+.gestao-lay--099 { left:-2px; top:1661px; width:404px; height:161px; z-index:13; }
 
 .gestao-gastos-head-bg {
   pointer-events: none;
@@ -643,7 +644,7 @@
 
 .gestao-conceitos {
   left: 0;
-  top: 1090px;
+  top: 1080px;
   width: 402px;
   height: 420px;
   z-index: 14;
@@ -818,7 +819,7 @@
 
 .gestao-gastos {
   left: 0;
-  top: 1755px;
+  top: 1745px;
   width: 402px;
   height: 680px;
   z-index: 15;

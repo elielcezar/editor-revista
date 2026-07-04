@@ -84,7 +84,7 @@ body {
 .page-delivery {
   position: relative;
   width: 402px;
-  height: 5189px;
+  height: 5195px;
   margin: 0;
   flex-shrink: 0;
   background: #ffffff;
@@ -101,7 +101,7 @@ body {
 /* Fundo inferior + fade (Figma atrás das fotos) */
 .dl-bg-bottom-img {
   left: 0;
-  top: 3406px;
+  top: 3382px;
   width: 402px;
   height: 1783px;
   z-index: 10;
@@ -117,7 +117,7 @@ body {
 
 .dl-fade-photo {
   left: -1px;
-  top: 3360px;
+  top: 3336px;
   width: 402px;
   height: 366px;
   z-index: 11;
@@ -152,8 +152,8 @@ body {
 
 /* 495:125 — caixa igual ao raster do utilizador · 402×389 */
 .page-delivery .dl-hero-shutter-wrap {
-  left: 0;
-  top: 170px !important;
+  left: 0px;
+  top: -222px;
   width: 402px;
   height: 389px;
   z-index: 16;
@@ -168,7 +168,7 @@ body {
 
 .dl-elipse-degrade {
   left: -116px;
-  top: 470px;
+  top: 446px;
   width: 610px;
   height: 610px;
   z-index: 17;
@@ -206,7 +206,7 @@ body {
    clip-path corta a metade inferior para espelhar o visual. */
 .dl-orange-disc {
   left: -117px;
-  top: 505px;
+  top: 481px;
   width: 611px;
   height: 610px;
   z-index: 24;
@@ -219,7 +219,7 @@ body {
 /* Roxo 487:106 por baixo da onda 1420:760 */
 .dl-purple-bar {
   left: 0;
-  top: 1765px;
+  top: 1741px;
   width: 403px;
   height: 76px;
   z-index: 110;
@@ -229,7 +229,7 @@ body {
 
 .dl-wave-mid-wrap {
   left: -2px;
-  top: 1477px;
+  top: 1453px;
   width: 406px;
   height: 288px;
   z-index: 112;
@@ -245,7 +245,7 @@ body {
 
 .dl-photo-g3 {
   left: -31px;
-  top: 2747px;
+  top: 2723px;
   width: 464px;
   height: 235px;
   z-index: 95;
@@ -260,7 +260,7 @@ body {
 
 .dl-gemini-photo {
   left: 48px;
-  top: 2790px;
+  top: 2766px;
   width: 322px;
   height: 258px;
   z-index: 97;
@@ -275,7 +275,7 @@ body {
 
 .dl-motoboy {
   left: 109px;
-  top: 3406px;
+  top: 3382px;
   width: 184px;
   height: 184px;
   z-index: 170;
@@ -289,8 +289,8 @@ body {
 }
 
 .dl-chip-qa {
-  left: 304px;
-  top: 1738px;
+  left: 314px;
+  top: 1732px;
   width: 77px;
   height: 77px;
   z-index: 142;
@@ -305,7 +305,7 @@ body {
 /* ─── Tipografia miolo ─── */
 .dl-t-embalagem {
   left: 30px;
-  top: 571px;
+  top: 548px;
   width: 316px;
   margin: 0;
   padding: 0;
@@ -315,11 +315,12 @@ body {
   line-height: 1;
   color: #ffffff;
   z-index: 130;
+  
 }
 
 .dl-t-vacuo {
   left: 29px;
-  top: 634px;
+  top: 610px;
   width: 330px;
   margin: 0;
   padding: 0;
@@ -334,7 +335,7 @@ body {
 
 .dl-t-mais-padrao {
   left: 29px;
-  top: 713px;
+  top: 689px;
   width: 295px;
   margin: 0;
   padding: 0;
@@ -349,7 +350,7 @@ body {
 
 .dl-badge-frame {
   left: 28px;
-  top: 828px;
+  top: 804px;
   box-sizing: border-box;
   min-width: 160px;
   width: fit-content;
@@ -371,7 +372,7 @@ body {
 
 .dl-author {
   left: 28px;
-  top: 868px;
+  top: 844px;
   margin: 0;
   padding: 0;
   font-family: "FS Lola", Georgia, serif;
@@ -384,7 +385,7 @@ body {
 
 .dl-subtitulo-cinza {
   left: 24px;
-  top: 937px;
+  top: 913px;
   width: 350px;
   margin: 0;
   padding: 0;
@@ -398,7 +399,7 @@ body {
 
 .dl-corpo-intro {
   left: 26px;
-  top: 1011px;
+  top: 987px;
   width: 350px;
   margin: 0;
   padding: 0;
@@ -412,7 +413,7 @@ body {
 
 .dl-intertitulo {
   left: 28px;
-  top: 1777px;
+  top: 1753px;
   width: 295px;
   margin: 0;
   padding: 0;
@@ -427,7 +428,7 @@ body {
 
 .dl-destaque-vermelho {
   left: 24px;
-  top: 1293px;
+  top: 1269px;
   width: 354px;
   margin: 0;
   padding: 0;
@@ -443,7 +444,7 @@ body {
 
 .dl-corpo-bloco {
   left: 26px;
-  top: 1879px;
+  top: 1855px;
   width: 350px;
   margin: 0;
   padding: 0;
@@ -482,7 +483,7 @@ body {
 
 .dl-fechamento {
   left: 26px;
-  top: 3063px;
+  top: 3039px;
   width: 350px;
   margin: 0;
   padding: 0;
@@ -497,7 +498,7 @@ body {
 /* ─── Faixa HOW-TO ─── */
 .dl-card-sheet {
   left: 39px;
-  top: 3602px;
+  top: 3578px;
   width: 323px;
   height: 1470px;
   border-radius: 20px;
@@ -508,7 +509,7 @@ body {
 
 .dl-purple-title-pill {
   left: 75px;
-  top: 3541px;
+  top: 3517px;
   width: 252.06px;
   height: 125.02px;
   border-radius: 14px;
@@ -612,7 +613,7 @@ body {
 
 .dl-lay-step1 {
   left: 53px;
-  top: 3692px;
+  top: 3668px;
   width: 295.09px;
   height: 215px;
   z-index: 170;
@@ -620,7 +621,7 @@ body {
 
 .dl-lay-step2 {
   left: 53px;
-  top: 3933px;
+  top: 3909px;
   width: 295.09px;
   height: 179px;
   z-index: 171;
@@ -632,7 +633,7 @@ body {
 
 .dl-lay-step3 {
   left: 53px;
-  top: 4197px;
+  top: 4173px;
   width: 295.09px;
   height: 149px;
   z-index: 172;
@@ -640,7 +641,7 @@ body {
 
 .dl-lay-step4 {
   left: 53px;
-  top: 4393px;
+  top: 4369px;
   width: 295.09px;
   height: 150px;
   z-index: 173;
@@ -652,7 +653,7 @@ body {
 
 .dl-lay-step5 {
   left: 53px;
-  top: 4618px;
+  top: 4594px;
   width: 295.09px;
   height: 165px;
   z-index: 174;
@@ -661,7 +662,7 @@ body {
 .dl-monitore-wrap {
   position: absolute;
   left: -1px;
-  top: 4837px;
+  top: 4813px;
   width: 403.33px;
   height: 238px;
   z-index: 175;
@@ -710,7 +711,7 @@ body {
 .dl-footer {
   position: absolute;
   left: -1px;
-  top: 5075px;
+  top: 5051px;
   width: 403.33px;
   height: 114px;
   z-index: 500;
@@ -854,11 +855,16 @@ body {
 }
 
 @media (min-width: 1024px) {
-  .page-delivery .dl-hero-shutter-wrap { top: 170px !important; }
+  .page-delivery .dl-hero-shutter-wrap { top: 147px !important; }
   .dl-hero-gemini { top: 141px; }
 }
 
 @media (min-width: 1024px) {
   .page-delivery .head-wrap { height: 141px; overflow: hidden; }
   .page-delivery .head-inner { height: 147px; }
+}
+
+.abs.dl-layer.dl-subtitulo-cinza{
+  letter-spacing: 1px;
+  font-size: 19px;  
 }

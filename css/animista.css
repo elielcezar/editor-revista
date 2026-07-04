@@ -379,14 +379,14 @@
 }
 
 .passaro-fly-across {
-  animation: passaro-fly-x 27s linear infinite;
+  animation: passaro-fly-x 7s linear infinite;
 }
 
 .passaro-fly-across .deco-passaro__bob {
   width: 100%;
   height: 100%;
   will-change: transform;
-  animation: passaro-float 2.5s cubic-bezier(0.42, 0, 0.58, 1) infinite alternate;
+  animation: passaro-float .5s cubic-bezier(0.42, 0, 0.58, 1) infinite alternate;
 }
 
 [data-animista="passaro-fly-across"]:not(.passaro-fly-across) {

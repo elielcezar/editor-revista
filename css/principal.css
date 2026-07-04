@@ -82,7 +82,7 @@
     .page-principal {
       position: relative;
       width: 402px;
-      height: 6536px;
+      height: 6488px;
       background: #ffffff;
       overflow-x: clip;
       overflow-y: visible;
@@ -328,7 +328,7 @@
     */
     .frame-edicao {
       left: 25px;
-      top: 968px;
+      top: 940px;
       width: 166px;
       display: flex;
       flex-direction: column;
@@ -451,7 +451,7 @@
     .erros-heading {
       left: 38.23px;
       /* 2643 + altura real do checklist + 89 */
-      top: 3034px;
+      top: 2996px;
       width: 326px;
       margin: 0;
       font-family: "FS Lola", Georgia, serif;
@@ -502,7 +502,7 @@
     }
     .z-deco-bg-mid {
       z-index: 2;
-      top: 2572px;
+      top: 2544px;
       height: 730px;
       background: #004696;
     }
@@ -527,7 +527,7 @@
     }
     .z-deco-coin--02 {
       left: 45.23px;
-      top: 2946px;
+      top: 2908px;
       width: 53.854px;
       height: 53.854px;
       aspect-ratio: 1 / 1;
@@ -535,56 +535,56 @@
     }
     .z-deco-coin--03 {
       left: 31.92px;
-      top: 1666.92px;
+      top: 1638.92px;
       width: 78.372px;
       height: 78.372px;
       aspect-ratio: 1 / 1;
     }
     .z-deco-coin--04 {
       left: 364.23px;
-      top: 3512px;
+      top: 3434px;
       width: 60.821px;
       height: 60.821px;
       aspect-ratio: 1 / 1;
     }
     .z-deco-coin--05 {
       left: 294.23px;
-      top: 5420px;
+      top: 5342px;
       width: 60.821px;
       height: 60.821px;
       aspect-ratio: 1 / 1;
     }
     .z-deco-coin--06 {
       left: 371.23px;
-      top: 5120px;
+      top: 5042px;
       width: 35.855px;
       height: 35.855px;
       aspect-ratio: 1 / 1;
     }
     .z-deco-coin--07 {
       left: -36.77px;
-      top: 3612px;
+      top: 3534px;
       width: 60.821px;
       height: 60.821px;
       aspect-ratio: 1 / 1;
     }
     .z-deco-coin--08 {
       left: 310.23px;
-      top: 3276px;
+      top: 3248px;
       width: 44.251px;
       height: 44.251px;
       aspect-ratio: 1 / 1;
     }
     .z-deco-coin--09 {
       left: -10.38px;
-      top: 3011px;
+      top: 2973px;
       width: 58.992px;
       height: 58.992px;
       aspect-ratio: 1 / 1;
     }
     .z-deco-coin--10 {
       left: 304px;
-      top: 3984px;
+      top: 3906px;
       width: 44.251px;
       height: 44.251px;
       aspect-ratio: 1 / 1;
@@ -675,35 +675,35 @@
   
 
 /* ─── Layout (hoist de styles inline — principal) ─── */
-.principal-lay--001 { left:19px; top:696px; width:332px; }
-.principal-lay--002 { left:19px; top:764px; width:361px; }
-.principal-lay--003 { left:24px; top:842px; width:344px; margin:0; }
-.principal-lay--004 { left:26px; top:1063px; width:352px; }
-.principal-lay--005 { left:108px; top:1657px; width:154px; height:259px; overflow:hidden; }
-.principal-lay--006 { left:285.23px; top:2530px; }
-.principal-lay--007 { left:271px; top:1712px; }
-.principal-lay--008 { left:-1px; top:1778px; width:403px; height:165px; overflow:hidden; }
-.principal-lay--009 { left:23.23px; top:2000px; width:354px; }
-.principal-lay--010 { left:140.23px; top:2163px; width:122px; }
-.principal-lay--011 { left:24px; top:2268px; width:350px; }
-.principal-lay--012 { left:24.23px; top:2342px; width:352px; }
+.principal-lay--001 { left:19px; top:664px; width:332px; }
+.principal-lay--002 { left:19px; top:734px; width:361px; }
+.principal-lay--003 { left:24px; top:814px; width:344px; margin:0; }
+.principal-lay--004 { left:26px; top:1035px; width:352px; }
+.principal-lay--005 { left:108px; top:1651px; width:154px; height:259px; overflow:hidden; }
+.principal-lay--006 { left:285.23px; top:2502px; }
+.principal-lay--007 { left:271px; top:1684px; }
+.principal-lay--008 { left:-1px; top:1750px; width:403px; height:165px; overflow:hidden; }
+.principal-lay--009 { left:23.23px; top:1972px; width:354px; }
+.principal-lay--010 { left:140.23px; top:2135px; width:122px; }
+.principal-lay--011 { left:24px; top:2240px; width:350px; }
+.principal-lay--012 { left:24.23px; top:2314px; width:352px; }
 .principal-lay--013 { left:-1px; width:403px; pointer-events:none; }
-.principal-lay--014 { left:23.23px; top:2643px; width:352px; }
+.principal-lay--014 { left:23.23px; top:2605px; width:352px; }
 .principal-lay--015 { color:#fff; }
-.principal-lay--016 { left:23px; top:3096px; width:352px; min-height:149px; }
-.principal-lay--017 { left:24.23px; top:3388px; width:350px; }
-.principal-lay--018 { left:24.23px; top:3453px; width:352px; }
-.principal-lay--019 { left:24.23px; top:4089px; width:354px; }
-.principal-lay--020 { left:47.23px; top:4145px; width:301px; }
-.principal-lay--021 { left:-0.01px; top:4364.49px; width:402px; height:537px; border-radius:40px 40px 0 0; overflow:hidden; }
-.principal-lay--022 { left:-277.28px; top:4038.96px; width:957.51px; height:396.22px; pointer-events:none; }
-.principal-lay--023 { left:24.23px; top:4942px; width:350px; }
-.principal-lay--024 { left:24.23px; top:4995px; width:352px; }
-.principal-lay--025 { left:24px; top:5464px; width:350px; }
-.principal-lay--026 { left:24.23px; top:5510px; width:352px; }
-.principal-lay--027 { left:21px; top:5864px; width:349px; }
-.principal-lay--028 { left:0; top:5886px; width:402px; height:536px; overflow:hidden; }
-.principal-lay--029 { left:-1px; top:6422px; width:403px; height:114px; }
+.principal-lay--016 { left:23px; top:3058px; width:352px; min-height:149px; }
+.principal-lay--017 { left:24.23px; top:3320px; width:350px; }
+.principal-lay--018 { left:24.23px; top:3375px; width:352px; }
+.principal-lay--019 { left:24.23px; top:4011px; width:354px; }
+.principal-lay--020 { left:47.23px; top:4067px; width:301px; }
+.principal-lay--021 { left:-0.01px; top:4286.49px; width:402px; height:537px; border-radius:40px 40px 0 0; overflow:hidden; }
+.principal-lay--022 { left:-277.28px; top:3960.96px; width:957.51px; height:396.22px; pointer-events:none; }
+.principal-lay--023 { left:24.23px; top:4864px; width:350px; }
+.principal-lay--024 { left:24.23px; top:4917px; width:352px; }
+.principal-lay--025 { left:24px; top:5416px; width:350px; }
+.principal-lay--026 { left:24.23px; top:5462px; width:352px; }
+.principal-lay--027 { left:21px; top:5816px; width:349px; }
+.principal-lay--028 { left:0; top:5838px; width:402px; height:536px; overflow:hidden; }
+.principal-lay--029 { left:-1px; top:6374px; width:403px; height:114px; }
 .principal-lay--030 { left:1px; top:45px; width:402px; height:69px; }
 .principal-lay--031 { left:291px; top:76px; z-index:2; }
 .principal-lay--032 { left:25.63px; top:71.37px; width:18.76px; height:18.02px; z-index:2; display:flex; align-items:center; justify-content:center; }
