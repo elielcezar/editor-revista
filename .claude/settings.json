@@ -1,5 +1,6 @@
 {
   "permissions": {
+    "defaultMode": "dontAsk",
     "allow": [
       "Bash(ffmpeg -version)",
       "PowerShell(Get-Command ffmpeg -ErrorAction SilentlyContinue)",
@@ -21,18 +22,8 @@
       "Read(//c/Users/eliel/AppData/Local/ms-playwright/**)",
       "Bash(node node_modules/playwright-core/cli.js install chromium)",
       "Bash(echo \"EXIT: $?\")",
-      "Bash(node *)",
-      "Bash(npm *)",
-      "Bash(npx *)",
-      "Bash(git *)",
-      "Bash(python *)",
-      "Bash(curl *)",
-      "PowerShell(node *)",
-      "PowerShell(npm *)",
-      "PowerShell(npx *)",
-      "PowerShell(git *)",
-      "PowerShell(python *)",
-      "PowerShell(curl *)",
+      "Bash",
+      "PowerShell",
       "Edit",
       "Write"
     ],

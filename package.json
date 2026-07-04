@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "postinstall": "npx playwright install chromium",
-    "test:visual": "node scripts/compare-lista-parceiros.mjs"
+    "test:visual": "node scripts/compare-lista-parceiros.mjs",
+    "editor": "node tools/editor-server.mjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.52.0",
