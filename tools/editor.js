@@ -67,7 +67,6 @@
   function buildIndex() {
     ruleIndex = [];
     elMap = new Map();
-    var porArquivo = {};
     for (var s = 0; s < document.styleSheets.length; s++) {
       var sheet = document.styleSheets[s];
       var rules;
@@ -94,13 +93,7 @@
           lay: /-lay--\d+/.test(rule.selectorText),
         };
         ruleIndex.push(entry);
-        porArquivo[file] = (porArquivo[file] || 0) + (entry.lay ? 1 : 0);
       }
-    }
-    // arquivo da página = o que concentra as regras -lay--
-    var max = 0;
-    for (var f in porArquivo) {
-      if (porArquivo[f] > max) { max = porArquivo[f]; pageCssFile = f; }
     }
     // mapeia elemento -> TODAS as regras que casam (a posição pode estar
     // dividida: ex. left na .principal-lay--013 e top na .z-deco-bg-mid)
@@ -120,6 +113,22 @@
       var prim = null;
       for (var k = 0; k < cands.length; k++) if (cands[k].lay) { prim = cands[k]; break; }
       elMap.set(el, { cands: cands, prim: prim || cands[cands.length - 1] });
+    }
+
+    // arquivo da página (base do modo empurrar): o CSS com mais regras
+    // realmente usadas pelos elementos do main. Páginas com -lay-- ganham
+    // peso extra; páginas sem -lay-- (produto, mkt-digital) caem no arquivo
+    // próprio delas em vez de ficarem sem referência.
+    pageCssFile = null;
+    var contag = {};
+    elMap.forEach(function (m) {
+      m.cands.forEach(function (en) {
+        contag[en.file] = (contag[en.file] || 0) + 1 + (en.lay ? 1000 : 0);
+      });
+    });
+    var melhor = 0;
+    for (var f in contag) {
+      if (contag[f] > melhor) { melhor = contag[f]; pageCssFile = f; }
     }
   }
 
