@@ -714,16 +714,17 @@
       return;
     }
     if (!editMode) return;
-    // só bloqueia atalhos quando o foco está num campo de DIGITAÇÃO;
-    // checkbox/botão focado não pode engolir Ctrl+Z nem as setas
+    // foco em campo de TEXTO: teclado fica nativo (inclusive Ctrl+Z do textarea).
+    // foco em select/checkbox/botão: Ctrl+Z/Y do editor continuam valendo;
+    // setas continuam nativas no select (mudam a opção).
     var ae = document.activeElement;
-    var noInput =
+    var focoTexto =
       ae &&
       (ae.tagName === "TEXTAREA" ||
-        ae.tagName === "SELECT" ||
         (ae.tagName === "INPUT" && !/^(checkbox|radio|button|submit)$/.test(ae.type)));
+    var noInput = focoTexto || (ae && ae.tagName === "SELECT");
 
-    if ((ev.ctrlKey || ev.metaKey) && !noInput) {
+    if ((ev.ctrlKey || ev.metaKey) && !focoTexto) {
       if (ev.key === "z" && !ev.shiftKey) { ev.preventDefault(); commitNudge(); undo(); return; }
       if (ev.key === "y" || (ev.key === "z" && ev.shiftKey)) { ev.preventDefault(); commitNudge(); redo(); return; }
     }
@@ -863,6 +864,7 @@
       if (!map) return;
       cssBoxEntry = map.cands[Number(ui.selRegra.value)] || map.prim;
       ui.txtCss.blur();
+      ui.selRegra.blur();
       preencherCssBox();
     });
     ui.btnCssSalvar.addEventListener("click", salvarCssBox);
