@@ -58,6 +58,17 @@ as regras da página com `top` maior ou igual** ao dele, e o checkbox
 - Elementos posicionados por regras dentro de `@media`, com seletor agrupado
   (`a, b`) ou com valores não-px são ignorados pelo "empurrar".
 
+## Como o editor escolhe a regra a editar
+
+- Clicar numa **imagem dentro de um contêiner posicionado** seleciona o
+  contêiner automaticamente — regras genéricas sem medidas em px (ex.:
+  `.img-cover { width:100%; height:100% }`) são ignoradas.
+- Quando a posição está **dividida entre classes** (ex.: `left` na
+  `.principal-lay--013` e `top` na `.z-deco-bg-mid`), cada eixo é gravado na
+  regra que realmente o define (a última da cascata, que é a que vale).
+- Camadas decorativas com `pointer-events:none` ficam clicáveis dentro do
+  modo edição (fora dele, nada muda).
+
 ## Limitações conhecidas
 
 - Só funciona com a janela em largura desktop (≥ 402px) — abaixo disso o

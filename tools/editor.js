@@ -80,7 +80,13 @@
         if (rule.type !== 1 /* STYLE_RULE */ || rule.parentRule) continue;
         var st = rule.style;
         if (!st) continue;
-        if (!st.top && !st.left && !st.bottom && !st.right && !st.width && !st.height) continue;
+        // só interessa regra com pelo menos uma medida em px — descarta
+        // utilitárias tipo .img-cover { width:100%; height:100% }, que
+        // "roubavam" o clique da imagem sem ter nada editável
+        var temPx = ["top", "left", "bottom", "right", "width", "height"].some(function (p) {
+          return px(st.getPropertyValue(p)) !== null;
+        });
+        if (!temPx) continue;
         var entry = {
           selector: norm(rule.selectorText),
           style: st,
@@ -96,27 +102,38 @@
     for (var f in porArquivo) {
       if (porArquivo[f] > max) { max = porArquivo[f]; pageCssFile = f; }
     }
-    // mapeia elementos -> regra (preferindo -lay--, senão a última que casa)
+    // mapeia elemento -> TODAS as regras que casam (a posição pode estar
+    // dividida: ex. left na .principal-lay--013 e top na .z-deco-bg-mid)
     var els = mainEl.querySelectorAll("*");
     for (var i = 0; i < els.length; i++) {
       var el = els[i];
-      var lay = null, outra = null;
+      var cands = [];
       for (var j = 0; j < ruleIndex.length; j++) {
         var en = ruleIndex[j];
-        var seletorSimples = en.selector.indexOf(",") === -1;
-        if (!seletorSimples) continue;
+        if (en.selector.indexOf(",") !== -1) continue;
         try {
           if (!el.matches(en.selector)) continue;
         } catch (e) { continue; }
-        if (en.lay) lay = en;
-        else outra = en;
+        cands.push(en);
       }
-      var escolhida = lay || outra;
-      if (escolhida) elMap.set(el, escolhida);
+      if (!cands.length) continue;
+      var prim = null;
+      for (var k = 0; k < cands.length; k++) if (cands[k].lay) { prim = cands[k]; break; }
+      elMap.set(el, { cands: cands, prim: prim || cands[cands.length - 1] });
     }
   }
 
-  function ruleOf(el) { return elMap.get(el) || null; }
+  function mapOf(el) { return elMap.get(el) || null; }
+
+  /* Dona de uma propriedade = a ÚLTIMA regra na ordem da cascata que a
+   * define em px (é a que o navegador aplica entre classes de mesmo peso). */
+  function propOwner(map, prop) {
+    var win = null;
+    for (var i = 0; i < map.cands.length; i++) {
+      if (px(map.cands[i].style.getPropertyValue(prop)) !== null) win = map.cands[i];
+    }
+    return win;
+  }
 
   function editableFromPoint(x, y, aposEl) {
     var pilha = document.elementsFromPoint(x, y);
@@ -208,20 +225,36 @@
   function gestureStart(tipo) {
     var pushMode = ui.chkPush.checked;
     var itens = [];
-    var vistos = new Set();
+    var porEntry = new Map();
     selection.forEach(function (el) {
-      var en = ruleOf(el);
-      if (!en || vistos.has(en)) return;
-      vistos.add(en);
-      itens.push({ entry: en, start: snapshotEntry(en), sel: true });
+      var map = mapOf(el);
+      if (!map) return;
+      var ox = propOwner(map, "left") || propOwner(map, "right");
+      var oy = propOwner(map, "top") || propOwner(map, "bottom");
+      [[ox, "mx"], [oy, "my"]].forEach(function (par) {
+        var en = par[0];
+        if (!en) return;
+        var item = porEntry.get(en);
+        if (!item) {
+          item = { entry: en, start: snapshotEntry(en), mx: false, my: false, sel: true };
+          porEntry.set(en, item);
+          itens.push(item);
+        }
+        item[par[1]] = true;
+      });
     });
-    if (!itens.length) return null;
+    if (!itens.length) {
+      toast("este elemento não tem posição em px para mover — tente Alt+clique no contêiner", true);
+      return null;
+    }
 
-    var primario = itens[0];
+    var vistos = new Set(porEntry.keys());
+    var mapPrim = mapOf(selection[0]);
+    var oyPrim = mapPrim ? propOwner(mapPrim, "top") : null;
     var afetadas = [];
     var heightItem = null;
-    if (pushMode && primario.start.top !== undefined) {
-      var limiar = primario.start.top;
+    if (pushMode && oyPrim) {
+      var limiar = px(oyPrim.style.getPropertyValue("top"));
       for (var i = 0; i < ruleIndex.length; i++) {
         var en = ruleIndex[i];
         if (en.file !== pageCssFile || vistos.has(en)) continue;
@@ -275,10 +308,14 @@
 
     g.itens.forEach(function (it) {
       var props = {};
-      if (it.start.left !== undefined) props.left = fmt(it.start.left + dx);
-      else if (it.start.right !== undefined) props.right = fmt(it.start.right - dx);
-      if (it.start.top !== undefined) props.top = fmt(it.start.top + dy);
-      else if (it.start.bottom !== undefined) props.bottom = fmt(it.start.bottom - dy);
+      if (it.mx) {
+        if (it.start.left !== undefined) props.left = fmt(it.start.left + dx);
+        else if (it.start.right !== undefined) props.right = fmt(it.start.right - dx);
+      }
+      if (it.my) {
+        if (it.start.top !== undefined) props.top = fmt(it.start.top + dy);
+        else if (it.start.bottom !== undefined) props.bottom = fmt(it.start.bottom - dy);
+      }
       applyProps(it.entry, props);
     });
     g.afetadas.forEach(function (it) {
@@ -397,12 +434,14 @@
       box.style.height = r.h + "px";
       ui.caixas.appendChild(box);
       if (i === 0) {
-        var en = ruleOf(el);
+        var map = mapOf(el);
         var badge = document.createElement("div");
         badge.className = "rev-ed-badge";
-        var t = px(en.style.getPropertyValue("top"));
-        var l = px(en.style.getPropertyValue("left"));
-        badge.textContent = en.selector + (t !== null ? "  top:" + t : "") + (l !== null ? "  left:" + l : "");
+        var ot = propOwner(map, "top");
+        var ol = propOwner(map, "left");
+        var t = ot ? px(ot.style.getPropertyValue("top")) : null;
+        var l = ol ? px(ol.style.getPropertyValue("left")) : null;
+        badge.textContent = map.prim.selector + (t !== null ? "  top:" + t : "") + (l !== null ? "  left:" + l : "");
         badge.style.left = r.l + "px";
         badge.style.top = (r.t > 24 ? r.t - 22 : r.b + 4) + "px";
         ui.caixas.appendChild(badge);
@@ -415,11 +454,15 @@
   var CAMPOS = ["top", "left", "width", "height", "bottom", "right"];
 
   function atualizarPainelValores() {
-    var en = selection.length ? ruleOf(selection[0]) : null;
+    var map = selection.length ? mapOf(selection[0]) : null;
     CAMPOS.forEach(function (p) {
       var inp = ui.campos[p];
       if (document.activeElement === inp) return;
-      var v = en ? en.style.getPropertyValue(p) : "";
+      var v = "";
+      if (map) {
+        var own = propOwner(map, p);
+        v = own ? own.style.getPropertyValue(p) : map.prim.style.getPropertyValue(p);
+      }
       inp.value = v ? v.replace(/px$/, "") : "";
     });
   }
@@ -430,9 +473,9 @@
       ui.info.textContent = "clique num elemento para selecionar";
       ui.arquivo.textContent = pageCssFile || "";
     } else {
-      var en = ruleOf(selection[0]);
-      ui.info.textContent = en.selector + (selection.length > 1 ? "  (+" + (selection.length - 1) + ")" : "");
-      ui.arquivo.textContent = en.file;
+      var prim = mapOf(selection[0]).prim;
+      ui.info.textContent = prim.selector + (selection.length > 1 ? "  (+" + (selection.length - 1) + ")" : "");
+      ui.arquivo.textContent = prim.file;
     }
     atualizarPainelValores();
     ui.btnUndo.disabled = !undoStack.length;
@@ -441,7 +484,10 @@
 
   function aplicarCampo(prop) {
     if (!selection.length) return;
-    var en = ruleOf(selection[0]);
+    var map = mapOf(selection[0]);
+    // grava na regra dona da propriedade; se ninguém a define ainda,
+    // cria na regra principal (-lay--) do elemento
+    var en = propOwner(map, prop) || map.prim;
     var bruto = ui.campos[prop].value.trim();
     var antes = en.style.getPropertyValue(prop) || null;
     var depois = bruto === "" ? null : (isNaN(parseFloat(bruto)) ? null : fmt(parseFloat(bruto)));
@@ -621,6 +667,10 @@
     "body.rev-ed-arrastando{cursor:grabbing!important;user-select:none}",
     "html[data-rev-editor] main *{animation:none!important;transition:none!important}",
     "html[data-rev-editor] main [data-animista]{opacity:1!important;visibility:visible!important}",
+    /* camadas decorativas com pointer-events:none precisam ser clicáveis no
+       modo edição; os overlays do próprio editor continuam transparentes */
+    "html[data-rev-editor] main :not(#rev-ed-caixas):not(#rev-ed-guias):not(.rev-ed-box):not(.rev-ed-guia):not(.rev-ed-badge){pointer-events:auto!important}",
+    "#rev-ed-caixas,#rev-ed-guias{pointer-events:none!important}",
   ].join("\n");
 
   function montarUI() {
