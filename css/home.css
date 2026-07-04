@@ -1,0 +1,710 @@
+/*
+ * Revista Assaí #73 — página Home (home.html).
+ * Fontes: ../fonts/. Camadas .home-lay--NNN: tools/hoist_inline_styles.py
+ */
+
+    @font-face {
+      font-family: "FS Lola";
+      font-weight: 500;
+      font-style: normal;
+      font-display: block;
+      src: url("../fonts/FS Lola-Medium.otf") format("opentype");
+    }
+    @font-face {
+      font-family: "FS Lola";
+      font-weight: 700;
+      font-style: normal;
+      font-display: block;
+      src: url("../fonts/FS Lola-Bold.otf") format("opentype");
+    }
+    /* Tokens globais alinhados ao export MCP do frame 1365:238 */
+    
+
+    * { box-sizing: border-box; }
+    html {
+      scrollbar-gutter: stable;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+    html, body {
+      margin: 0;
+      background: #ffffff;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    /* Frame layout_J4ESMZ: 402 × 2162, fill #FFFFFF */
+    .page {
+      position: relative;
+      width: 402px;
+      height: 2162px;
+      background: #ffffff;
+      overflow-x: hidden;
+      overflow-y: visible;
+      flex-shrink: 0;
+    }
+
+    .abs { position: absolute; }
+    /* Figma: moedas em RECTANGLE com scaleMode STRETCH → preencher a caixa */
+    .img-fill {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+      object-position: center center;
+    }
+    .img-contain { object-fit: contain; }
+    /* Card: foto full-bleed com coordenadas relativas ao bloco (sempre left:0;top:0 no HTML) */
+    .card-block {
+      overflow: hidden;
+    }
+    .layer-bg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    /*
+      Fundos de card no Figma (node 1365:238): quase todos são IMAGE + scaleMode STRETCH (objectFit: fill)
+      com crop no bitmap exportado — no CSS = fill. Exceções com FILL/cover: Consumidor (1420:79), Gestão 2 (1420:385).
+    */
+    .layer-bg img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+      object-position: center center;
+    }
+    .layer-bg--cover img {
+      object-fit: cover;
+      object-position: center center;
+    }
+    .layer-bg--cover video,
+    .home-card-video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+    .grad-band {
+      position: absolute;
+      left: 0;
+      z-index: 2;
+      width: 100%;
+    }
+    /* Figma fill_M7KAWO — cards 2, 4, 6, 8 e 9 (hero não conta na numeração) */
+    .grad-band--figma-m7 {
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgb(46 29 29) 100%);
+    }
+    /* Figma fill_9IJY6N — cards 5 e 7 */
+    .grad-band--figma-849 {
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 8%, rgba(61, 38, 38, 0.9) 49%);
+    }
+    /*
+      Degradê especial (hero não conta): só nos cards 1, 3, 5 e 7 após o hero —
+      Novo negócio · Consumidor · Delivery · Produto.
+      Escuro → transparente + multiply.
+    */
+    .grad-band--248 {
+      background: linear-gradient(180deg, rgba(61, 38, 38, 0.9) 10.62%, rgba(0, 0, 0, 0) 100%);
+      mix-blend-mode: multiply;
+    }
+    .hero-block {
+      overflow: visible;
+    }
+    .hero-g11 {
+      position: absolute;
+      left: 0;
+      top: 112px;
+      z-index: 1;
+      width: 100%;
+      height: 350px;
+      overflow: hidden;
+    }
+    .hero-g11 img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+      object-position: center center;
+    }
+    .hero-photo {
+      position: absolute;
+      left: 10px;
+      top: 9px;
+      z-index: 3;
+      width: 381.92px;
+      height: 453px;
+      overflow: hidden;
+    }
+    /* fill_91DFW9 — IMG capa 1385:32: STRETCH / fill */
+    .hero-photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+      object-position: center center;
+      transform: scaleX(-1);
+      transform-origin: center center;
+    }
+    .hero-coin {
+      position: absolute;
+      z-index: 7;
+      transform-origin: center center;
+    }
+    .hero-coin--1 {
+      left: 312.74px;
+      top: 20px;
+      width: 62.559px;
+      height: 62.559px;
+      aspect-ratio: 1 / 1;
+    }
+    .hero-coin--2 {
+      left: 264px;
+      top: 90px;
+      width: 48.549px;
+      height: 48.549px;
+      aspect-ratio: 1 / 1;
+    }
+    .hero-coin--3 {
+      left: 74px;
+      top: 234px;
+      width: 44.251px;
+      height: 44.251px;
+      aspect-ratio: 1 / 1;
+    }
+    .hero-coin--4 {
+      left: 36px;
+      top: 115px;
+      width: 49.004px;
+      height: 49.004px;
+      aspect-ratio: 1 / 1;
+    }
+    .mix-multiply { mix-blend-mode: multiply; }
+
+    /* Card Consumidor — faixa 1420:355 / fill_VQGYWI STRETCH por cima do degradê */
+    .consumidor-strip {
+      display: block;
+      object-fit: fill;
+      object-position: left top;
+      pointer-events: none;
+    }
+
+    /* effect_ZAG4MZ — manchetes com sombra (FS Lola nas fichas / H1 capa) */
+    .txt-shadow { text-shadow: 0px 0px 13px rgba(0, 0, 0, 0.25); }
+
+    /* style_HS8WDJ — rótulos CAPA, GESTÃO, etc.: Inter Medium 500, 13px */
+    .tag {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.544px 11.583px;
+      font-family: Inter, sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      font-style: normal;
+      line-height: normal;
+      color: #ffffff;
+      white-space: nowrap;
+    }
+    .tag.tag--on-yellow {
+      color: #000000;
+    }
+
+    /* style_13SEBV — manchetes de card: FS Lola Medium 500, 13px */
+    .headline {
+      color: #ffffff;
+      font-family: "FS Lola", Georgia, serif;
+      font-size: 13px;
+      font-weight: 500;
+      line-height: normal;
+    }
+
+    /* style_IX1G0F — destaque capa */
+    .headline-main {
+      color: #ffffff;
+      font-family: "FS Lola", Georgia, serif;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    .headline-main a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .head-wrap {
+      width: 402px;
+      height: 127px;
+      z-index: 200;
+    }
+    .head-inner {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 402px;
+      height: 127px;
+      background: #ffffff;
+    }
+    /* style_13SEBV — linha de edição (FS Lola 500 13, #FFF) — layout_O5H5KA */
+    .head-edition {
+      left: 0;
+      top: 113px;
+      width: 402px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1.544px 11.583px;
+      font-family: "FS Lola", Georgia, serif;
+      font-weight: 500;
+      font-size: 13px;
+      color: #ffffff;
+      z-index: 2;
+    }
+
+    .head-menu {
+      position: absolute;
+      left: 0;
+      top: 146px;
+      width: 402px;
+      height: 33px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      z-index: 4;
+      scrollbar-width: none;
+      cursor: grab;
+      touch-action: none;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    .head-menu.is-dragging {
+      cursor: grabbing;
+    }
+    .head-menu::-webkit-scrollbar {
+      display: none;
+    }
+    .head-menu-inner {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 14px;
+      padding-left: 8px;
+      padding-right: 8px;
+      height: 33px;
+      width: max-content;
+    }
+    /* style_QUTPAX + layout_DOPGNF */
+    .head-menu a {
+      flex: 0 0 auto;
+      font-family: Inter, sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      line-height: normal;
+      color: #000000;
+      text-decoration: none;
+      padding: 10px 0;
+      border-bottom: 5px solid;
+      box-sizing: border-box;
+    }
+    .head-menu a.stroke-cap { border-bottom-color: #000000; }
+    .head-menu a.stroke-principal { border-bottom-color: #004696; }
+    .head-menu a.stroke-gestao { border-bottom-color: #f0051e; }
+    .head-menu a.stroke-mkt { border-bottom-color: #ff7300; }
+    .head-menu a.stroke-produto { border-bottom-color: #ffaa00; }
+    .head-menu a.stroke-consumidor { border-bottom-color: #ffdc00; }
+    .head-menu a.stroke-delivery { border-bottom-color: #532f82; }
+    .head-menu a.stroke-novo { border-bottom-color: #b40082; }
+    .head-menu a.stroke-academia { border-bottom-color: #ff5564; }
+    .head-menu a.stroke-coluna { border-bottom-color: #00bebe; }
+    .head-menu a.stroke-noticias { border-bottom-color: #0082c8; }
+    .head-menu a.stroke-neutral { border-bottom-color: #666666; }
+    .head-menu a:not(.is-active) {
+      font-weight: 400;
+    }
+    .head-menu a.is-active {
+      font-weight: 700;
+    }
+
+    /* Footer — style_6EYJ6I: FS Lola Medium 10px */
+    .foot-lojas {
+      font-family: "FS Lola", Georgia, serif;
+      font-weight: 500;
+      font-size: 10px;
+      color: #ffffff;
+      text-decoration: none;
+    }
+    /* Área clicável do card inteiro (href vazio) */
+    .card-hit {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 50;
+      text-indent: -9999px;
+      overflow: hidden;
+      outline: none;
+    }
+    .card-hit:focus-visible {
+      outline: 2px solid #0082c8;
+      outline-offset: -2px;
+    }
+  
+
+/* ═══════════════════════════════════════════════════════════════════
+   DESKTOP SIDEBAR — oculto no mobile, visível a partir de 1024px.
+   Todas as medidas derivadas do frame "Desktop - 1" do Figma
+   (node 1852:14248, 1920×1083px):
+     • Logo 124×124 centralizado no sidebar (x:95, y:47)
+     • Nav group: x:130+1.14 = ~x:131, y:203
+     • Item height: 37.88px; stroke-bottom: 5.72px; padding: 11.44px 0
+     • Font: Inter Bold 12.58px (active = 800 Extra Bold)
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Mobile: sidebar completamente oculto ── */
+.dt-sidebar,
+.dt-logo-wrap,
+.dt-logo-img,
+.dt-nav,
+.dt-nav-item {
+  display: none;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   DESKTOP MEDIA QUERY — min-width: 1024px
+   A coluna da revista (.page) permanece com 402px e rola normalmente.
+   O sidebar fica sticky a altura total da viewport (overflow-y: auto).
+   ════════════════════════════════════════════════════════════════════ */
+@media (min-width: 1024px) {
+
+  /* ── html: base branca para o body::before funcionar com z-index:-1 ── */
+  html {
+    background-color: #ffffff;
+  }
+
+  /* ── Body: linha horizontal — sidebar + coluna revista ── */
+  /* padding-left: 313px reserva o espaço do sidebar fixo no fluxo de layout */
+  body {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background: transparent;
+    padding-left: 313px;
+  }
+
+  /*
+   * Pattern do frame "Desktop - 1" do Figma (#1852:14244, opacity 0.4).
+   * Usa body::before com position:fixed para cobrir o viewport sem scrollar.
+   * z-index:-1 garante que fique abaixo de todo conteúdo (sidebar e .page
+   * têm z-index >= 1000 ou position:relative, pintados APÓS este pseudo-elemento
+   * na ordem de stacking do contexto raiz).
+   */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url("../assets/home73/dt-bg-pattern.png") center / cover no-repeat;
+    /* 0.40 = opacidade exata do node #1852:14244 no Figma */
+    opacity: 0.40;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* ── Sidebar: fixo na viewport (position:fixed é mais confiável que sticky
+     quando html tem overflow-x:hidden, que cria scroll-context separado). ── */
+  .dt-sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 313px;
+    height: 100vh;
+    background: transparent;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    z-index: 1000;
+  }
+
+  .dt-sidebar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* ── Logo: 124×124, centralizado em 313px (x:95 y:47 no Figma) ── */
+  .dt-logo-wrap {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 47px;
+    /* gap até o início do nav: y:203 - (47+124) = 32px */
+    padding-bottom: 32px;
+    flex-shrink: 0;
+  }
+
+  .dt-logo-img {
+    display: block;
+    width: 124px;
+    height: 124px;
+    object-fit: contain;
+  }
+
+  /* ── Nav vertical: items a partir de x:131 no sidebar de 313px ── */
+  .dt-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    /* padding-left = 131px (x:130 do grupo + 1px offset) */
+    padding-left: 131px;
+    padding-right: 16px;
+    padding-bottom: 48px;
+    gap: 0;
+  }
+
+  /* ── Item base — Inter Bold 12.58px, 37.88px de altura ── */
+  .dt-nav-item {
+    display: flex;
+    align-items: center;
+    height: 37.88px;
+    /* padding: 11.44px 0 compõe a altura junto com a borda de 5.72px:
+       11.44 + font-line + 11.44 + 5.72 ≈ 37.88px */
+    padding: 11.44px 0 0;
+    border-bottom: 5.72px solid transparent;
+    font-family: Inter, sans-serif;
+    font-size: 12.58px;
+    font-weight: 700;
+    line-height: normal;
+    color: #000000;
+    text-decoration: none;
+    white-space: nowrap;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+  }
+
+  .dt-nav-item:hover {
+    opacity: 0.75;
+  }
+
+  /* Active: Extra Bold 800 (CAPA no Figma usa fontWeight 800) */
+  .dt-nav-item.is-active {
+    font-weight: 800;
+  }
+
+  /* ── Cores das bordas inferiores (igual ao mobile / tokens Figma) ── */
+  .dt-nav--cap       { border-bottom-color: #000000; }
+  .dt-nav--principal { border-bottom-color: #004696;           } /* #004696 */
+  .dt-nav--gestao    { border-bottom-color: #f0051e;       } /* #f0051e */
+  .dt-nav--mkt       { border-bottom-color: #ff7300;        } /* #ff7300 */
+  .dt-nav--produto   { border-bottom-color: #ffaa00; } /* #ffaa00 */
+  .dt-nav--consumidor{ border-bottom-color: #ffdc00;        } /* #ffdc00 */
+  .dt-nav--delivery  { border-bottom-color: #532f82;           } /* #532f82 */
+  .dt-nav--novo      { border-bottom-color: #b40082;                 } /* #b40082 */
+  .dt-nav--academia  { border-bottom-color: #ff5564;           } /* #ff5564 */
+  .dt-nav--coluna    { border-bottom-color: #00bebe;           } /* #00bebe */
+  .dt-nav--noticias  { border-bottom-color: #0082c8;      } /* #0082c8 */
+  .dt-nav--download  { border-bottom-color: #004696;           } /* #004696 */
+  .dt-nav--neutral   { border-bottom-color: #666666;    } /* #666666 */
+
+  /* ── Coluna revista: frame 1920px — sidebar 313px, gap 420px, coluna 402px.
+     313 + 420 = 733px = x:733 do Figma. Flex-wrap: seções empilham sem
+     position:absolute; pares de cards (≤402px) ficam lado a lado. ── */
+  body > main.page {
+    flex-shrink: 0;
+    margin-left: 420px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    row-gap: 8px;
+    height: auto;
+  }
+
+}
+/* fim @media desktop */
+
+/* ─── Layout (hoist de styles inline — home) ─── */
+.home-lay--001 { left:0; top:0; }
+.home-lay--002 { right:0; top:0; width:1px; height:182px; background:#004696; z-index:250; }
+.home-lay--003 { left:0; top:0; width:402px; height:141px; background:#000000; z-index:1; }
+.home-lay--004 { left:0; top:141px; width:402px; height:41px; background:#d9d9d9; z-index:1; }
+.home-lay--005 { left:54px; top:78px; width:282.71px; height:30.71px; z-index:3; pointer-events:none; }
+.home-lay--006 { left:0; top:179px; width:402px; height:462px; background:#004696; }
+.home-lay--007 { left:36px; top:20.49px; width:55px; height:51.5px; z-index:2; }
+.home-lay--008 { left:0; top:288px; width:402px; height:174px; z-index:4; }
+.home-lay--009 { left:23px; top:377px; width:315px; margin:0; z-index:6; }
+.home-lay--010 { left:24px; top:352px; width:46px; background:#004696; z-index:6; }
+.home-lay--011 { left:0; top:648px; width:198px; height:233px; }
+.home-lay--012 { top:0; height:149px; }
+.home-lay--013 { left:23px; top:11px; width:111px; background:#b40082; z-index:3; }
+.home-lay--014 { left:23px; top:38px; width:153px; margin:0; z-index:3; }
+.home-lay--015 { left:206px; top:648px; width:196px; height:233px; }
+.home-lay--016 { top:122px; height:111px; }
+.home-lay--017 { left:24px; top:153px; width:66px; background:#f0051e; z-index:3; }
+.home-lay--018 { left:24px; top:180px; width:153px; margin:0; z-index:3; }
+.home-lay--019 { left:0; top:889px; width:402px; height:233px; overflow: visible; }
+.home-lay--020 { top:0; height:146px; z-index:2; }
+.home-lay--021 { left:24px; top:13px; width:101px; background:#ffdc00; z-index:4; }
+.home-lay--022 { left:120px; top:0; width:266px; height:40px; z-index:5; }
+.home-lay--023 { left:24px; top:40px; width:177px; margin:0; z-index:6; }
+.home-lay--024 { left:0; top:1130px; width:198px; height:233px; }
+.home-lay--025 { top:84px; height:149px; }
+.home-lay--026 { left:23px; top:153px; width:97px; background:#ff7300; z-index:3; }
+.home-lay--027 { left:23px; top:180px; width:153px; margin:0; z-index:3; }
+.home-lay--028 { left:206px; top:1130px; width:198px; height:233px; }
+.home-lay--029 { top:0; height:101px; }
+.home-lay--030 { left:23px; top:13px; width:74px; background:#532f82; z-index:3; }
+.home-lay--031 { left:23px; top:38.47px; width:153px; margin:0; z-index:3; }
+.home-lay--032 { left:0; top:1371px; width:402px; height:233px; }
+.home-lay--033 { top:124px; height:109px; }
+.home-lay--034 { left:24px; top:151px; width:67px; background:#f0051e; z-index:3; }
+.home-lay--035 { left:24px; top:178px; width:177px; margin:0; z-index:3; }
+.home-lay--036 { left:0; top:1612px; width:198px; height:233px; }
+.home-lay--037 { top:0; height:101px; }
+.home-lay--038 { left:23px; top:12.5px; width:80px; background:#ffaa00; z-index:3; }
+.home-lay--039 { left:23px; top:38.47px; width:153px; margin:0; z-index:3; }
+.home-lay--040 { left:206px; top:1612px; width:196px; height:233px; }
+.home-lay--041 { top:135px; height:97px; }
+.home-lay--042 { left:23px; top:152px; width:125px; background:#00bebe; z-index:3; }
+.home-lay--043 { left:23px; top:179px; width:153px; margin:0; z-index:3; }
+.home-lay--044 { left:0; top:1852px; width:402px; height:233px; }
+.home-lay--045 { top:138px; height:95px; }
+.home-lay--046 { left:225px; top:153px; width:125px; background:#ff5564; z-index:3; }
+.home-lay--047 { left:225px; top:180px; width:153px; margin:0; z-index:3; }
+.home-lay--048 { left:0; top:2048px; width:402px; height:114px; z-index:10; }
+.home-lay--049 { left:0; top:45px; width:402px; height:69px; }
+.home-lay--050 { left:291px; top:76px; z-index:2; }
+.home-lay--051 { left:25.63px; top:71.37px; width:18.76px; height:18.02px; z-index:2; display:flex; align-items:center; justify-content:center; }
+.home-lay--052 { left:68px; top:71px; width:17.06px; height:19.38px; z-index:2; display:flex; align-items:center; justify-content:center; }
+.home-lay--053 { left:361px; top:71px; width:20.23px; height:18.35px; z-index:2; display:flex; align-items:center; justify-content:center; }
+.home-lay--054 { left:174px; top:61px; width:50px; height:36.36px; z-index:2; display:block; line-height:0; }
+.home-lay--055 { width:100%; height:auto; object-fit:contain; display:block; }
+
+/* ── Desktop: overrides que precisam vir APÓS as regras .home-lay--NNN ──
+   Colocados num segundo bloco de media query para vencer na cascata CSS.  */
+@media (min-width: 1024px) {
+
+  /* ── Header: fundo azul contínuo, 147px (sem espaço vazio abaixo) ── */
+  .head-inner { background: #004696; height: 147px; }
+  .head-wrap  { height: 141px; }
+  .home-lay--002 { display: none; }
+  .home-lay--003 { background: transparent; }
+  .home-lay--004 { background: transparent; }
+  .head-menu  { display: none; }
+
+  /* ── Flow layout: seções diretas de .page saem do position:absolute ──
+     Os filhos internos de cada seção continuam position:absolute,
+     posicionados em relação à sua própria seção (que vira relative).  */
+  body > main.page > .abs {
+    position: relative;
+    top: auto;
+    left: auto;
+  }
+
+
+
+  /* ── Pares de cards lado a lado: gap de 8px entre col-esq e col-dir ──
+     home-lay--028 corrigido para 196px (era 198px, causaria 2px overflow) */
+  .home-lay--015,
+  .home-lay--028,
+  .home-lay--040 { margin-left: 8px; }
+  .home-lay--028 { width: 196px; }
+
+  /* ── Footer: sobrepõe o último card em 37px (design original) ── */
+  .home-lay--048 { margin-top: -37px; }
+
+}
+
+/* ─── Animações hero (moedas) — preserva rotação Figma ao cair ─── */
+@keyframes home-coin-fall--1 {
+  0% { transform: translateY(-320px) rotate(-72deg); opacity: 0; }
+  70% { opacity: 1; }
+  100% { transform: translateY(0) rotate(13.97deg); opacity: 1; }
+}
+.hero-coin--1.coin-fall {
+  animation: home-coin-fall--1 0.75s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s both !important;
+}
+.hero-coin--1[data-animista="coin-fall"]:not(.coin-fall) {
+  opacity: 0;
+  transform: translateY(-320px) rotate(-72deg);
+}
+
+@keyframes home-coin-fall--2 {
+  0% { transform: translateY(-420px) rotate(58deg); opacity: 0; }
+  70% { opacity: 1; }
+  100% { transform: translateY(0) rotate(-12.268deg); opacity: 1; }
+}
+.hero-coin--2.coin-fall {
+  animation: home-coin-fall--2 0.82s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.12s both !important;
+}
+.hero-coin--2[data-animista="coin-fall"]:not(.coin-fall) {
+  opacity: 0;
+  transform: translateY(-420px) rotate(58deg);
+}
+
+@keyframes home-coin-fall--3 {
+  0% { transform: translateY(-380px) rotate(-95deg); opacity: 0; }
+  70% { opacity: 1; }
+  100% { transform: translateY(0) rotate(15.391deg); opacity: 1; }
+}
+.hero-coin--3.coin-fall {
+  animation: home-coin-fall--3 0.88s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.28s both !important;
+}
+.hero-coin--3[data-animista="coin-fall"]:not(.coin-fall) {
+  opacity: 0;
+  transform: translateY(-380px) rotate(-95deg);
+}
+
+@keyframes home-coin-fall--4 {
+  0% { transform: translateY(-450px) rotate(80deg); opacity: 0; }
+  70% { opacity: 1; }
+  100% { transform: translateY(0) rotate(-12.268deg); opacity: 1; }
+}
+.hero-coin--4.coin-fall {
+  animation: home-coin-fall--4 0.8s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.44s both !important;
+}
+.hero-coin--4[data-animista="coin-fall"]:not(.coin-fall) {
+  opacity: 0;
+  transform: translateY(-450px) rotate(80deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-coin--1.coin-fall,
+  .hero-coin--1[data-animista="coin-fall"]:not(.coin-fall) {
+    animation: none;
+    opacity: 1;
+    transform: rotate(13.97deg);
+  }
+  .hero-coin--2.coin-fall,
+  .hero-coin--2[data-animista="coin-fall"]:not(.coin-fall) {
+    animation: none;
+    opacity: 1;
+    transform: rotate(-12.268deg);
+  }
+  .hero-coin--3.coin-fall,
+  .hero-coin--3[data-animista="coin-fall"]:not(.coin-fall) {
+    animation: none;
+    opacity: 1;
+    transform: rotate(15.391deg);
+  }
+  .hero-coin--4.coin-fall,
+  .hero-coin--4[data-animista="coin-fall"]:not(.coin-fall) {
+    animation: none;
+    opacity: 1;
+    transform: rotate(-12.268deg);
+  }
+}

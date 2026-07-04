@@ -1,0 +1,777 @@
+/*
+ * Revista Assaí #73 — Notícias do Assaí (Figma 454:106 — “NOTÍCIAS #73”, 402×5575).
+ * Fontes em ../fonts/. Posicionamento absoluto, camadas seguem o draw order do Figma.
+ */
+
+@font-face {
+  font-family: "FS Lola";
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+  src: url("../fonts/FS Lola-Regular.otf") format("opentype");
+}
+@font-face {
+  font-family: "FS Lola";
+  font-weight: 400;
+  font-style: italic;
+  font-display: block;
+  src: url("../fonts/FS Lola-Italic.otf") format("opentype");
+}
+@font-face {
+  font-family: "FS Lola";
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+  src: url("../fonts/FS Lola-Medium.otf") format("opentype");
+}
+@font-face {
+  font-family: "FS Lola";
+  font-weight: 500;
+  font-style: italic;
+  font-display: block;
+  src: url("../fonts/FS Lola-MediumItalic.otf") format("opentype");
+}
+@font-face {
+  font-family: "FS Lola";
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+  src: url("../fonts/FS Lola-Bold.otf") format("opentype");
+}
+@font-face {
+  font-family: "FS Lola";
+  font-weight: 700;
+  font-style: italic;
+  font-display: block;
+  src: url("../fonts/FS Lola-BoldItalic.otf") format("opentype");
+}
+@font-face {
+  font-family: "Raspoutine Classic";
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+  src: url("../fonts/RaspoutineClassic_TB.otf") format("opentype");
+}
+@font-face {
+  font-family: "Raspoutine Medium";
+  font-weight: 500;
+  font-style: italic;
+  font-display: block;
+  src: url("../fonts/RaspoutineMedium_TB.otf") format("opentype");
+}
+
+
+
+* { box-sizing: border-box; }
+
+html {
+  scrollbar-gutter: stable;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+html, body { margin: 0; background: #ffffff; }
+body {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+p, h1, h2, h3, h4 { margin: 0; }
+
+.page-noticias {
+  position: relative;
+  width: 402px;
+  height: 5575px;
+  background: #ffffff;
+  overflow: hidden;
+  isolation: isolate;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  flex-shrink: 0;
+}
+.page-noticias .abs { position: absolute; }
+.page-noticias .img-cover {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* ===================================================================
+   1) Background bands (lowest z)
+   =================================================================== */
+
+.bg-yellow-mid {
+  left: -2px; top: 1412px;
+  width: 405px; height: 389px;
+  background: #ffaa00;
+  z-index: 1;
+}
+.bg-yellow-bottom {
+  left: 0; top: 4090px;
+  width: 402px; height: 1485px;
+  background: #ffaa00;
+  z-index: 1;
+}
+
+/* ===================================================================
+   2) Rect-trip image collage (Rectangle 1434/1435/1436, mesma imageRef)
+   =================================================================== */
+
+.rect-trip-1 {
+  left: 232px; top: 2352px;
+  width: 197.69px; height: 210.7px;
+  z-index: 2;
+  overflow: hidden;
+  transform-origin: 20% 100%;
+  animation: branch-sway-a 3s ease-in-out infinite;
+}
+.rect-trip-2 {
+  left: 192.63px; top: 2362.39px;
+  width: 117.56px; height: 172.12px;
+  z-index: 2;
+  overflow: hidden;
+  transform-origin: 50% 100%;
+  animation: branch-sway-a 3.5s ease-in-out infinite;
+}
+.rect-trip-3 {
+  left: -14px; top: 2405px;
+  width: 200.71px; height: 170.4px;
+  z-index: 2;
+  overflow: hidden;
+  transform-origin: 80% 100%;
+  animation: branch-sway-b 3.8s ease-in-out infinite;
+  animation-delay: -2.3s;
+}
+
+@keyframes branch-sway-a {
+  0%, 100% { transform: rotate(0deg); }
+  30%       { transform: rotate(5deg); }
+  70%       { transform: rotate(-6deg); }
+}
+
+@keyframes branch-sway-b {
+  0%, 100% { transform: rotate(0deg); }
+  40%       { transform: rotate(-2deg); }
+  75%       { transform: rotate(10deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rect-trip-1, .rect-trip-2, .rect-trip-3 {
+    animation: none;
+  }
+}
+
+/* ===================================================================
+   3) Gradient block (Rectangle 1393 — frame 484×557 com gradiente + texto branco)
+   =================================================================== */
+
+/* Empilha lua e degradê juntos; z-index alta para ficar sobre retângulos/export (z-index 2) */
+.gradient-blue-stack {
+  position: absolute;
+  left: -2px;
+  top: calc(2549px - 141px);
+  width: 406px;
+  height: calc(141px + 557px);
+  pointer-events: none;
+  z-index: 10;
+}
+.gradient-blue-stack > .gradient-block-bg {
+  position: absolute;
+  left: 0;
+  top: 141px;
+  width: 406px;
+  height: 557px;
+  background: linear-gradient(90deg, #00ADEE 0%, #006388 100%);
+  z-index: 0;
+}
+.gradient-block-text {
+  left: 50px;
+  top: 2629px;
+  width: 303px;
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #ffffff;
+  z-index: 14;
+}
+.gradient-block-text p + p { margin-top: 1.5em; }
+
+/* ===================================================================
+   4) Meia-lua amarela — metade SUPERIOR do círculo: arco voltado pra cima,
+      base plana sobre o topo do degradê (y = 2549). Onde fica .ellipse-vector.
+   =================================================================== */
+
+.gradient-blue-stack > .ellipse-moon {
+  position: absolute;
+  /* página x 65 − wrapper left −2 = 67 */
+  left: calc(65px + 2px);
+  top: 24px;
+  width: 282px;
+  /* +4px: bleed na junção lua/degradê (anti‑aliasing) */
+  height: calc(141px + 4px);
+  overflow: hidden;
+  z-index: 1;
+  transform: translateZ(0);
+}
+.ellipse-moon__fill {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 0;
+  width: 282px;
+  height: 282px;
+  border-radius: 50%;
+  background: #ffaa00;
+}
+.ellipse-vector {
+  left: 154px;
+  /* Sobre o arco (meia-lua superior), alinhado ao Figma (~2453 px) */
+  top: 2448px;
+  width: 103px;
+  height: 118.97px;
+  z-index: 13;
+  transform: translateZ(0);
+}
+.ellipse-vector img,
+.ellipse-vector svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ===================================================================
+   5) Imagem 55138 (rounded top 40px) — abaixo do gradient block
+   =================================================================== */
+
+.img-55138 {
+  left: 0; top: 3056px;
+  width: 402px; height: 317px;
+  border-radius: 40px 40px 0 0;
+  overflow: hidden;
+  /* Acima de .gradient-blue-stack (10): faixa sobreposta ao fim do degradê */
+  z-index: 11;
+}
+.img-55138 img.img-cover {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 145%;
+  top: -22%;
+  object-fit: cover;
+  object-position: center center;
+  will-change: transform;
+}
+
+/* ===================================================================
+   6) Vídeos (hero + ação) — sem UI nativa; play via IntersectionObserver no HTML
+   =================================================================== */
+
+.video-wrap {
+  left: 0;
+  overflow: hidden;
+  z-index: 3;
+}
+.video-wrap--hero {
+  top: 182px;
+  width: 402px; height: 544px;
+}
+.video-wrap--acao {
+  top: 4741px;
+  width: 402px; height: 711px;
+}
+.video-fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+/* Sem controles nativos */
+.video-fill::-webkit-media-controls,
+.video-fill::-webkit-media-controls-enclosure,
+.video-fill::-webkit-media-controls-panel {
+  display: none !important;
+}
+
+/* ===================================================================
+   7) Tipografia — títulos hero
+   =================================================================== */
+
+.title-em-alta {
+  left: 24px; top: 775px;
+  width: 354px;
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 0.97;
+  color: #0082c8;
+  z-index: 5;
+}
+
+.title-o-brasil {
+  left: 24px; top: 750px;
+  width: 174px;
+  font-family: "Raspoutine Medium", Georgia, serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 32px;
+  line-height: 1.06;
+  color: #ff7300;
+  z-index: 5;
+}
+
+/* ===================================================================
+   8) Subtítulo gray (Brasilidade gera conexão…)
+   =================================================================== */
+
+.subtitle-brasil {
+  left: 26px; top: 968px;
+  width: 350px;
+  font-family: "Raspoutine Classic", Georgia, serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  color: #757a7b;
+  z-index: 5;
+}
+
+/* ===================================================================
+   9) Body texts
+   =================================================================== */
+
+.body-text {
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000000;
+}
+.body-text p { margin: 0; }
+.body-text p + p { margin-top: 22px; }
+.body-text strong { font-weight: 700; }
+
+.body-1 { left: 26px; top: 1090px; width: 350px; z-index: 5; }
+.body-2 { left: 27px; top: 1541px; width: 350px; z-index: 5; }
+.body-3 {
+  left: 26px; top: 1968px; width: 351px;
+  z-index: 6;
+  text-align: center;
+}
+.body-3 .sub-green {
+  color: #19bd00;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+  display: block;
+}
+.body-3 .sub-green + br + span,
+.body-3 .sub-green-after { display: block; margin-top: 4px; }
+
+.body-4 {
+  left: 56px; top: 4291px; width: 291px;
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.22;
+  text-align: center;
+  color: #000000;
+  z-index: 5;
+}
+.body-4 .small {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  display: block;
+}
+.body-4 p { margin: 0; }
+.body-4 p + p { margin-top: 16px; }
+
+/* ===================================================================
+   10) Section titles & intertítulo
+   =================================================================== */
+
+.h-como {
+  left: 27px; top: 1461px; width: 350px;
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.13;
+  text-transform: uppercase;
+  color: #0082c8;
+  z-index: 5;
+}
+
+.h-veja {
+  left: 25px; top: 1876px; width: 353px;
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.13;
+  text-align: center;
+  text-transform: uppercase;
+  color: #0082c8;
+  z-index: 5;
+}
+
+.h-onde-usar {
+  left: 35px; top: 4190px; width: 332px;
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.13;
+  text-align: center;
+  color: #c81629;
+  z-index: 5;
+}
+
+.intertitulo {
+  left: 24px; top: 3439px; width: 354px;
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.13;
+  text-align: center;
+  color: #0082c8;
+  z-index: 5;
+}
+.intertitulo p { margin: 0; }
+.intertitulo p + p { margin-top: 14px; }
+
+/* ===================================================================
+   11) Chip "#73" + Autor
+   =================================================================== */
+
+.chip-frame {
+  left: 24px; top: 867px;
+  width: 166px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  z-index: 5;
+}
+.chip {
+  background: #0082c8;
+  padding: 2px 15px;
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #ffffff;
+  text-align: center;
+  white-space: nowrap;
+}
+.autor {
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 23px;
+  color: #000000;
+}
+
+/* ===================================================================
+   12) Carrossel horizontal de sacolas
+   =================================================================== */
+
+.carrossel-section {
+  left: 0; top: 3695px;
+  width: 402px; height: 403px;
+  z-index: 6;
+}
+.carrossel-track {
+  position: absolute;
+  left: 0; top: 0;
+  width: 402px; height: 403px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+  overscroll-behavior-x: contain;
+  cursor: grab;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.carrossel-track.is-dragging {
+  cursor: grabbing;
+}
+.carrossel-track::-webkit-scrollbar { display: none; }
+
+.carrossel-inner {
+  position: relative;
+  width: 2062px;
+  height: 403px;
+}
+.carrossel-bg {
+  position: absolute;
+  left: 0; top: 0;
+  width: 2062px; height: 400px;
+  background: linear-gradient(90deg, #00ADEE 0%, #006388 100%);
+}
+.carrossel-inner > .abs { position: absolute; }
+.c-g1-a { left: 117px; top: 158px; width: 942px; height: 245px; overflow: hidden; }
+.c-g1-b { left: 1000px; top: 0; width: 927px; height: 241px; overflow: hidden; }
+.c-sacola1 { left: 4px; top: 65px; width: 364px; height: 302px; overflow: hidden; }
+.c-sacolas2 { left: 461px; top: 61px; width: 311px; height: 300px; overflow: hidden; }
+.c-sacolas3 { left: 830px; top: 61px; width: 330px; height: 334px; overflow: hidden; }
+.c-sacolas4 { left: 1268px; top: 53px; width: 357px; height: 327px; overflow: hidden; }
+.c-sacolas5 { left: 1696px; top: 51px; width: 338px; height: 324px; overflow: hidden; }
+
+.tres-setas {
+  position: absolute;
+  left: 319px; top: 22px;
+  width: 55px; height: 19px;
+  z-index: 3;
+  pointer-events: none;
+}
+.tres-setas img,
+.tres-setas svg { display: block; width: 100%; height: 100%; }
+
+/* ===================================================================
+   13) Decorações (pássaros / animais)
+   =================================================================== */
+
+.deco-passaro {
+  left: -35px; top: 1347px;
+  width: 201px; height: 176.69px;
+  z-index: 7;
+  overflow: visible;
+  will-change: transform;
+}
+.deco-gralha-azul {
+  left: 235px; top: 746px;
+  width: 184.25px; height: 218.85px;
+  z-index: 8;
+  overflow: hidden;
+}
+.deco-gralha-crop-top {
+  left: 176.86px; top: 762.9px;
+  width: 255.98px; height: 229.44px;
+  z-index: 7;
+  overflow: hidden;
+}
+.deco-gralha-crop-bot {
+  left: -218px; top: 3867px;
+  width: 594.3px; height: 611.47px;
+  z-index: 7;
+  overflow: hidden;
+}
+.deco-arara {
+  left: -5px; top: 4085px;
+  width: 112.32px; height: 232px;
+  z-index: 7;
+  overflow: hidden;
+}
+
+/* ===================================================================
+   14) Botões de som (acima dos vídeos)
+   =================================================================== */
+
+.sound-btn {
+  border: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 9;
+  transition: transform .15s ease, filter .15s ease;
+}
+.sound-btn:hover { transform: scale(1.05); }
+.sound-btn:focus-visible { outline: 2px solid #ffffff; outline-offset: 2px; }
+.sound-btn img {
+  width: 37px;
+  height: 37px;
+  display: block;
+  border-radius: 50%;
+}
+.sound-btn.is-muted img { filter: grayscale(1) brightness(.75); opacity: .85; }
+
+.sound-anil {
+  left: 330px; top: 705px;
+  width: 45px; height: 45px;
+  background: #00bebe;
+}
+.sound-azul {
+  left: 20px; top: 4718px;
+  width: 45px; height: 45px;
+  background: #0082c8;
+}
+
+/* ===================================================================
+   15) HEAD (HEAD NOTICIAS — banda azul claro no topo + menu)
+   =================================================================== */
+
+.head-wrap {
+  left: 0; top: 0;
+  width: 402px; height: 182px;
+  z-index: 100;
+  background: #004696;
+}
+.head-inner {
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+}
+.head-color-band {
+  left: 0; top: 0;
+  width: 402px; height: 141px;
+  background: #0082c8;
+  z-index: 1;
+}
+.head-gray-band {
+  left: 0; top: 141px;
+  width: 402px; height: 41px;
+  background: #d9d9d9;
+  z-index: 1;
+}
+.head-logo {
+  left: 54px; top: 78px;
+  width: 282.71px; height: 30.71px;
+  z-index: 3;
+  pointer-events: none;
+  object-fit: contain;
+}
+
+.head-menu {
+  position: absolute;
+  left: 0; top: 146px;
+  width: 402px; height: 33px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  z-index: 4;
+  scrollbar-width: none;
+  cursor: grab;
+  touch-action: pan-x;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.head-menu.is-dragging { cursor: grabbing; }
+.head-menu::-webkit-scrollbar { display: none; }
+.head-menu-inner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 8px;
+  height: 33px;
+  width: max-content;
+}
+.head-menu a {
+  flex: 0 0 auto;
+  font-family: Inter, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1;
+  color: #000000;
+  text-decoration: none;
+  padding: 10px 0;
+  border-bottom: 5px solid;
+}
+.head-menu a.is-active { font-weight: 700; }
+.head-menu a.stroke-cap { border-bottom-color: #000000; }
+.head-menu a.stroke-principal { border-bottom-color: #004696; }
+.head-menu a.stroke-gestao { border-bottom-color: #f0051e; }
+.head-menu a.stroke-mkt { border-bottom-color: #ff7300; }
+.head-menu a.stroke-produto { border-bottom-color: #ffaa00; }
+.head-menu a.stroke-consumidor { border-bottom-color: #ffdc00; }
+.head-menu a.stroke-delivery { border-bottom-color: #532f82; }
+.head-menu a.stroke-novo { border-bottom-color: #b40082; }
+.head-menu a.stroke-academia { border-bottom-color: #ff5564; }
+.head-menu a.stroke-coluna { border-bottom-color: #00bebe; }
+.head-menu a.stroke-noticias { border-bottom-color: #0082c8; }
+.head-menu a.stroke-neutral { border-bottom-color: #666666; }
+
+/* ===================================================================
+   16) FOOTER (idêntico ao padrão das demais matérias)
+   =================================================================== */
+
+.foot-wrap {
+  left: -1px; top: 5461px;
+  width: 403.33px; height: 114px;
+  z-index: 50;
+}
+.foot-bg-top {
+  position: absolute;
+  left: 0; top: 0;
+  width: 403.33px; height: 56.9px;
+  fill: transparent;
+}
+.foot-bg-bottom {
+  position: absolute;
+  left: 1px; top: 45px;
+  width: 402px; height: 69px;
+  background: #000000;
+}
+.foot-icon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  line-height: 0;
+  z-index: 2;
+}
+.foot-icon-left { left: 26px; top: 71px; width: 18.02px; height: 18.76px; }
+.foot-icon-mid { left: 58px; top: 71px; width: 17.06px; height: 19.38px; }
+.foot-icon-right { left: 361px; top: 71px; width: 20.23px; height: 18.35px; }
+.foot-brand {
+  left: 174px; top: 61px;
+  width: 50px; height: 36.36px;
+  z-index: 2;
+}
+.foot-brand img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+.foot-lojas {
+  position: absolute;
+  left: 291px; top: 76px;
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1;
+  color: #ffffff;
+  text-decoration: none;
+  z-index: 2;
+}
+@media (min-width: 1024px) {
+  .head-wrap { height: 141px; overflow: hidden; }
+  .head-inner { height: 147px; bottom: auto; }
+  .video-wrap--hero { top: 141px; }
+  .c-g1-a { top: 117px; }
+}
+
+/* animações sem variáveis CSS */
+
+@keyframes 13-decora-es-p-ssaros-animais-deco-passa-1 {
+  from { transform: translateY(0); }
+  to { transform: translateY(calc(-1 * 24px)); }
+}
+13) Decorações (pássaros / animais)
+   =================================================================== */
+
+.deco-passaro.passaro-fly-across,
+13) Decorações (pássaros / animais)
+   =================================================================== */
+
+.deco-passaro[data-animista="passaro-fly-across"].passaro-fly-across {
+  animation: passaro-fly-x 27s linear infinite;
+}
+13) Decorações (pássaros / animais)
+   =================================================================== */
+
+.deco-passaro .deco-passaro__bob,
+13) Decorações (pássaros / animais)
+   =================================================================== */
+
+.deco-passaro.passaro-fly-across .deco-passaro__bob {
+  animation: 13-decora-es-p-ssaros-animais-deco-passa-1 2.2s cubic-bezier(0.42, 0, 0.58, 1) infinite alternate;
+}

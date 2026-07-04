@@ -1,0 +1,467 @@
+/*
+ * Download #73 — Figma frame DOWNLOAD node 1624:705 (402×967 px).
+ * Cores e medidas extraídas do JSON do Figma (get_figma_data).
+ */
+
+@font-face {
+  font-family: "FS Lola";
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+  src: url("../fonts/FS Lola-Regular.otf") format("opentype");
+}
+@font-face {
+  font-family: "FS Lola";
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+  src: url("../fonts/FS Lola-Medium.otf") format("opentype");
+}
+@font-face {
+  font-family: "FS Lola";
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+  src: url("../fonts/FS Lola-Bold.otf") format("opentype");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scrollbar-gutter: stable;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+html,
+body {
+  margin: 0;
+  background: #ffffff;
+}
+body {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.page-download {
+  position: relative;
+  width: 403px;
+  height: 967px;
+  min-height: 967px;
+  align-self: flex-start;
+  background: #ffffff;
+  overflow-x: visible;
+  overflow-y: visible;
+  isolation: isolate;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  flex-shrink: 0;
+}
+
+.page-download .abs {
+  position: absolute;
+}
+
+/* Cena principal — sistema de coordenadas do frame Figma */
+.page-download .dl-scene {
+  position: relative;
+  width: 402px;
+  height: 967px;
+  margin: 0 auto;
+}
+
+/* Faixas azuis */
+.page-download .dl-bar {
+  position: absolute;
+}
+
+.page-download .dl-bar--files {
+  left: 24px;
+  top: 259px;
+  width: 353px;
+  height: 34px;
+  background: #004696;
+  z-index: 1;
+}
+
+.page-download .dl-bar--sheets {
+  left: 25px;
+  top: 588px;
+  width: 353px;
+  height: 34px;
+  background: #004696;
+  z-index: 1;
+}
+
+/* PNGs ARQUIVOS / PLANILHAS — slot posicionado; img 113px centrada (margin auto) */
+.page-download .dl-deco-slot {
+  overflow: hidden;
+  width: 254.5px;
+  pointer-events: none;
+  z-index: 5;
+  line-height: 0;
+}
+
+.page-download .dl-deco-slot img {
+  display: block;
+  height: auto;
+}
+
+.page-download .dl-deco-slot--arquivos img,
+.page-download .dl-deco-slot--planilhas img {
+  margin: -3px auto;
+  width: 113px;
+}
+
+.page-download .dl-deco-slot--arquivos {
+  left: 73.75px;
+  top: 204px;
+  height: 120px;
+}
+
+.page-download .dl-deco-slot--planilhas {
+  left: 73.75px;
+  top: 533px;
+  height: 120.5px;
+}
+
+/* Títulos de seção sobre as faixas */
+.page-download .dl-h-sec {
+  margin: 0;
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #ffffff;
+  z-index: 12;
+}
+
+.page-download .dl-h-sec--files {
+  left: 150px;
+  top: 266px;
+}
+
+.page-download .dl-h-sec--sheets {
+  left: 151px;
+  top: 594px;
+}
+
+/* Blocos de texto — estilo Texto / ts1 ts2 ts3 */
+.page-download .dl-body {
+  width: 297px;
+  z-index: 12;
+  font-family: "FS Lola", Georgia, serif;
+}
+
+.page-download .dl-body--1 {
+  left: 97px;
+  top: 318px;
+}
+
+.page-download .dl-body--2 {
+  left: 96px;
+  top: 655px;
+}
+
+.page-download .dl-t-line1 {
+  margin: 0 0 0 0;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #004696;
+}
+
+.page-download .dl-t-line2 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.2;
+  color: #000000;
+}
+
+.page-download .dl-t-line3 {
+  margin: 0;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #000000;
+}
+
+.page-download .dl-para-gap {
+  height: 18px;
+}
+
+/* Ícones download */
+.page-download .dl-ico {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 12;
+  line-height: 0;
+  text-decoration: none;
+}
+
+.page-download .dl-ico img {
+  display: block;
+}
+
+.page-download .dl-ico--1a {
+  left: 38px;
+  top: 323px;
+  width: 22px;
+  height: 23px;
+}
+
+.page-download .dl-ico--1b {
+  left: 38px;
+  top: 423px;
+  width: 22px;
+  height: 23px;
+}
+
+.page-download .dl-ico--2a {
+  left: 43px;
+  top: 655px;
+  width: 22px;
+  height: 23px;
+}
+
+.page-download .dl-ico--2b {
+  left: 43px;
+  top: 755px;
+  width: 22px;
+  height: 23px;
+}
+
+/* ——— Header (HEAD DOWNLOAD 1624:752) ——— */
+.page-download .head-wrap.exp-lay--head {
+  box-sizing: border-box;
+  left: -1px;
+  top: 0;
+  width: 403px;
+  height: 182px;
+  z-index: 600;
+  background: #004696;
+}
+
+.page-download .head-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 402px;
+  height: 182px;
+  background: #ffffff;
+}
+
+.page-download .exp-lay--head-band {
+  left: 0;
+  top: 0;
+  width: 402px;
+  height: 141px;
+  background: #000000;
+  z-index: 1;
+}
+
+.page-download .exp-lay--head-cinza {
+  left: 0;
+  top: 141px;
+  width: 402px;
+  height: 41px;
+  background: #d9d9d9;
+  z-index: 1;
+}
+
+.page-download .exp-lay--head-logo {
+  left: 54px;
+  top: 78px;
+  width: 282.71px;
+  height: 30.71px;
+  z-index: 3;
+  pointer-events: none;
+  object-fit: contain;
+}
+
+.page-download .head-menu {
+  position: absolute;
+  left: 0;
+  top: 146px;
+  width: 402px;
+  height: 33px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  z-index: 4;
+  scrollbar-width: none;
+  cursor: grab;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.page-download .head-menu.is-dragging {
+  cursor: grabbing;
+}
+.page-download .head-menu::-webkit-scrollbar {
+  display: none;
+}
+.page-download .head-menu-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  padding-left: 8px;
+  padding-right: 8px;
+  height: 33px;
+  width: max-content;
+}
+.page-download .head-menu a {
+  flex: 0 0 auto;
+  font-family: Inter, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: normal;
+  color: #000000;
+  text-decoration: none;
+  padding: 10px 0;
+  border-bottom: 5px solid;
+  box-sizing: border-box;
+}
+.page-download .head-menu a.stroke-cap {
+  border-bottom-color: #000000;
+}
+.page-download .head-menu a.stroke-principal {
+  border-bottom-color: #004696;
+}
+.page-download .head-menu a.stroke-gestao {
+  border-bottom-color: #f0051e;
+}
+.page-download .head-menu a.stroke-mkt {
+  border-bottom-color: #ff7300;
+}
+.page-download .head-menu a.stroke-produto {
+  border-bottom-color: #ffaa00;
+}
+.page-download .head-menu a.stroke-consumidor {
+  border-bottom-color: #ffdc00;
+}
+.page-download .head-menu a.stroke-delivery {
+  border-bottom-color: #532f82;
+}
+.page-download .head-menu a.stroke-novo {
+  border-bottom-color: #b40082;
+}
+.page-download .head-menu a.stroke-academia {
+  border-bottom-color: #ff5564;
+}
+.page-download .head-menu a.stroke-coluna {
+  border-bottom-color: #00bebe;
+}
+.page-download .head-menu a.stroke-noticias {
+  border-bottom-color: #0082c8;
+}
+/* DOWNLOAD ativo: borda azul Assaí (Frame 8661 no Figma) */
+.page-download .head-menu a.stroke-download {
+  border-bottom-color: #004696;
+}
+.page-download .head-menu a.stroke-neutral {
+  border-bottom-color: #666666;
+}
+.page-download .head-menu a:not(.is-active) {
+  font-weight: 400;
+}
+.page-download .head-menu a.is-active {
+  font-weight: 700;
+}
+
+/* ——— Rodapé (Footer 1679:542 @ y=853) ——— */
+.page-download .foot-wrap {
+  position: absolute;
+  left: -1px;
+  top: 853px;
+  width: 403.33px;
+  height: 114px;
+  z-index: 500;
+}
+
+.page-download .exp-lay--foot-bg {
+  position: absolute;
+  left: 1px;
+  top: 45px;
+  width: 402px;
+  height: 69px;
+}
+
+.page-download .foot-lojas {
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 500;
+  font-size: 10px;
+  color: #ffffff;
+  text-decoration: none;
+}
+.page-download .exp-lay--foot-lojas {
+  left: 291px;
+  top: 76px;
+  z-index: 2;
+}
+.page-download .exp-lay--foot-inst {
+  left: 25.24px;
+  top: 71px;
+  width: 18.76px;
+  height: 18.02px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-download .exp-lay--foot-fb {
+  left: 63px;
+  top: 71px;
+  width: 17.06px;
+  height: 19.38px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-download .exp-lay--foot-yt {
+  left: 361px;
+  top: 71px;
+  width: 20.23px;
+  height: 18.35px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-download .exp-lay--foot-brand {
+  left: 174px;
+  top: 61px;
+  width: 50px;
+  height: 36.36px;
+  z-index: 2;
+  display: block;
+  line-height: 0;
+}
+.page-download .exp-lay--foot-brand-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.page-download .sec-dl {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+@media (min-width: 1024px) {
+  .dl-deco-slot--arquivos { top: 163px; }
+}
+
+@media (min-width: 1024px) {
+  .page-download .head-wrap.exp-lay--head { height: 141px; overflow: hidden; }
+}

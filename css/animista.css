@@ -1,0 +1,408 @@
+/**
+ * Animista — animações CSS reutilizáveis
+ * https://animista.net/ — licença FreeBSD
+ * Valores fixos (sem custom properties) para compatibilidade em produção.
+ */
+
+@keyframes flip-scale-2-ver-left {
+  0% {
+    transform: scaleX(0);
+    transform-origin: 0% 50%;
+    opacity: 1;
+  }
+  50% {
+    transform: scaleX(0);
+    transform-origin: 0% 50%;
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: 0% 50%;
+    opacity: 1;
+  }
+}
+
+.flip-scale-2-ver-left {
+  animation: flip-scale-2-ver-left 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+[data-animista="flip-scale-2-ver-left"]:not(.flip-scale-2-ver-left) {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-animista="flip-scale-2-ver-left"]:not(.flip-scale-2-ver-left),
+  .flip-scale-2-ver-left {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes flip-scale-2-ver-right {
+  0% {
+    transform: scaleX(0);
+    transform-origin: 100% 50%;
+    opacity: 1;
+  }
+  50% {
+    transform: scaleX(0);
+    transform-origin: 100% 50%;
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: 100% 50%;
+    opacity: 1;
+  }
+}
+
+.flip-scale-2-ver-right {
+  animation: flip-scale-2-ver-right 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+[data-animista="flip-scale-2-ver-right"]:not(.flip-scale-2-ver-right) {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-animista="flip-scale-2-ver-right"]:not(.flip-scale-2-ver-right),
+  .flip-scale-2-ver-right {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes coin-fall {
+  0% {
+    transform: translateY(-500px) rotate(0deg);
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.coin-fall {
+  animation: coin-fall 0.85s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+[data-animista="coin-fall"]:not(.coin-fall) {
+  opacity: 0;
+  transform: translateY(-500px) rotate(0deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coin-fall,
+  [data-animista="coin-fall"]:not(.coin-fall) {
+    animation: none;
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    letter-spacing: normal;
+    opacity: 1;
+  }
+}
+
+.tracking-in-expand {
+  animation: tracking-in-expand 16.1s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+}
+
+[data-animista="tracking-in-expand"]:not(.tracking-in-expand) {
+  letter-spacing: -0.5em;
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-animista="tracking-in-expand"]:not(.tracking-in-expand),
+  .tracking-in-expand {
+    animation: none;
+    letter-spacing: normal;
+    opacity: 1;
+  }
+}
+
+@keyframes pen-enter {
+  0% {
+    transform: translateX(-110px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.pen-enter {
+  animation: pen-enter 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.35s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pen-enter {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes strip-enter-right {
+  0% {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.strip-enter-right {
+  animation: strip-enter-right 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.35s both;
+}
+
+[data-animista="strip-enter-right"]:not(.strip-enter-right) {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-animista="strip-enter-right"]:not(.strip-enter-right),
+  .strip-enter-right {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes scale-in-hor-center {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+.scale-in-hor-center {
+  animation: scale-in-hor-center 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+[data-animista="scale-in-hor-center"]:not(.scale-in-hor-center) {
+  transform: scaleX(0);
+  transform-origin: center center;
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-animista="scale-in-hor-center"]:not(.scale-in-hor-center),
+  .scale-in-hor-center {
+    animation: none;
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@keyframes bounce-in-left {
+  0% {
+    transform: translateX(-600px);
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  38% {
+    transform: translateX(0);
+    animation-timing-function: ease-out;
+    opacity: 1;
+  }
+  55% {
+    transform: translateX(-68px);
+    animation-timing-function: ease-in;
+  }
+  72% {
+    transform: translateX(0);
+    animation-timing-function: ease-out;
+  }
+  81% {
+    transform: translateX(-28px);
+    animation-timing-function: ease-in;
+  }
+  90% {
+    transform: translateX(0);
+    animation-timing-function: ease-out;
+  }
+  95% {
+    transform: translateX(-8px);
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: translateX(0);
+    animation-timing-function: ease-out;
+  }
+}
+
+.bounce-in-left {
+  animation: bounce-in-left 1.1s both;
+}
+
+[data-animista="bounce-in-left"]:not(.bounce-in-left) {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-animista="bounce-in-left"]:not(.bounce-in-left),
+  .bounce-in-left {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes bounce-in-top {
+  0% {
+    transform: translateY(-500px);
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  38% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+    opacity: 1;
+  }
+  55% {
+    transform: translateY(-65px);
+    animation-timing-function: ease-in;
+  }
+  72% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+  81% {
+    transform: translateY(-28px);
+    animation-timing-function: ease-in;
+  }
+  90% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+  95% {
+    transform: translateY(-8px);
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+}
+
+.bounce-in-top {
+  animation: bounce-in-top 1.1s both;
+}
+
+[data-animista="bounce-in-top"]:not(.bounce-in-top) {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-animista="bounce-in-top"]:not(.bounce-in-top),
+  .bounce-in-top {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes passaro-float {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-15px);
+  }
+}
+
+.passaro-float {
+  animation: passaro-float 2.5s cubic-bezier(0.42, 0, 0.58, 1) infinite alternate;
+}
+
+[data-animista="passaro-float"]:not(.passaro-float) {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-animista="passaro-float"]:not(.passaro-float),
+  .passaro-float {
+    animation: none;
+    transform: none;
+  }
+}
+
+@keyframes passaro-fly-x {
+  0% {
+    transform: translateX(-150px);
+    opacity: 0;
+  }
+  2% {
+    opacity: 1;
+  }
+  81.5% {
+    transform: translateX(460px);
+    opacity: 1;
+  }
+  98% {
+    transform: translateX(460px);
+    opacity: 1;
+  }
+  99% {
+    transform: translateX(460px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-150px);
+    opacity: 0;
+  }
+}
+
+.passaro-fly-across {
+  animation: passaro-fly-x 27s linear infinite;
+}
+
+.passaro-fly-across .deco-passaro__bob {
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+  animation: passaro-float 2.5s cubic-bezier(0.42, 0, 0.58, 1) infinite alternate;
+}
+
+[data-animista="passaro-fly-across"]:not(.passaro-fly-across) {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-animista="passaro-fly-across"]:not(.passaro-fly-across),
+  .passaro-fly-across {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .passaro-fly-across .deco-passaro__bob {
+    animation: none;
+    transform: none;
+  }
+}

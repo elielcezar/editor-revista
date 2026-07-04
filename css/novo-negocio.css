@@ -1,0 +1,687 @@
+/*
+ * NOVO NEGÓCIO #73 — Figma frame 438:2974 (402×4998)
+ * Empilhamento: ordem do DOM (sem z-index no miolo), exceto cabeçalho/rodapé.
+ */
+
+@font-face {
+  font-family: "FS Lola";
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+  src: url("../fonts/FS Lola-Regular.otf") format("opentype");
+}
+@font-face {
+  font-family: "FS Lola";
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+  src: url("../fonts/FS Lola-Medium.otf") format("opentype");
+}
+@font-face {
+  font-family: "FS Lola";
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+  src: url("../fonts/FS Lola-Bold.otf") format("opentype");
+}
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scrollbar-gutter: stable;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+html,
+body {
+  margin: 0;
+  background: #ffffff;
+}
+body {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.page-novo-negocio {
+  position: relative;
+  width: 402px;
+  height: 5033px;
+  background: #ffffff;
+  overflow-x: hidden;
+  overflow-y: visible;
+  isolation: isolate;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  flex-shrink: 0;
+}
+
+.page-novo-negocio .abs {
+  position: absolute;
+}
+
+/* ─── Cabeçalho (frame externo azul #004696, como Figma 1498:852) ─── */
+.page-novo-negocio .head-wrap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  width: 403px;
+  height: 182px;
+  z-index: 600;
+  background: #004696;
+}
+
+.page-novo-negocio .exp-lay--head-rail {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1px;
+  height: 182px;
+  background: #004696;
+  z-index: 250;
+  pointer-events: none;
+}
+
+.page-novo-negocio .head-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 402px;
+  height: 182px;
+  background: #ffffff;
+}
+
+.page-novo-negocio .nn-head-band {
+  left: 0;
+  top: 0;
+  width: 402px;
+  height: 141px;
+  background: #b40082;
+  z-index: 1;
+}
+
+.page-novo-negocio .nn-head-cinza {
+  left: 0;
+  top: 141px;
+  width: 402px;
+  height: 41px;
+  background: #d9d9d9;
+  z-index: 1;
+}
+
+.page-novo-negocio .nn-head-logo {
+  left: 54px;
+  top: 78px;
+  width: 282.71px;
+  height: 30.71px;
+  z-index: 3;
+  pointer-events: none;
+  object-fit: contain;
+}
+
+.page-novo-negocio .head-menu {
+  position: absolute;
+  left: 0;
+  top: 146px;
+  width: 402px;
+  height: 33px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  z-index: 4;
+  scrollbar-width: none;
+  cursor: grab;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.page-novo-negocio .head-menu.is-dragging {
+  cursor: grabbing;
+}
+.page-novo-negocio .head-menu::-webkit-scrollbar {
+  display: none;
+}
+.page-novo-negocio .head-menu-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  padding-left: 8px;
+  padding-right: 8px;
+  height: 33px;
+  width: max-content;
+}
+.page-novo-negocio .head-menu a {
+  flex: 0 0 auto;
+  font-family: Inter, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: normal;
+  color: #000000;
+  text-decoration: none;
+  padding: 10px 0;
+  border-bottom: 5px solid;
+  box-sizing: border-box;
+}
+.page-novo-negocio .head-menu a.stroke-cap {
+  border-bottom-color: #000000;
+}
+.page-novo-negocio .head-menu a.stroke-principal {
+  border-bottom-color: #004696;
+}
+.page-novo-negocio .head-menu a.stroke-gestao {
+  border-bottom-color: #f0051e;
+}
+.page-novo-negocio .head-menu a.stroke-mkt {
+  border-bottom-color: #ff7300;
+}
+.page-novo-negocio .head-menu a.stroke-produto {
+  border-bottom-color: #ffaa00;
+}
+.page-novo-negocio .head-menu a.stroke-consumidor {
+  border-bottom-color: #ffdc00;
+}
+.page-novo-negocio .head-menu a.stroke-delivery {
+  border-bottom-color: #532f82;
+}
+.page-novo-negocio .head-menu a.stroke-novo {
+  border-bottom-color: #b40082;
+}
+.page-novo-negocio .head-menu a.stroke-academia {
+  border-bottom-color: #ff5564;
+}
+.page-novo-negocio .head-menu a.stroke-coluna {
+  border-bottom-color: #00bebe;
+}
+.page-novo-negocio .head-menu a.stroke-noticias {
+  border-bottom-color: #0082c8;
+}
+.page-novo-negocio .head-menu a.stroke-neutral {
+  border-bottom-color: #666666;
+}
+.page-novo-negocio .head-menu a:not(.is-active) {
+  font-weight: 400;
+}
+.page-novo-negocio .head-menu a.is-active {
+  font-weight: 700;
+}
+
+/* ─── Miolo: só position + medidas Figma (stack = ordem no DOM) ─── */
+.page-novo-negocio .nn-dash-frame {
+  left: 24px;
+  top: 1555px;
+  width: 355px;
+  height: 647px;
+  pointer-events: none;
+}
+.page-novo-negocio .nn-dash-frame img {
+  display: block;
+  width: 355px;
+  height: 647px;
+}
+
+.page-novo-negocio .nn-hero {
+  left: 0;
+  top: 177px;
+  width: 407px;
+  height: 403px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.page-novo-negocio .nn-lead {
+  left: 24px;
+  top: 899px;
+  width: 350px;
+  min-height: 500px;
+  margin: 0;
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #000000;
+}
+.page-novo-negocio .nn-lead .nn-pink-bold {
+  font-weight: 700;
+  color: #b40082;
+}
+.page-novo-negocio .nn-lead .nn-pink-italic {
+  font-weight: 700;
+  font-style: italic;
+  color: #b40082;
+}
+
+/* style_A35A9E + ts4 (Bold laranja) + ts1 (Bold rosa) */
+.page-novo-negocio .nn-kicker {
+  left: 24px;
+  top: 600px;
+  width: 361px;
+  height: 88px;
+  margin: 0;
+  padding: 0;
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 42.045562744140625px;
+  line-height: 38.45px;
+  color: #ff7300;
+}
+.page-novo-negocio .nn-kicker-line1 {
+  display: block;
+}
+.page-novo-negocio .nn-kicker-orange {
+  font-weight: 700;
+  font-style: normal;
+  color: #ff7300;
+}
+.page-novo-negocio .nn-kicker-pink {
+  font-weight: 700;
+  font-style: italic;
+  color: #b40082;
+}
+
+.page-novo-negocio .nn-subtitle {
+  left: 24px;
+  top: 713px;
+  width: 305px;
+  margin: 0;
+  font-family: "Raspoutine Classic", "Palatino Linotype", Palatino, Georgia, serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  color: #666666;
+}
+
+.page-novo-negocio .nn-badge {
+  left: 24px;
+  top: 780px;
+  width: 176px;
+  padding: 2px 15px;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: #b40082;
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: normal;
+  color: #ffffff;
+}
+
+.page-novo-negocio .nn-author {
+  left: 25px;
+  top: 819px;
+  width: 165px;
+  margin: 0;
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 18px;
+  line-height: normal;
+  color: #000000;
+}
+
+.page-novo-negocio .nn-ellipse-photo {
+  left: 55px;
+  top: 1414px;
+  width: 282px;
+  height: 282px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 6px solid #ff7300;
+  box-sizing: border-box;
+}
+
+.page-novo-negocio .nn-col2 {
+  left: 42px;
+  top: 1719px;
+  width: 317px;
+  min-height: 400px;
+  margin: 0;
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 21px;
+  color: #000000;
+}
+.page-novo-negocio .nn-col2 .nn-pink-bold {
+  font-weight: 700;
+  color: #b40082;
+}
+
+.page-novo-negocio .nn-gradient-box {
+  left: 19px;
+  top: 3768px;
+  width: 359px;
+  height: 455px;
+  border-radius: 30px;
+  background: linear-gradient(180deg, #ffaa00 0%, #ffdb00 100%);
+  box-sizing: border-box;
+}
+
+.page-novo-negocio .nn-cardapio-text {
+  left: 46px;
+  top: 3847px;
+  width: 311px;
+  margin: 0;
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #000000;
+  white-space: pre-line;
+}
+.page-novo-negocio .nn-cardapio-text .nn-cardapio-strong {
+  font-weight: 700;
+  font-style: italic;
+  font-size: 20px;
+}
+
+.page-novo-negocio .nn-cardapio-line {
+  left: 49px;
+  top: 3828.5px;
+  width: 296px;
+  height: 0;
+}
+.page-novo-negocio .nn-cardapio-line img {
+  display: block;
+  width: 302px;
+  height: 6px;
+  margin: 0;
+  transform-origin: center center;
+}
+
+.page-novo-negocio .nn-cardapio-photo {
+  left: 63px;
+  top: 3609px;
+  width: 263px;
+  height: 153px;
+  object-fit: fill;
+}
+
+.page-novo-negocio .nn-cardapio-label {
+  left: 108px;
+  top: 3787px;
+  width: 187px;
+  height: 27px;
+  margin: 0;
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: normal;
+  text-align: center;
+  color: #b40082;
+}
+
+.page-novo-negocio .nn-heading {
+  margin: 0;
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: normal;
+  color: #b40082;
+}
+
+.page-novo-negocio .nn-heading--como {
+  left: 25px;
+  top: 2431px;
+  width: 350px;
+  height: 60px;
+  text-align: left;
+}
+
+.page-novo-negocio .nn-heading--estrutura {
+  left: 25px;
+  top: 3103px;
+  width: 350px;
+  height: 63px;
+}
+
+.page-novo-negocio .nn-body {
+  margin: 0;
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #000000;
+}
+
+.page-novo-negocio .nn-body--como {
+  left: 24px;
+  top: 2515px;
+  width: 354px;
+  min-height: 249px;
+}
+
+.page-novo-negocio .nn-body--estrutura {
+  left: 24px;
+  top: 3187px;
+  width: 354px;
+  min-height: 416px;
+}
+
+.page-novo-negocio .nn-heading--expansao {
+  left: 25px;
+  top: 4260px;
+  width: 350px;
+  height: 84px;
+}
+
+.page-novo-negocio .nn-body--expansao {
+  left: 24px;
+  top: 4344px;
+  width: 354px;
+  min-height: 572px;
+}
+.page-novo-negocio .nn-body--expansao .nn-quote {
+  font-weight: 700;
+  font-style: italic;
+  font-size: 22px;
+  line-height: 26px;
+  color: #b40082;
+}
+.page-novo-negocio .nn-body--expansao .nn-bullet {
+  color: #b40082;
+  font-weight: 700;
+}
+
+/* Meia-lua (subtract) sobre círculos; onda por cima do arco; retrato acima de tudo no overlap */
+.page-novo-negocio .nn-deco-group {
+  left: -10px;
+  top: 2165px;
+  width: 429px;
+  height: 408px;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+/* Discos: só o semicírculo superior (meia-lua); o arco inferior do círculo não existe no layout */
+.page-novo-negocio .nn-deco-white {
+  left: 17px;
+  top: 4px;
+  width: 404px;
+  height: 392px;
+  border-radius: 50%;
+  background: #ffffff;
+  z-index: 1;
+  clip-path: inset(0 0 50% 0);
+  -webkit-clip-path: inset(0 0 50% 0);
+}
+.page-novo-negocio .nn-deco-yellow {
+  left: 12px;
+  top: 16px;
+  width: 404px;
+  height: 392px;
+  border-radius: 50%;
+  background: #ffaa00;
+  z-index: 2;
+  clip-path: inset(0 0 50% 0);
+  -webkit-clip-path: inset(0 0 50% 0);
+}
+.page-novo-negocio .nn-deco-subtract {
+  left: 2px;
+  top: 0;
+  width: 424px;
+  height: 212px;
+  z-index: 3;
+}
+.page-novo-negocio .nn-deco-subtract img {
+  display: block;
+  width: 424px;
+  height: 212px;
+}
+.page-novo-negocio .nn-deco-wave {
+  left: 0;
+  top: 0;
+  width: 429px;
+  height: 226px;
+  object-fit: cover;
+  z-index: 4;
+}
+
+.page-novo-negocio .nn-bg-family {
+  left: -1px;
+  top: 2803px;
+  width: 403px;
+  height: 277px;
+  object-fit: fill;
+  z-index: 3;
+}
+
+.page-novo-negocio .nn-portrait {
+  left: 46px;
+  top: 2122px;
+  width: 286px;
+  height: 255px;
+  object-fit: cover;
+  box-shadow: 0px 14px 0px -95px rgba(0, 0, 0, 0.25);
+  z-index: 5;
+}
+
+/* ─── Rodapé (espaço extra acima para não colar no texto) ─── */
+.page-novo-negocio .sec-foot {
+  position: absolute;
+  left: -1px;
+  top: 4919px;
+  width: 403.33px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  z-index: 500;
+}
+
+.page-novo-negocio .foot-wrap {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 403.33px;
+  height: 114px;
+  margin: 0;
+}
+
+.page-novo-negocio .exp-lay--foot-bg {
+  left: 1px;
+  top: 45px;
+  width: 402px;
+  height: 69px;
+}
+
+.page-novo-negocio .foot-lojas {
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: normal;
+  color: #ffffff;
+  text-decoration: none;
+  left: 291px;
+  top: 76px;
+  width: 63px;
+  height: 10px;
+}
+
+.page-novo-negocio .exp-lay--foot-inst {
+  left: 26px;
+  top: 71px;
+  width: 18.02px;
+  height: 18.76px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-novo-negocio .exp-lay--foot-fb {
+  left: 58px;
+  top: 71px;
+  width: 17.06px;
+  height: 19.38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-novo-negocio .exp-lay--foot-yt {
+  left: 361px;
+  top: 71px;
+  width: 20.23px;
+  height: 18.35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-novo-negocio .exp-lay--foot-brand {
+  left: 174px;
+  top: 61px;
+  width: 50px;
+  height: 36.36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-novo-negocio .exp-lay--foot-brand-img {
+  width: 50px;
+  height: 36.36px;
+  object-fit: contain;
+}
+
+@media (min-width: 1024px) {
+  .page-novo-negocio .nn-hero { top: 136px; }
+}
+
+@media (min-width: 1024px) {
+  .page-novo-negocio .head-wrap { height: 141px; overflow: hidden; }
+  .page-novo-negocio .head-inner { height: 147px; }
+}
+
+@media (min-width: 1024px) {
+  /* -15px em todos os elementos abaixo do hero */
+  .page-novo-negocio .nn-dash-frame { top: 1540px !important; }
+  .page-novo-negocio .nn-lead { top: 884px !important; }
+  .page-novo-negocio .nn-kicker { top: 585px !important; }
+  .page-novo-negocio .nn-subtitle { top: 698px !important; }
+  .page-novo-negocio .nn-badge { top: 765px !important; }
+  .page-novo-negocio .nn-author { top: 804px !important; }
+  .page-novo-negocio .nn-ellipse-photo { top: 1399px !important; }
+  .page-novo-negocio .nn-col2 { top: 1704px !important; }
+  .page-novo-negocio .nn-gradient-box { top: 3753px !important; }
+  .page-novo-negocio .nn-cardapio-text { top: 3832px !important; }
+  .page-novo-negocio .nn-cardapio-line { top: 3813.5px !important; }
+  .page-novo-negocio .nn-cardapio-photo { top: 3594px !important; }
+  .page-novo-negocio .nn-cardapio-label { top: 3772px !important; }
+  .page-novo-negocio .nn-heading--como { top: 2416px !important; }
+  .page-novo-negocio .nn-heading--estrutura { top: 3088px !important; }
+  .page-novo-negocio .nn-body--como { top: 2500px !important; }
+  .page-novo-negocio .nn-body--estrutura { top: 3172px !important; }
+  .page-novo-negocio .nn-heading--expansao { top: 4245px !important; }
+  .page-novo-negocio .nn-body--expansao { top: 4329px !important; }
+  .page-novo-negocio .nn-deco-group { top: 2150px !important; }
+  .page-novo-negocio .nn-bg-family { top: 2788px !important; }
+  .page-novo-negocio .nn-portrait { top: 2107px !important; }
+  .page-novo-negocio .sec-foot { top: 4904px !important; }
+  .page-novo-negocio { height: 5018px !important; }
+}

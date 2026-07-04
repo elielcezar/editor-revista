@@ -1,0 +1,679 @@
+/*
+ * REVISTA #73 — shell comum: largura do miolo, menu horizontal (#menu-principal), tokens de traço.
+ * Incluir por último após o CSS específico de cada página.
+ */
+
+/*
+ * overflow-x:hidden nos CSS das páginas força overflow-y:auto no mesmo elemento
+ * e corta o rodapé na borda inferior do frame (metade da faixa preta).
+ * Shell carrega por último e neutraliza isso em html/body/main.
+ */
+html {
+  overflow-x: clip !important;
+  overflow-y: auto !important;
+}
+
+body {
+  overflow-x: clip !important;
+  overflow-y: visible !important;
+}
+
+body > main.page,
+body > main[class^="page-"] {
+  position: relative;
+  width: 100%;
+  max-width: 402px;
+  /* clip não força overflow-y:auto (ao contrário de hidden), então o footer não é cortado */
+  overflow-x: clip !important;
+  overflow-y: visible !important;
+  box-sizing: border-box;
+}
+
+/*
+ * Mobile (<402px): frame Figma 402px reduz proporcionalmente (zoom) para caber na tela.
+ * width:100% sozinho não escala posições absolutas em px; o zoom encolhe o miolo inteiro.
+ */
+@media (max-width: 401px) {
+  html {
+    scrollbar-gutter: auto;
+    overflow-x: clip !important;
+    overflow-y: auto !important;
+    width: 100%;
+  }
+
+  body {
+    display: block;
+    overflow-x: clip !important;
+    overflow-y: visible !important;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: auto !important;
+  }
+
+  body > main.page,
+  body > main[class^="page-"] {
+    width: 402px !important;
+    max-width: 402px !important;
+    transform-origin: top left;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    overflow-x: clip !important;
+    overflow-y: visible !important;
+  }
+
+  /* Cabeçalho/menu: conteúdo rolável não estoura a largura da página */
+  .head-wrap {
+    overflow-x: clip;
+    max-width: 100%;
+  }
+
+  nav#menu-principal.head-menu {
+    width: 100% !important;
+    max-width: 100%;
+    left: 0 !important;
+    top: auto !important;
+    bottom: 0;
+  }
+
+  /* Wrapper do scale mobile: altura = frame × scale (evita faixa branca abaixo do rodapé) */
+  .rev-scale-wrap {
+    position: relative;
+    margin: 0 auto;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  /* Páginas curtas: rodapé cola no fim da viewport (sem faixa branca) */
+  body > main.rev-mobile-scaled,
+  body > .rev-scale-wrap > main.rev-mobile-scaled {
+    display: flex;
+    flex-direction: column;
+  }
+
+  body > main.rev-mobile-scaled > section:last-child,
+  body > .rev-scale-wrap > main.rev-mobile-scaled > section:last-child {
+    margin-top: auto;
+  }
+}
+
+
+
+/* Menu: scroll horizontal + arrastar (mouse/touch) — posição absoluta permanece nos CSS por página */
+nav#menu-principal.head-menu {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  cursor: grab;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+nav#menu-principal.head-menu.is-dragging {
+  cursor: grabbing;
+}
+
+nav#menu-principal.head-menu::-webkit-scrollbar {
+  display: none;
+}
+
+#menu-principal .head-menu-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  padding-left: 8px;
+  padding-right: 8px;
+  height: 33px;
+  width: max-content;
+  margin-left: 0;
+  box-sizing: border-box;
+}
+
+#menu-principal.head-menu .head-menu-inner a[data-menu-item] {
+  flex: 0 0 auto;
+  font-family: Inter, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: normal;
+  color: #000000;
+  text-decoration: none;
+  padding: 10px 0 6px 0;
+  border-bottom: 8px solid transparent;
+  box-sizing: border-box;
+}
+
+#menu-principal.head-menu .head-menu-inner a.stroke-cap {
+  border-bottom-color: #000000;
+}
+
+#menu-principal.head-menu .head-menu-inner a.stroke-principal {
+  border-bottom-color: #004696;
+}
+
+#menu-principal.head-menu .head-menu-inner a.stroke-gestao {
+  border-bottom-color: #f0051e;
+}
+
+#menu-principal.head-menu .head-menu-inner a.stroke-mkt {
+  border-bottom-color: #ff7300;
+}
+
+#menu-principal.head-menu .head-menu-inner a.stroke-produto {
+  border-bottom-color: #ffaa00;
+}
+
+#menu-principal.head-menu .head-menu-inner a.stroke-consumidor {
+  border-bottom-color: #ffdc00;
+}
+
+#menu-principal.head-menu .head-menu-inner a.stroke-delivery {
+  border-bottom-color: #532f82;
+}
+
+#menu-principal.head-menu .head-menu-inner a.stroke-novo {
+  border-bottom-color: #b40082;
+}
+
+#menu-principal.head-menu .head-menu-inner a.stroke-academia {
+  border-bottom-color: #ff5564;
+}
+
+#menu-principal.head-menu .head-menu-inner a.stroke-coluna {
+  border-bottom-color: #00bebe;
+}
+
+#menu-principal.head-menu .head-menu-inner a.stroke-noticias {
+  border-bottom-color: #0082c8;
+}
+
+#menu-principal.head-menu .head-menu-inner a.stroke-download {
+  border-bottom-color: #004696;
+}
+
+#menu-principal.head-menu .head-menu-inner a.stroke-neutral {
+  border-bottom-color: #666666;
+}
+
+#menu-principal.head-menu .head-menu-inner a:not(.is-active) {
+  font-weight: 400;
+}
+
+#menu-principal.head-menu .head-menu-inner a.is-active {
+  font-weight: 700;
+}
+
+/* Titulos clicaveis das paginas categoria-* sem estilo de link. */
+.page-categorias a.t-titulo-ficha,
+.page-categorias a.t-titulo-ficha:visited,
+.page-categorias a.t-titulo-ficha:hover,
+.page-categorias a.t-titulo-ficha:active {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  text-shadow: none !important;
+  pointer-events: auto !important;
+  cursor: pointer;
+}
+
+/* Selos de edicao clicaveis sem estilo de link. */
+.page-categorias .cat-edition-pill a,
+.page-categorias .cat-edition-pill a:visited,
+.page-categorias .cat-edition-pill a:hover,
+.page-categorias .cat-edition-pill a:active {
+  color: inherit;
+  text-decoration: none;
+  pointer-events: auto !important;
+  cursor: pointer;
+}
+
+.page-categorias .cat-footer a.foot-lojas,
+.page-categorias .cat-footer a.cat-footer__brand,
+.page-categorias .cat-footer a.cat-footer__ico-right {
+  pointer-events: auto !important;
+  cursor: pointer;
+}
+
+/* Links do rodape em todas as paginas. */
+a.foot-lojas,
+a.foot-brand,
+a.foot-icon-right,
+a[class*="foot-brand"],
+a[class*="foot-lojas"],
+a[class*="footer__brand"],
+a[class*="footer__ico-right"],
+a[class*="footer__lojas"],
+a[class*="foot-yt"],
+a[class*="dl-foot-brand"],
+a[class*="dl-foot-yt"],
+a[class*="dl-footer__lojas"] {
+  pointer-events: auto !important;
+  cursor: pointer;
+}
+
+/* Sem sublinhado ao passar o mouse ou focar — todos os links. */
+a:hover,
+a:focus-visible {
+  text-decoration: none !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   HEADER — mobile: 174px (141px logo + 33px menu)
+   ══════════════════════════════════════════════════════════════════════ */
+
+.head-wrap,
+.cat-head-shell {
+  z-index: 600 !important;
+}
+
+/* Banda cinza do menu — oculta por padrão (desktop); mobile sobrescreve abaixo */
+.head-inner > .head-gray,
+.head-inner > .head-gray-band,
+.head-inner > .nn-head-cinza,
+.head-inner > .dl-head-cinza,
+.head-inner > .cat-band-cinza,
+.head-inner > .exp-lay--head-cinza,
+.head-inner > .gx2-lay--head-band-cz,
+.head-inner > .gestao-lay--097,
+.head-inner > .principal-lay--040,
+.head-inner > .home-lay--004,
+.head-inner > .academia-lay--049,
+.cat-head-inner > .cat-band-cinza {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .head-wrap,
+  .cat-head-shell {
+    height: 174px !important;
+    box-sizing: border-box;
+    overflow: hidden !important;
+  }
+
+  .head-inner {
+    height: 174px !important;
+    box-sizing: border-box;
+  }
+
+  /* Menu sempre colado na base do header, independente do top: px de cada página */
+  nav#menu-principal.head-menu,
+  .page-categorias .head-menu {
+    top: auto !important;
+    bottom: 0 !important;
+    height: 33px !important;
+    z-index: 5 !important;
+    background: #eaeaea !important;
+  }
+
+  #menu-principal .head-menu-inner,
+  .page-categorias .head-menu-inner {
+    background: #eaeaea;
+  }
+
+  /* Faixa colorida do logo: 141px (tamanho original Figma) */
+  .head-inner > .head-yellow,
+  .head-inner > .head-blue,
+  .head-inner > .head-color,
+  .head-inner > .head-color-band,
+  .head-inner > .gestao-lay--096,
+  .head-inner > .principal-lay--039,
+  .head-inner > .home-lay--003,
+  .head-inner > .academia-lay--048,
+  .head-inner > .cat-band-azul,
+  .page-novo-negocio .head-inner > .nn-head-band,
+  .page-delivery .head-inner > .dl-head-purple,
+  .page-gestao-2 .head-inner > .gx2-lay--head-band-vm,
+  .page-expediente .head-inner > .exp-lay--head-band,
+  .page-editorial .head-inner > .exp-lay--head-band,
+  .page-download .head-inner > .exp-lay--head-band,
+  .page-lista-parceiros .head-inner > .exp-lay--head-band,
+  .cat-head-inner > .cat-band-azul {
+    height: 141px !important;
+  }
+
+  /* Banda cinza do menu: 33px logo abaixo da faixa colorida */
+  .head-inner > .head-gray,
+  .head-inner > .head-gray-band,
+  .head-inner > .nn-head-cinza,
+  .head-inner > .dl-head-cinza,
+  .head-inner > .cat-band-cinza,
+  .head-inner > .exp-lay--head-cinza,
+  .head-inner > .gx2-lay--head-band-cz,
+  .head-inner > .gestao-lay--097,
+  .head-inner > .principal-lay--040,
+  .head-inner > .home-lay--004,
+  .head-inner > .academia-lay--049,
+  .cat-head-inner > .cat-band-cinza {
+    top: 141px !important;
+    height: 33px !important;
+    display: block !important;
+    background: #eaeaea !important;
+  }
+
+  /* Logo do header — posição vertical mobile */
+  .head-inner .head-logo,
+  .head-inner img.head-logo,
+  .cat-head-inner .cat-head-logo,
+  .principal-lay--041,
+  .gestao-lay--098,
+  .academia-lay--050,
+  .home-lay--005,
+  .nn-head-logo,
+  .dl-logo-head,
+  .gx2-lay--head-logo,
+  .exp-lay--head-logo {
+    top: 58px !important;
+  }
+
+  .page-categorias .head-inner.cat-head-inner {
+    width: 404px !important;
+  }
+
+  /* Banda cinza do menu — fundo #eaeaea (não branco) */
+  .head-inner > .head-gray,
+  .head-inner > .head-gray-band,
+  .head-inner > .nn-head-cinza,
+  .head-inner > .dl-head-cinza,
+  .head-inner > .cat-band-cinza,
+  .head-inner > .exp-lay--head-cinza,
+  .head-inner > .gx2-lay--head-band-cz,
+  .head-inner > .gestao-lay--097,
+  .head-inner > .principal-lay--040,
+  .head-inner > .academia-lay--049,
+  .head-inner > .home-lay--004,
+  .head-gray-band {
+    background: #eaeaea !important;
+  }
+
+  /* Hero encosta no header (157px mobile) */
+  .page-principal .hero-principal,
+  .page-delivery .dl-hero-gemini,
+  .page-noticias .video-wrap--hero,
+  .page .band-amarelo-1,
+  .page-categorias > .cat-chamada-bg,
+  .page-novo-negocio .nn-hero,
+  .page-academia .academia-lay--011,
+  .page-gestao .gestao-lay--015 {
+    top: 157px !important;
+  }
+
+  .page-gestao-2 .gx2-lay--hero-mei-slu {
+    top: 198px !important;
+  }
+
+  .page-categorias .cat-hero,
+  .page-categorias--sem-hero .cat-lista,
+  .page-parceiros .parc-hero-stack {
+    margin-top: 174px !important;
+  }
+
+  .page-lista-parceiros .lp-miolo {
+    padding-top: 200px !important;
+  }
+
+  /* Linha branca fina (1px) abaixo do header */
+  .head-wrap::after,
+  .cat-head-shell::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    height: 1px;
+    background: #ffffff;
+    z-index: 601;
+    pointer-events: none;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   SIDEBAR DESKTOP — compartilhado por todas as páginas.
+   Mobile: completamente oculto. Desktop (≥1024px): sidebar fixo.
+   ══════════════════════════════════════════════════════════════════════ */
+
+.dt-sidebar,
+.dt-logo-wrap,
+.dt-logo-img,
+.dt-nav,
+.dt-nav-item {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+
+  html {
+    background-color: #ffffff;
+  }
+
+  body {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background: transparent;
+    padding-left: 313px;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url("../assets/home73/dt-bg-pattern.png") center / cover no-repeat;
+    opacity: 0.40;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* Menu horizontal oculto no desktop — sidebar assume a navegação */
+  nav#menu-principal.head-menu {
+    display: none;
+  }
+
+  /* Banda cinza do menu — oculta no desktop (só existe no mobile) */
+  .head-inner > .head-gray,
+  .head-inner > .head-gray-band,
+  .head-inner > .nn-head-cinza,
+  .head-inner > .dl-head-cinza,
+  .head-inner > .cat-band-cinza,
+  .head-inner > .exp-lay--head-cinza,
+  .head-inner > .gx2-lay--head-band-cz,
+  .head-inner > .gestao-lay--097,
+  .head-inner > .principal-lay--040,
+  .head-inner > .home-lay--004,
+  .head-inner > .academia-lay--049,
+  .cat-head-inner > .cat-band-cinza {
+    display: none !important;
+  }
+
+  /* Faixa cinza (área do menu) oculta no desktop; linha branca fina abaixo do header */
+  .head-wrap,
+  .cat-head-shell {
+    height: 141px;
+    overflow: visible !important;
+  }
+
+  .head-inner,
+  .cat-head-inner,
+  .head-wrap .head-inner,
+  .cat-head-shell .head-inner,
+  .page-principal .head-inner,
+  .page-gestao .head-inner,
+  .page-gestao-2 .head-inner,
+  .page-delivery .head-inner,
+  .page-expediente .head-inner,
+  .page-novo-negocio .head-inner,
+  .page-editorial .head-inner,
+  .page-download .head-inner,
+  .page-lista-parceiros .head-inner,
+  .page-parceiros .head-inner,
+  .page-categorias .head-inner.cat-head-inner,
+  header.head-wrap > .head-inner,
+  header.head-wrap.exp-lay--head > .head-inner {
+    height: 147px !important;
+    min-height: 147px !important;
+    max-height: 147px !important;
+    top: 0 !important;
+    bottom: auto !important;
+    right: auto !important;
+  }
+
+  .head-wrap::after,
+  .cat-head-shell::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    height: 4px;
+    background: #ffffff;
+    z-index: 601;
+    pointer-events: none;
+  }
+
+  .dt-sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 313px;
+    height: 100vh;
+    background: transparent;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    z-index: 1000;
+  }
+
+  .dt-sidebar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .dt-logo-wrap {
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    padding-left: 20px;
+    padding-top: 47px;
+    padding-bottom: 32px;
+    flex-shrink: 0;
+  }
+
+  .dt-logo-img {
+    display: block;
+    width: 124px;
+    height: 124px;
+    object-fit: contain;
+  }
+
+  .dt-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    padding-left: 50px;
+    padding-right: 16px;
+    padding-bottom: 48px;
+    gap: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+
+  .dt-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .dt-nav-item {
+    display: flex;
+    align-items: center;
+    height: 37.88px;
+    padding: 11.44px 0 0;
+    border-bottom: 5.72px solid transparent;
+    font-family: Inter, sans-serif;
+    font-size: 12.58px;
+    font-weight: 500;
+    line-height: normal;
+    color: #000000;
+    text-decoration: none;
+    white-space: nowrap;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+  }
+
+  .dt-nav-item:hover { opacity: 0.75; }
+
+  .dt-nav-item.is-active { font-weight: 800; }
+
+  .dt-nav--cap        { border-bottom-color: #000000; }
+  .dt-nav--principal  { border-bottom-color: #004696; }
+  .dt-nav--gestao     { border-bottom-color: #f0051e; }
+  .dt-nav--mkt        { border-bottom-color: #ff7300; }
+  .dt-nav--produto    { border-bottom-color: #ffaa00; }
+  .dt-nav--consumidor { border-bottom-color: #ffdc00; }
+  .dt-nav--delivery   { border-bottom-color: #532f82; }
+  .dt-nav--novo       { border-bottom-color: #b40082; }
+  .dt-nav--academia   { border-bottom-color: #ff5564; }
+  .dt-nav--coluna     { border-bottom-color: #00bebe; }
+  .dt-nav--noticias   { border-bottom-color: #0082c8; }
+  .dt-nav--download   { border-bottom-color: #004696; }
+  .dt-nav--neutral    { border-bottom-color: #666666; }
+
+  /* Coluna da revista: sidebar 313px + gap 420px = x:733 do Figma (frame 1920) */
+  body > main.page,
+  body > main.page-delivery,
+  body > main.page-academia,
+  body > main.page-lista-parceiros,
+  body > main.page-novo-negocio,
+  body > main.page-noticias,
+  body > main.page-gestao-2,
+  body > main.page-categorias,
+  body > main.page-download,
+  body > main.page-principal,
+  body > main.page-editorial,
+  body > main.page-gestao,
+  body > main.page-expediente,
+  body > main.page-parceiros {
+    flex-shrink: 0;
+    width: 402px;
+    max-width: none;
+    margin-left: 420px;
+  }
+}
+
+/*
+ * Desktop estreito (<1920): centraliza sidebar + gap + coluna 402px como bloco único.
+ * Bloco = 313 + 420 + 402 = 1135px · miolo começa em 733px dentro do bloco.
+ */
+@media (min-width: 1024px) and (max-width: 1919px) {
+  body {
+    padding-left: 0;
+  }
+
+  .dt-sidebar {
+    left: max(0px, calc((100vw - 1135px) / 2));
+  }
+
+  body > main.page,
+  body > main.page-delivery,
+  body > main.page-academia,
+  body > main.page-lista-parceiros,
+  body > main.page-novo-negocio,
+  body > main.page-noticias,
+  body > main.page-gestao-2,
+  body > main.page-categorias,
+  body > main.page-download,
+  body > main.page-principal,
+  body > main.page-editorial,
+  body > main.page-gestao,
+  body > main.page-expediente,
+  body > main.page-parceiros {
+    margin-left: calc(max(0px, (100vw - 1135px) / 2) + 400px);
+  }
+}

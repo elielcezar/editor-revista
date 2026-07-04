@@ -1,0 +1,43 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ffmpeg -version)",
+      "PowerShell(Get-Command ffmpeg -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-Command ffprobe -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-Command winget -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-Command choco -ErrorAction SilentlyContinue)",
+      "PowerShell(winget install --id Gyan.FFmpeg -e --source winget --accept-package-agreements --accept-source-agreements)",
+      "Bash(awk '{print $5, $9}')",
+      "Skill(run)",
+      "Skill(run:*)",
+      "Bash(npx playwright *)",
+      "Skill(update-config)",
+      "Skill(update-config:*)",
+      "Bash(python -c \"import json; json.load\\(open\\(r'C:\\\\Users\\\\eliel\\\\.claude\\\\settings.json'\\)\\)\")",
+      "Bash(curl -sf http://localhost:8080/gestao.html)",
+      "Bash(node tmp/check-lucro-zindex.mjs)",
+      "Bash(echo \"EXIT CODE: $?\")",
+      "Bash(find \"C:\\\\Users\\\\eliel\\\\AppData\\\\Local\\\\ms-playwright\" -maxdepth 2 2>&1)",
+      "Read(//c/Users/eliel/AppData/Local/ms-playwright/**)",
+      "Bash(node node_modules/playwright-core/cli.js install chromium)",
+      "Bash(echo \"EXIT: $?\")",
+      "Bash(node *)",
+      "Bash(npm *)",
+      "Bash(npx *)",
+      "Bash(git *)",
+      "Bash(python *)",
+      "Bash(curl *)",
+      "PowerShell(node *)",
+      "PowerShell(npm *)",
+      "PowerShell(npx *)",
+      "PowerShell(git *)",
+      "PowerShell(python *)",
+      "PowerShell(curl *)",
+      "Edit",
+      "Write"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\eliel\\.claude"
+    ]
+  }
+}

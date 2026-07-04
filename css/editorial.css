@@ -1,0 +1,313 @@
+/*
+ * Editorial #73 — Figma 1624:798 (node-id=1624-798 no URL).
+ * Fundo do frame no arquivo: #FFFFFF. Rodapé HTML = mesmo das outras páginas (não existe dentro deste frame no Figma).
+ */
+
+@font-face {
+  font-family: "FS Lola";
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+  src: url("../fonts/FS Lola-Regular.otf") format("opentype");
+}
+@font-face {
+  font-family: "FS Lola";
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+  src: url("../fonts/FS Lola-Bold.otf") format("opentype");
+}
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scrollbar-gutter: stable;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+html,
+body {
+  margin: 0;
+  background: #ffffff;
+}
+body {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.page-editorial {
+  position: relative;
+  width: 100%;
+  max-width: 402px;
+  min-height: 100vh;
+  background: #ffffff;
+  overflow-x: hidden;
+  overflow-y: visible;
+  isolation: isolate;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.page-editorial .abs {
+  position: absolute;
+}
+
+/* HEAD EFITORIAL 1624:845 — trilho 403×182 #004696 + miolo 402×182 branco */
+.page-editorial .head-wrap.exp-lay--head {
+  box-sizing: border-box;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 182px;
+  z-index: 600;
+  background: #004696;
+}
+
+.page-editorial .head-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 182px;
+  background: #ffffff;
+}
+
+.page-editorial .exp-lay--head-band {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 141px;
+  background: #000000;
+  z-index: 1;
+}
+
+.page-editorial .exp-lay--head-cinza {
+  left: 0;
+  top: 141px;
+  width: 100%;
+  height: 41px;
+  background: #d9d9d9;
+  z-index: 1;
+}
+
+.page-editorial .exp-lay--head-logo {
+  left: 54px;
+  top: 78px;
+  width: 282.71px;
+  height: 30.71px;
+  z-index: 3;
+  pointer-events: none;
+  object-fit: contain;
+}
+
+.page-editorial .head-menu {
+  position: absolute;
+  left: 0;
+  top: 146px;
+  width: 100%;
+  height: 33px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  z-index: 4;
+  scrollbar-width: none;
+  cursor: grab;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.page-editorial .head-menu.is-dragging {
+  cursor: grabbing;
+}
+.page-editorial .head-menu::-webkit-scrollbar {
+  display: none;
+}
+.page-editorial .head-menu-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  padding-left: 8px;
+  padding-right: 8px;
+  height: 33px;
+  width: max-content;
+}
+.page-editorial .head-menu a {
+  flex: 0 0 auto;
+  font-family: Inter, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: normal;
+  color: #000000;
+  text-decoration: none;
+  padding: 10px 0;
+  border-bottom: 5px solid;
+  box-sizing: border-box;
+}
+.page-editorial .head-menu a.stroke-cap {
+  border-bottom-color: #000000;
+}
+.page-editorial .head-menu a.stroke-principal {
+  border-bottom-color: #004696;
+}
+.page-editorial .head-menu a.stroke-gestao {
+  border-bottom-color: #f0051e;
+}
+.page-editorial .head-menu a.stroke-mkt {
+  border-bottom-color: #ff7300;
+}
+.page-editorial .head-menu a.stroke-produto {
+  border-bottom-color: #ffaa00;
+}
+.page-editorial .head-menu a.stroke-consumidor {
+  border-bottom-color: #ffdc00;
+}
+.page-editorial .head-menu a.stroke-delivery {
+  border-bottom-color: #532f82;
+}
+.page-editorial .head-menu a.stroke-novo {
+  border-bottom-color: #b40082;
+}
+.page-editorial .head-menu a.stroke-academia {
+  border-bottom-color: #ff5564;
+}
+.page-editorial .head-menu a.stroke-coluna {
+  border-bottom-color: #00bebe;
+}
+.page-editorial .head-menu a.stroke-noticias {
+  border-bottom-color: #0082c8;
+}
+.page-editorial .head-menu a.stroke-neutral {
+  border-bottom-color: #666666;
+}
+.page-editorial .head-menu a:not(.is-active) {
+  font-weight: 400;
+}
+.page-editorial .head-menu a.is-active {
+  font-weight: 700;
+}
+
+/* Miolo — texto 1624:1079 · x:28 y:286 · 350×140 · centrado · «Corpo de texto» */
+.page-editorial .editorial-miolo {
+  width: 100%;
+  min-height: 0;
+  padding: 286px 24px 48px 28px;
+  margin: 0;
+  box-sizing: border-box;
+  flex: 1 0 auto;
+}
+
+.page-editorial .editorial-lead {
+  margin: 0;
+  width: 350px;
+  max-width: 100%;
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.35;
+  text-align: center;
+  color: #757a7b;
+}
+
+/* Rodapé — fluxo após o miolo, ancorado no fim da página */
+.page-editorial #sec-rodape {
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+.page-editorial .foot-wrap {
+  position: relative;
+  top: auto;
+  left: auto;
+  width: 403.33px;
+  height: 114px;
+  margin-left: -1px;
+  z-index: 500;
+}
+
+.page-editorial .exp-lay--foot-bg {
+  position: absolute;
+  left: 0;
+  top: 45px;
+  width: 100%;
+  height: 69px;
+}
+
+.page-editorial .foot-lojas {
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 500;
+  font-size: 10px;
+  color: #ffffff;
+  text-decoration: none;
+}
+.page-editorial .exp-lay--foot-lojas {
+  left: auto;
+  right: 27px;
+  top: 76px;
+  z-index: 2;
+}
+.page-editorial .exp-lay--foot-inst {
+  left: 25.24px;
+  top: 71px;
+  width: 18.76px;
+  height: 18.02px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-editorial .exp-lay--foot-fb {
+  left: 63px;
+  top: 71px;
+  width: 17.06px;
+  height: 19.38px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-editorial .exp-lay--foot-yt {
+  left: auto;
+  right: 21px;
+  top: 71px;
+  width: 20.23px;
+  height: 18.35px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-editorial .exp-lay--foot-brand {
+  left: 174px;
+  top: 61px;
+  width: 50px;
+  height: 36.36px;
+  z-index: 2;
+  display: block;
+  line-height: 0;
+}
+.page-editorial .exp-lay--foot-brand-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.sec-ed {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+@media (min-width: 1024px) {
+  .page-editorial .head-wrap.exp-lay--head { height: 141px; overflow: hidden; }
+  .page-editorial .editorial-miolo { padding-top: 245px; }
+}

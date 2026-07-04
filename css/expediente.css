@@ -1,0 +1,641 @@
+/*
+ * Revista Assaí #73 — Expediente (expediente.html, Figma frame 1624:984 — 402×1525).
+ */
+
+@font-face {
+  font-family: "FS Lola";
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+  src: url("../fonts/FS Lola-Regular.otf") format("opentype");
+}
+@font-face {
+  font-family: "FS Lola";
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+  src: url("../fonts/FS Lola-Medium.otf") format("opentype");
+}
+@font-face {
+  font-family: "FS Lola";
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+  src: url("../fonts/FS Lola-Bold.otf") format("opentype");
+}
+
+
+
+* { box-sizing: border-box; }
+
+html {
+  scrollbar-gutter: stable;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+html, body { margin: 0; background: #ffffff; }
+body {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.page-expediente {
+  position: relative;
+  width: 402px;
+  height: 1683px;
+  background: #ffffff;
+  overflow-x: hidden;
+  overflow-y: visible;
+  isolation: isolate;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  flex-shrink: 0;
+}
+
+.abs { position: absolute; }
+.img-contain {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* Tipografia «Corpo de texto» · FS Lola 18 · centro */
+.t-corpo,
+.t-corpo-wrap p {
+  margin: 0;
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.35;
+  text-align: center;
+  color: #000000;
+}
+.t-corpo__caps {
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+.t-corpo__rot {
+  font-weight: 700;
+}
+.t-corpo__link {
+  color: #004696;
+  font-weight: 700;
+  text-transform: lowercase;
+  text-decoration: none;
+}
+.t-corpo__mail {
+  color: #000000;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+/* Figma 1641:582 — FS Lola Bold 20 pt, branco sobre degradê; sem caracteres U+2060 do export (estrague “Sociais”) */
+.t-redes-head {
+  margin: 0;
+  padding: 0;
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-align: center;
+  color: #f0051e;
+  hyphens: none;
+  word-spacing: normal;
+}
+
+/* ─── Posições Figma ─── */
+.exp-lay--gradient {
+  left: -5px;
+  top: 500px;
+  width: 408px;
+  height: 147px;
+  background: url("../assets/expediente73/gradientes-redes-sociais.png") center / cover no-repeat;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* 1641:551 · PNG export @2× (170×122) · caixa miolo mantém layout @1× 85×61 */
+.exp-lay--logo-assai-miolo {
+  left: 159px;
+  top: 218px;
+  width: 85px;
+  height: 61px;
+  object-fit: contain;
+  z-index: 16;
+}
+
+.exp-lay--conselho {
+  left: 24px;
+  top: 282px;
+  width: 354px;
+  z-index: 14;
+}
+
+.exp-lay--siga-head {
+  left: 29px;
+  top: 516px;
+  width: 345px;
+  min-height: 39px;
+  z-index: 15;
+}
+
+/* Duas camadas de ícones · ordem de blend do Figma (8668/71/72 → depois 8667/70/69) */
+
+.exp-lay--soc-wrap {
+  left: 0;
+  top: 560px;
+  width: 402px;
+  height: 54px;
+  margin: 0;
+  padding: 0;
+  z-index: 22;
+  overflow: visible;
+}
+.soc-layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 402px;
+  height: 54px;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+}
+.soc-layer--under { z-index: 1; }
+.soc-layer--over {
+  z-index: 2;
+  pointer-events: none;
+}
+
+.soc-layer--under .exp-soc-link,
+.soc-layer--over .exp-soc-link {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* Queda vertical sem rotação — ícones ficam retos ao pousar */
+.exp-lay--soc-wrap .exp-soc-link[data-animista="coin-fall"] {
+  transform-origin: center center;
+}
+.exp-lay--soc-wrap .exp-soc-link[data-x="24"] {
+}
+.exp-lay--soc-wrap .exp-soc-link[data-x="84"] {
+}
+.exp-lay--soc-wrap .exp-soc-link[data-x="145"] {
+}
+.exp-lay--soc-wrap .exp-soc-link[data-x="208"] {
+}
+.exp-lay--soc-wrap .exp-soc-link[data-x="271"] {
+}
+.exp-lay--soc-wrap .exp-soc-link[data-x="332"] {
+}
+.exp-soc-link {
+  position: absolute;
+  top: 0;
+  box-sizing: border-box;
+  width: 54px;
+  height: 54px;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  outline: none;
+  background: url("../assets/expediente73/bkg-redes.png") center / contain no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.exp-soc-link:focus-visible {
+  box-shadow:
+    inset 0 0 0 2px rgba(255, 255, 255, 0.95),
+    inset 0 0 0 4px rgba(0, 70, 150, 0.9);
+}
+.exp-soc-link[data-x="24"] { left: 24px; }
+.exp-soc-link[data-x="84"] { left: 84px; }
+.exp-soc-link[data-x="145"] { left: 145px; }
+.exp-soc-link[data-x="208"] { left: 208px; }
+.exp-soc-link[data-x="271"] { left: 271px; }
+.exp-soc-link[data-x="332"] { left: 332px; }
+.exp-soc-img {
+  display: block;
+  width: 35px;
+  height: 33px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* MegaMidia Group · PNG 120×58 (asset Figma “Camada_1” já no repositório) */
+.exp-lay--logo-mm-group {
+  left: 141px;
+  top: 705px;
+  width: 120px;
+  height: 58px;
+  z-index: 23;
+  line-height: 0;
+  text-decoration: none;
+  outline: none;
+}
+.exp-lay--logo-mm-group img {
+  display: block;
+  width: 120px;
+  height: 58px;
+  object-fit: contain;
+  pointer-events: none;
+}
+.exp-lay--logo-mm-group:focus-visible {
+  box-shadow: 0 0 0 2px #004696;
+}
+
+.exp-lay--megamidia {
+  left: 20px;
+  top: 798px;
+  width: 351px;
+  z-index: 24;
+}
+
+/* Bloco texto acima da Dúvidas — sem invadir SVG / cartão (geometria) */
+.exp-lay--carlo {
+  left: 26px;
+  top: 1076px;
+  width: 353px;
+  z-index: 25;
+}
+
+/* ─── DÚVIDAS 1641:634 + Ellipse cap + ícone + texto 1640:510 ─── */
+.exp-lay--card-muted {
+  left: 19px;
+  top: 1345px;
+  width: 359px;
+  height: 153px;
+  background: #d9d9d9;
+  opacity: 0.5899999737739563;
+  border-radius: 13px;
+  z-index: 26;
+  pointer-events: none;
+}
+
+/* Lua · base = topo cartão − 55 */
+.exp-lay--ellipse-cap {
+  left: 142px;
+  top: 1308px;
+  width: 113px;
+  height: 55px;
+  z-index: 30;
+  pointer-events: none;
+  display: block;
+  object-fit: contain;
+}
+
+.exp-lay--contact-phone {
+  left: 174px;
+  top: 1316px;
+  width: 48px;
+  height: 47px;
+  object-fit: contain;
+  z-index: 32;
+}
+
+.exp-lay--duvidas {
+  left: 47px;
+  top: 1370px;
+  width: 303px;
+  z-index: 34;
+}
+
+/* FOOTER grupo 1624:985 · abaixo do cartão + Dúvidas */
+.exp-lay--foot {
+  left: -1px;
+  top: 1569px;
+  width: 403.33px;
+  height: 114px;
+  z-index: 500;
+}
+.exp-lay--foot-bg {
+  left: 1px;
+  top: 45px;
+  width: 402px;
+  height: 69px;
+}
+.foot-lojas {
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 500;
+  font-size: 10px;
+  color: #ffffff;
+  text-decoration: none;
+}
+.exp-lay--foot-lojas { left: 291px; top: 76px; z-index: 2; }
+.exp-lay--foot-inst {
+  left: 25.63px;
+  top: 71.37px;
+  width: 18.76px;
+  height: 18.02px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.exp-lay--foot-fb {
+  left: 68px;
+  top: 71px;
+  width: 17.06px;
+  height: 19.38px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.exp-lay--foot-yt {
+  left: 361px;
+  top: 71px;
+  width: 20.23px;
+  height: 18.35px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.exp-lay--foot-brand {
+  left: 174px;
+  top: 61px;
+  width: 50px;
+  height: 36.36px;
+  z-index: 2;
+  display: block;
+  line-height: 0;
+}
+.exp-lay--foot-brand-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/*
+ * HEAD EXPEDIENTE · Figma 1624:1031 · frame exterior 403×182 (fill #000) · HEAD interno 402×182
+ * · retangulo cor #000 · trilho direito #000 · cinza menu #d9d9d9 · sem elemento de texto de edição no header (não existe neste quadro).
+ */
+.page-expediente header.head-wrap.exp-lay--head {
+  box-sizing: border-box;
+  left: -1px;
+  top: 0;
+  width: 403px;
+  height: 182px;
+  z-index: 600;
+}
+
+.page-expediente .head-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 402px;
+  height: 182px;
+  background: #ffffff;
+}
+
+.page-expediente .exp-lay--head-rail {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1px;
+  height: 182px;
+  background: #000000;
+  z-index: 250;
+}
+
+.page-expediente .exp-lay--head-band {
+  left: 0;
+  top: 0;
+  width: 402px;
+  height: 141px;
+  background: #000000;
+  z-index: 1;
+}
+
+.page-expediente .exp-lay--head-cinza {
+  left: 0;
+  top: 141px;
+  width: 402px;
+  height: 41px;
+  background: #d9d9d9;
+  z-index: 1;
+}
+
+.page-expediente .exp-lay--head-logo {
+  left: 54px;
+  top: 78px;
+  width: 282.71px;
+  height: 30.71px;
+  z-index: 3;
+  pointer-events: none;
+  object-fit: contain;
+}
+
+.page-expediente .head-menu {
+  position: absolute;
+  left: 0;
+  top: 146px;
+  width: 402px;
+  height: 33px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  z-index: 4;
+  scrollbar-width: none;
+  cursor: grab;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.page-expediente .head-menu.is-dragging { cursor: grabbing; }
+.page-expediente .head-menu::-webkit-scrollbar { display: none; }
+.page-expediente .head-menu-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  padding-left: 8px;
+  padding-right: 8px;
+  height: 33px;
+  width: max-content;
+}
+.page-expediente .head-menu a {
+  flex: 0 0 auto;
+  font-family: Inter, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: normal;
+  color: #000000;
+  text-decoration: none;
+  padding: 10px 0;
+  border-bottom: 5px solid;
+  box-sizing: border-box;
+}
+.page-expediente .head-menu a.stroke-cap { border-bottom-color: #000000; }
+.page-expediente .head-menu a.stroke-principal { border-bottom-color: #004696; }
+.page-expediente .head-menu a.stroke-gestao { border-bottom-color: #f0051e; }
+.page-expediente .head-menu a.stroke-mkt { border-bottom-color: #ff7300; }
+.page-expediente .head-menu a.stroke-produto { border-bottom-color: #ffaa00; }
+.page-expediente .head-menu a.stroke-consumidor { border-bottom-color: #ffdc00; }
+.page-expediente .head-menu a.stroke-delivery { border-bottom-color: #532f82; }
+.page-expediente .head-menu a.stroke-novo { border-bottom-color: #b40082; }
+.page-expediente .head-menu a.stroke-academia { border-bottom-color: #ff5564; }
+.page-expediente .head-menu a.stroke-coluna { border-bottom-color: #00bebe; }
+.page-expediente .head-menu a.stroke-noticias { border-bottom-color: #0082c8; }
+.page-expediente .head-menu a.stroke-neutral { border-bottom-color: #666666; }
+.page-expediente .head-menu a:not(.is-active) { font-weight: 400; }
+.page-expediente .head-menu a.is-active { font-weight: 700; }
+
+.sec-exp {
+  margin: 0;
+  padding-inline: 0;
+  padding-block: 0;
+  border: none;
+}
+
+@media (min-width: 1024px) {
+  .exp-lay--logo-assai-miolo { top: 182px; }
+}
+
+@media (min-width: 1024px) {
+  .page-expediente header.head-wrap.exp-lay--head { height: 141px; overflow: hidden; }
+  .page-expediente .head-inner { height: 147px; }
+}
+
+/* animações sem variáveis CSS */
+
+@keyframes coin-fall-exp-lay--soc-wrap-exp-soc-link-data-anim-1 {
+  0% { transform: translateY(calc(-1 * 220px)) rotate(0deg); opacity: 0; }
+  70% { opacity: 1; }
+  100% { transform: translateY(0) rotate(0deg); opacity: 1; }
+}
+.exp-lay--soc-wrap .exp-soc-link[data-animista="coin-fall"].coin-fall {
+  animation: coin-fall-exp-lay--soc-wrap-exp-soc-link-data-anim-1 0.85s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s both;
+}
+.exp-lay--soc-wrap .exp-soc-link[data-animista="coin-fall"][data-animista="coin-fall"]:not(.coin-fall) {
+  opacity: 0;
+  transform: translateY(calc(-1 * 220px)) rotate(0deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .exp-lay--soc-wrap .exp-soc-link[data-animista="coin-fall"].coin-fall,
+  .exp-lay--soc-wrap .exp-soc-link[data-animista="coin-fall"][data-animista="coin-fall"]:not(.coin-fall) {
+    animation: none; opacity: 1; transform: rotate(0deg);
+  }
+}
+
+@keyframes coin-fall-exp-lay--soc-wrap-exp-soc-link-data-x-24-2 {
+  0% { transform: translateY(calc(-1 * 200px)) rotate(0deg); opacity: 0; }
+  70% { opacity: 1; }
+  100% { transform: translateY(0) rotate(0deg); opacity: 1; }
+}
+.exp-lay--soc-wrap .exp-soc-link[data-x="24"].coin-fall {
+  animation: coin-fall-exp-lay--soc-wrap-exp-soc-link-data-x-24-2 0.75s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s both;
+}
+.exp-lay--soc-wrap .exp-soc-link[data-x="24"][data-animista="coin-fall"]:not(.coin-fall) {
+  opacity: 0;
+  transform: translateY(calc(-1 * 200px)) rotate(0deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .exp-lay--soc-wrap .exp-soc-link[data-x="24"].coin-fall,
+  .exp-lay--soc-wrap .exp-soc-link[data-x="24"][data-animista="coin-fall"]:not(.coin-fall) {
+    animation: none; opacity: 1; transform: rotate(0deg);
+  }
+}
+
+@keyframes coin-fall-exp-lay--soc-wrap-exp-soc-link-data-x-84-3 {
+  0% { transform: translateY(calc(-1 * 230px)) rotate(0deg); opacity: 0; }
+  70% { opacity: 1; }
+  100% { transform: translateY(0) rotate(0deg); opacity: 1; }
+}
+.exp-lay--soc-wrap .exp-soc-link[data-x="84"].coin-fall {
+  animation: coin-fall-exp-lay--soc-wrap-exp-soc-link-data-x-84-3 0.8s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s both;
+}
+.exp-lay--soc-wrap .exp-soc-link[data-x="84"][data-animista="coin-fall"]:not(.coin-fall) {
+  opacity: 0;
+  transform: translateY(calc(-1 * 230px)) rotate(0deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .exp-lay--soc-wrap .exp-soc-link[data-x="84"].coin-fall,
+  .exp-lay--soc-wrap .exp-soc-link[data-x="84"][data-animista="coin-fall"]:not(.coin-fall) {
+    animation: none; opacity: 1; transform: rotate(0deg);
+  }
+}
+
+@keyframes coin-fall-exp-lay--soc-wrap-exp-soc-link-data-x-14-4 {
+  0% { transform: translateY(calc(-1 * 210px)) rotate(0deg); opacity: 0; }
+  70% { opacity: 1; }
+  100% { transform: translateY(0) rotate(0deg); opacity: 1; }
+}
+.exp-lay--soc-wrap .exp-soc-link[data-x="145"].coin-fall {
+  animation: coin-fall-exp-lay--soc-wrap-exp-soc-link-data-x-14-4 0.78s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s both;
+}
+.exp-lay--soc-wrap .exp-soc-link[data-x="145"][data-animista="coin-fall"]:not(.coin-fall) {
+  opacity: 0;
+  transform: translateY(calc(-1 * 210px)) rotate(0deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .exp-lay--soc-wrap .exp-soc-link[data-x="145"].coin-fall,
+  .exp-lay--soc-wrap .exp-soc-link[data-x="145"][data-animista="coin-fall"]:not(.coin-fall) {
+    animation: none; opacity: 1; transform: rotate(0deg);
+  }
+}
+
+@keyframes coin-fall-exp-lay--soc-wrap-exp-soc-link-data-x-20-5 {
+  0% { transform: translateY(calc(-1 * 220px)) rotate(0deg); opacity: 0; }
+  70% { opacity: 1; }
+  100% { transform: translateY(0) rotate(0deg); opacity: 1; }
+}
+.exp-lay--soc-wrap .exp-soc-link[data-x="208"].coin-fall {
+  animation: coin-fall-exp-lay--soc-wrap-exp-soc-link-data-x-20-5 0.82s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s both;
+}
+.exp-lay--soc-wrap .exp-soc-link[data-x="208"][data-animista="coin-fall"]:not(.coin-fall) {
+  opacity: 0;
+  transform: translateY(calc(-1 * 220px)) rotate(0deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .exp-lay--soc-wrap .exp-soc-link[data-x="208"].coin-fall,
+  .exp-lay--soc-wrap .exp-soc-link[data-x="208"][data-animista="coin-fall"]:not(.coin-fall) {
+    animation: none; opacity: 1; transform: rotate(0deg);
+  }
+}
+
+@keyframes coin-fall-exp-lay--soc-wrap-exp-soc-link-data-x-27-6 {
+  0% { transform: translateY(calc(-1 * 240px)) rotate(0deg); opacity: 0; }
+  70% { opacity: 1; }
+  100% { transform: translateY(0) rotate(0deg); opacity: 1; }
+}
+.exp-lay--soc-wrap .exp-soc-link[data-x="271"].coin-fall {
+  animation: coin-fall-exp-lay--soc-wrap-exp-soc-link-data-x-27-6 0.84s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s both;
+}
+.exp-lay--soc-wrap .exp-soc-link[data-x="271"][data-animista="coin-fall"]:not(.coin-fall) {
+  opacity: 0;
+  transform: translateY(calc(-1 * 240px)) rotate(0deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .exp-lay--soc-wrap .exp-soc-link[data-x="271"].coin-fall,
+  .exp-lay--soc-wrap .exp-soc-link[data-x="271"][data-animista="coin-fall"]:not(.coin-fall) {
+    animation: none; opacity: 1; transform: rotate(0deg);
+  }
+}
+
+@keyframes coin-fall-exp-lay--soc-wrap-exp-soc-link-data-x-33-7 {
+  0% { transform: translateY(calc(-1 * 215px)) rotate(0deg); opacity: 0; }
+  70% { opacity: 1; }
+  100% { transform: translateY(0) rotate(0deg); opacity: 1; }
+}
+.exp-lay--soc-wrap .exp-soc-link[data-x="332"].coin-fall {
+  animation: coin-fall-exp-lay--soc-wrap-exp-soc-link-data-x-33-7 0.8s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s both;
+}
+.exp-lay--soc-wrap .exp-soc-link[data-x="332"][data-animista="coin-fall"]:not(.coin-fall) {
+  opacity: 0;
+  transform: translateY(calc(-1 * 215px)) rotate(0deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .exp-lay--soc-wrap .exp-soc-link[data-x="332"].coin-fall,
+  .exp-lay--soc-wrap .exp-soc-link[data-x="332"][data-animista="coin-fall"]:not(.coin-fall) {
+    animation: none; opacity: 1; transform: rotate(0deg);
+  }
+}

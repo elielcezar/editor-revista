@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<!--
+  HOME #73 (Figma node 1365:238).
+  Estilos da página: css/home.css (tokens + @font-face FS Lola via ../fonts/).
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REVISTA Assai #73 - Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/animista.css">
+  <link rel="stylesheet" href="css/home.css?v=73-18">
+
+  <link rel="stylesheet" href="css/revista-73-shell.css?v=73-18">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SIDEBAR DESKTOP — visível apenas em min-width: 1024px.
+       No mobile este elemento fica display:none via CSS.
+       ═══════════════════════════════════════════════════════════ -->
+  <aside class="dt-sidebar" aria-label="Navegação da revista">
+    <!-- Logo Assaí Atacadista 124×124 (x:95 y:47 no frame 1920px) -->
+    <div class="dt-logo-wrap">
+      <img
+        src="assets/home73/dt-logo-assai.png"
+        alt="Assaí Atacadista"
+        class="dt-logo-img"
+        width="124"
+        height="124"
+      />
+    </div>
+    <!-- Menu vertical — Inter Bold 12.58px, borda inferior 5.72px colorida.
+         Items posicionados a partir de x:131 (grupo x:130 + offset 1.14) no Figma. -->
+    <nav class="dt-nav" aria-label="Seções da revista">
+      <a href="home.html"        class="dt-nav-item dt-nav--cap      is-active">CAPA</a>
+      <a href="categoria-principal.html"   class="dt-nav-item dt-nav--principal">PRINCIPAL</a>
+      <a href="categoria-gestao.html"      class="dt-nav-item dt-nav--gestao"  >GESTÃO</a>
+      <a href="categoria-mkt-digital.html" class="dt-nav-item dt-nav--mkt"     >MKT DIGITAL</a>
+      <a href="categoria-produto.html"     class="dt-nav-item dt-nav--produto"  >PRODUTO</a>
+      <a href="categoria-consumidor.html"  class="dt-nav-item dt-nav--consumidor">CONSUMIDOR</a>
+      <a href="categoria-delivery.html"    class="dt-nav-item dt-nav--delivery" >DELIVERY</a>
+      <a href="categoria-novo-negocio.html" class="dt-nav-item dt-nav--novo"   >NOVO NEGÓCIO</a>
+      <a href="categoria-academia.html"    class="dt-nav-item dt-nav--academia" >ACADEMIA ASSAÍ</a>
+      <a href="categoria-noticias.html"    class="dt-nav-item dt-nav--noticias" >NOTÍCIAS DO ASSAÍ</a>
+      <a href="download.html"    class="dt-nav-item dt-nav--download" >DOWNLOAD</a>
+      <a href="editorial.html"   class="dt-nav-item dt-nav--neutral"  >EDITORIAL</a>
+      <a href="parceiros.html"   class="dt-nav-item dt-nav--neutral"  >PARCEIROS</a>
+      <a href="expediente.html"  class="dt-nav-item dt-nav--neutral"  >EXPEDIENTE</a>
+    </nav>
+  </aside>
+
+  <main class="page">
+    <!-- HEAD HOME (1420:207): stacking acima do overlap 179–182px com hero -->
+    <header class="abs head-wrap home-lay--001">
+      <!-- Faixa azul 1px à direita (HEAD HOME 403 vs HEAD 402 no Figma) -->
+      <div class="abs home-lay--002" aria-hidden="true"></div>
+      <div class="head-inner">
+        <div class="abs home-lay--003"></div>
+        <div class="abs home-lay--004"></div>
+        <div class="abs head-edition">#73 mai . jun . 26</div>
+        <img class="abs img-contain home-lay--005" src="assets/home73/logo-head.svg" alt="" width="283" height="31" />
+        <nav class="head-menu" id="menu-principal" aria-label="Menu">
+          <div class="head-menu-inner">
+            <a class="stroke-cap is-active" href="home.html" data-menu-item>CAPA</a>
+            <a class="stroke-principal" href="categoria-principal.html" data-menu-item>PRINCIPAL</a>
+            <a class="stroke-gestao" href="categoria-gestao.html" data-menu-item>GESTÃO</a>
+            <a class="stroke-mkt" href="categoria-mkt-digital.html" data-menu-item>MKT DIGITAL</a>
+            <a class="stroke-produto" href="categoria-produto.html" data-menu-item>PRODUTO</a>
+            <a class="stroke-consumidor" href="categoria-consumidor.html" data-menu-item>CONSUMIDOR</a>
+            <a class="stroke-delivery" href="categoria-delivery.html" data-menu-item>DELIVERY</a>
+            <a class="stroke-novo" href="categoria-novo-negocio.html" data-menu-item>NOVO NEGÓCIO</a>
+            <a class="stroke-academia" href="categoria-academia.html" data-menu-item>ACADEMIA ASSAÍ</a>
+            <a class="stroke-noticias" href="categoria-noticias.html" data-menu-item>NOTÍCIAS DO ASSAÍ</a>
+            <a class="stroke-download" href="download.html" data-menu-item>DOWNLOAD</a>
+            <a class="stroke-neutral" href="editorial.html" data-menu-item>EDITORIAL</a>
+            <a class="stroke-neutral" href="parceiros.html" data-menu-item>PARCEIROS</a>
+            <a class="stroke-neutral" href="expediente.html" data-menu-item>EXPEDIENTE</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- chamada materia capa — layout_3QDC4R y:179; bg Rectangle 402×462 azul -->
+    <section class="abs hero-block home-lay--006" data-qa="hero-capa">
+      <div class="hero-g11">
+        <img src="assets/home73/g11-bg-d83231.png" alt="" />
+      </div>
+      <img class="abs img-contain home-lay--007" src="assets/home73/logo-capa.svg" alt="" />
+      <div class="hero-photo">
+        <a href="principal.html">
+
+          <img src="assets/home73/capa-main-305c74.png" alt="" />
+        </a>
+      </div>
+      <img class="abs mix-multiply home-lay--008" src="assets/home73/hero-gradient.svg" alt="" />
+      <h1 class="abs headline-main txt-shadow home-lay--009"><a href="principal.html">Começou em casa e hoje fatura <br>R$ 120 mil por mês. O que o Pede Bis fez que a maioria não faz</a></h1>
+      <div class="abs tag home-lay--010">CAPA</div>
+      <div class="hero-coin hero-coin--1" data-animista="coin-fall" data-animista-on="load" data-animista-delay="0s">
+        <img class="img-fill" src="assets/home73/coin-big-63663a.png" alt="" />
+      </div>
+      <div class="hero-coin hero-coin--2" data-animista="coin-fall" data-animista-on="load" data-animista-delay="0.12s">
+        <img class="img-fill" src="assets/home73/coin-mid-1-496ac3.png" alt="" />
+      </div>
+      <div class="hero-coin hero-coin--3" data-animista="coin-fall" data-animista-on="load" data-animista-delay="0.28s">
+        <img class="img-fill" src="assets/home73/coin-mid-2-496ac3.png" alt="" />
+      </div>
+      <div class="hero-coin hero-coin--4" data-animista="coin-fall" data-animista-on="load" data-animista-delay="0.44s">
+        <img class="img-fill" src="assets/home73/coin-mid-3-496ac3.png" alt="" />
+      </div>
+    </section>
+
+    <!-- Card 1 (hero não conta) · Novo negócio — degradê especial --248 -->
+    <section class="abs card-block home-lay--011" data-qa="card-novo-negocio" data-card-index="1">
+      <div class="layer-bg">
+        <img src="assets/home73/novo-negocio-42af90.png" alt="" />
+      </div>
+      <div class="grad-band grad-band--248 home-lay--012"></div>
+      <div class="abs tag home-lay--013">NOVO NEGÓCIO</div>
+      <p class="abs headline txt-shadow home-lay--014">Abacaxi temperado faz sucesso e fatura até <br>R$ 9 mil por mês</p>
+      <a href="novo-negocio.html" class="card-hit" aria-label="Novo negócio — abrir matéria"></a>
+    </section>
+
+    <!-- Card 2 · Gestão — fill_M7KAWO -->
+    <section class="abs card-block home-lay--015" data-qa="card-gestao-1" data-card-index="2">
+      <div class="layer-bg">
+        <img src="assets/home73/gestao-1-31fa3e.png" alt="" />
+      </div>
+      <div class="grad-band grad-band--figma-m7 home-lay--016"></div>
+      <div class="abs tag home-lay--017">GESTÃO</div>
+      <p class="abs headline txt-shadow home-lay--018">Faturou mais de R$ 6.750 neste mês? Seu MEI pode estar no limite</p>
+      <a href="gestao-2.html" class="card-hit" aria-label="Gestão (coluna) — abrir matéria"></a>
+    </section>
+
+    <!-- Card 3 · Consumidor — ordem Figma: foto → degradê → texto/tag → faixa canetas (1420:355) por cima do degradê -->
+    <section class="abs card-block home-lay--019" data-qa="card-consumidor" data-card-index="3">
+      <div class="layer-bg layer-bg--cover">
+        <img src="assets/home73/consumidor.png" alt="" />
+      </div>
+      <div class="grad-band grad-band--248 home-lay--020"></div>
+      <div class="abs tag tag--on-yellow home-lay--021">CONSUMIDOR</div>
+      <img class="abs consumidor-strip home-lay--022" src="assets/home73/consumidor-strip-60b3c1.png" alt="" data-animista="strip-enter-right" data-animista-observe="parent" />
+      <p class="abs headline txt-shadow home-lay--023">O cliente está comendo menos. O efeito das canetas emagrecedoras começa a mudar cardápios</p>
+      <a href="consumidor.html" class="card-hit" aria-label="Consumidor — abrir matéria"></a>
+    </section>
+
+    <!-- Card 4 · MKT digital — fill_M7KAWO -->
+    <section class="abs card-block home-lay--024" data-qa="card-mkt-digital" data-card-index="4">
+      <div class="layer-bg">
+        <img src="assets/home73/mkt-digital-5476a4.png" alt="" />
+      </div>
+      <div class="grad-band grad-band--figma-m7 home-lay--025"></div>
+      <div class="abs tag home-lay--026">MKT DIGITAL</div>
+      <p class="abs headline txt-shadow home-lay--027">49% dos usuários do TikTok já compraram algo que viram num vídeo</p>
+      <a href="mkt-digital.html" class="card-hit" aria-label="MKT digital — abrir matéria"></a>
+    </section>
+
+    <!-- Card 5 · Delivery — degradê especial --248 -->
+    <section class="abs card-block home-lay--028" data-qa="card-delivery" data-card-index="5">
+      <div class="layer-bg">
+        <img src="assets/home73/delivery-646de5.png" alt="" />
+      </div>
+      <div class="grad-band grad-band--248 home-lay--029"></div>
+      <div class="abs tag home-lay--030">DELIVERY</div>
+      <p class="abs headline txt-shadow home-lay--031">Embalagem a vácuo conserva até 10x mais e muda a operação</p>
+      <a href="delivery.html" class="card-hit" aria-label="Delivery — abrir matéria"></a>
+    </section>
+
+    <!-- Card 6 · Gestão (faixa) — fill_M7KAWO -->
+    <section class="abs card-block home-lay--032" data-qa="card-gestao-2" data-card-index="6">
+      <div class="layer-bg layer-bg--cover">
+        <video
+          class="home-card-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          disablePictureInPicture
+          aria-hidden="true"
+        >
+          <source src="assets/home73/video-gestao-home.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="grad-band grad-band--figma-m7 home-lay--033"></div>
+      <div class="abs tag home-lay--034">GESTÃO</div>
+      <p class="abs headline txt-shadow home-lay--035">Vender bem e lucrar são coisas diferentes. Você sabe o que tem sobrado como resultado?</p>
+      <a href="gestao.html" class="card-hit" aria-label="Gestão (faixa) — abrir matéria"></a>
+    </section>
+
+    <!-- Card 7 · Produto — degradê especial --248 -->
+    <section class="abs card-block home-lay--036" data-qa="card-produto" data-card-index="7">
+      <div class="layer-bg">
+        <img src="assets/home73/produto-30fdee.png" alt="" />
+      </div>
+      <div class="grad-band grad-band--248 home-lay--037"></div>
+      <div class="abs tag home-lay--038">PRODUTO</div>
+      <p class="abs headline txt-shadow home-lay--039">Bolo toalha felpuda é um clássico dos anos 80 com giro rápido e margem boa</p>
+      <a href="produto.html" class="card-hit" aria-label="Produto — abrir matéria"></a>
+    </section>
+
+    <!-- Card 8 · Notícias — fill_M7KAWO -->
+    <section class="abs card-block home-lay--040" data-qa="card-noticias" data-card-index="8">
+      <div class="layer-bg layer-bg--cover">
+        <video
+          class="home-card-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          disablePictureInPicture
+          aria-hidden="true"
+        >
+          <source src="assets/home73/home-video-sacola.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="grad-band grad-band--figma-m7 home-lay--041"></div>
+      <div class="abs tag home-lay--042">NOTÍCIAS ASSAÍ</div>
+      <p class="abs headline txt-shadow home-lay--043">Brasilidade está em alta e pode ser uma grande aposta este ano</p>
+      <a href="noticias.html" class="card-hit" aria-label="Notícias Assaí — abrir matéria"></a>
+    </section>
+
+    <!-- Card 9 · Academia — degradê Figma fill_M7KAWO (não usa --248) -->
+    <section class="abs card-block home-lay--044" data-qa="card-academia" data-card-index="9">
+      <div class="layer-bg">
+        <img src="assets/home73/academia-76724b.png" alt="" />
+      </div>
+      <div class="grad-band grad-band--figma-m7 home-lay--045"></div>
+      <div class="abs tag home-lay--046">ACADEMIA ASSAÍ</div>
+      <p class="abs headline txt-shadow home-lay--047">Protocolo "Não é Não": a lei que seu estabelecimento precisa cumprir</p>
+      <a href="academia.html" class="card-hit" aria-label="Academia Assaí — abrir matéria"></a>
+    </section>
+
+    <footer class="abs home-lay--048">
+      <img class="abs home-lay--049" src="assets/home73/footer-bg.svg" alt="" />
+      <a href="https://www.assai.com.br/nossas-lojas" target="_blank" rel="noopener noreferrer" class="abs foot-lojas home-lay--050">NOSSAS LOJAS</a>
+      <a href="#" class="abs home-lay--051" aria-label="Instagram">
+        <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9.87822 1.29971L9.87821 18.9999" stroke="#E4E4E4"/><path d="M19.4025 10.0156L9.87839 0.709835L0.354593 10.0156" stroke="#E4E4E4"/></svg>
+      </a>
+      <a href="#" class="abs home-lay--052" aria-label="Facebook">
+        <svg width="19" height="21" viewBox="0 0 19 21" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M14.9491 0.515165C16.6816 0.515165 18.0886 1.92196 18.0886 3.65454C18.0886 5.38712 16.6816 6.79392 14.9491 6.79392C13.2165 6.79392 11.8095 5.38712 11.8095 3.65454C11.8095 1.92196 13.2165 0.515165 14.9491 0.515165Z" stroke="#E4E4E4"/><path d="M14.9491 14.2063C16.6816 14.2063 18.0886 15.6131 18.0886 17.3456C18.0886 19.0782 16.6816 20.485 14.9491 20.485C13.2165 20.485 11.8095 19.0782 11.8095 17.3456C11.8095 15.6131 13.2165 14.2063 14.9491 14.2063Z" stroke="#E4E4E4"/><path d="M3.65464 7.45781C5.38723 7.45781 6.79415 8.86492 6.79415 10.5975C6.79415 12.3301 5.38723 13.7369 3.65464 13.7369C1.92205 13.7369 0.515165 12.3301 0.515165 10.5975C0.515165 8.86492 1.92205 7.45781 3.65464 7.45781Z" stroke="#E4E4E4"/><path d="M5.39917 8.67033L11.9127 4.76225" stroke="#E4E4E4"/><path d="M5.39917 12.5803L11.9127 16.4884" stroke="#E4E4E4"/></svg>
+      </a>
+      <a href="https://www.assai.com.br/nossas-lojas" target="_blank" rel="noopener noreferrer" class="abs home-lay--053" aria-label="YouTube">
+        <svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10.7392 2.94724C7.97313 3.25316 8.29179 7.52331 11.1599 7.31936C14.0152 7.11541 13.6711 2.62856 10.7392 2.94724ZM10.3441 13.7056C9.94893 13.3487 8.71246 11.2838 8.34279 10.6847C6.48172 7.67645 4.19999 3.97982 7.76916 1.11174C11.2619 -1.67984 16.5519 1.14997 16.0547 5.56043C15.8763 7.12831 12.9445 12.0105 11.861 13.3235C11.4403 13.8206 10.9559 14.2665 10.3313 13.7056" fill="#E4E4E4"/><path d="M4.41666 10.8479L0.796507 18.496H21.1918L17.5844 10.8479" stroke="#E4E4E4"/></svg>
+      </a>
+      <a href="https://www.assai.com.br" target="_blank" rel="noopener noreferrer" class="abs home-lay--054" aria-label="Marca Assaí">
+        <img src="assets/home73/footer-brand.svg" alt="" width="50" height="37" class="home-lay--055" />
+      </a>
+    </footer>
+  </main>
+  <script src="js/revista-73-menu.js?v=73-9" defer></script>
+  <script src="js/animista-scroll.js" defer></script>
+</body>
+</html>

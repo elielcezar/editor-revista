@@ -1,0 +1,359 @@
+@font-face {
+      font-family: "FS Lola";
+      font-weight: 400;
+      font-style: normal;
+      font-display: block;
+      src: url("../fonts/FS Lola-Regular.otf") format("opentype");
+    }
+    @font-face {
+      font-family: "FS Lola";
+      font-weight: 500;
+      font-style: normal;
+      font-display: block;
+      src: url("../fonts/FS Lola-Medium.otf") format("opentype");
+    }
+    @font-face {
+      font-family: "FS Lola";
+      font-weight: 500;
+      font-style: italic;
+      font-display: block;
+      src: url("../fonts/FS Lola-MediumItalic.otf") format("opentype");
+    }
+    @font-face {
+      font-family: "FS Lola";
+      font-weight: 700;
+      font-style: normal;
+      font-display: block;
+      src: url("../fonts/FS Lola-Bold.otf") format("opentype");
+    }
+    @font-face {
+      font-family: "FS Lola";
+      font-weight: 700;
+      font-style: italic;
+      font-display: block;
+      src: url("../fonts/FS Lola-BoldItalic.otf") format("opentype");
+    }
+    @font-face {
+      font-family: "Raspoutine Classic";
+      font-weight: 400;
+      font-style: normal;
+      font-display: block;
+      src: url("../fonts/RaspoutineClassic_TB.otf") format("opentype");
+    }
+    @font-face {
+      font-family: "Raspoutine Medium";
+      font-weight: 500;
+      font-style: italic;
+      font-display: block;
+      src: url("../fonts/RaspoutineMedium_TB.otf") format("opentype");
+    }
+
+    
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: #ffffff; }
+    body { display: flex; justify-content: center; min-height: 100vh; }
+
+    .page {
+      position: relative;
+      width: 402px;
+      height: 6174px;
+      background: #ffffff;
+      overflow-x: hidden;
+      overflow-y: visible;
+      flex-shrink: 0;
+    }
+    .abs { position: absolute; }
+    .img-fill { display: block; width: 100%; height: 100%; object-fit: fill; }
+    .img-cover { display: block; width: 100%; height: 100%; object-fit: cover; }
+    p, h1, h2 { margin: 0; }
+
+    .hero-photo {
+      left: -318px; top: 49px; width: 784px; height: 588px;
+      overflow: hidden; z-index: 2;
+    }
+
+    .hero-strip {
+      left: 0; top: 769px; width: 402px; height: 12px;
+      background: rgba(245, 245, 245, 0.5); z-index: 13;
+    }
+
+    .edicao {
+      left: 31px; top: 710px; width: 160px;
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 2px 15px; background: #ffaa00;
+      font-family: "FS Lola", serif; font-size: 20px; font-weight: 500; line-height: 1.2; color: #ffffff;
+      white-space: nowrap;
+      z-index: 40;
+    }
+    .autor {
+      left: 31px; top: 750px; width: 158px;
+      font-family: "FS Lola", serif; font-size: 18px; font-weight: 500; font-style: italic; line-height: 22px; color: #000000;
+      z-index: 41;
+    }
+
+    .title-classico {
+      left: 24px; top: 803px; width: 315px;
+      font-family: "FS Lola", serif; font-size: 60px; font-weight: 700; line-height: 1; color: #ff5564;
+      z-index: 35;
+    }
+    .title-que-vende {
+      left: 22px; top: 849px; width: 324px;
+      font-family: "FS Lola", serif; font-size: 60px; font-weight: 700; line-height: 1; color: #ff5564;
+      z-index: 14;
+    }
+
+    .subtitulo {
+      left: 27px; top: 957px; width: 350px;
+      font-family: "Raspoutine Classic", serif; font-size: 20px; font-weight: 400; line-height: 23px; color: #666666;
+      z-index: 14;
+    }
+
+    .intro {
+      left: 26px; top: 1085px; width: 350px;
+      font-family: "FS Lola", serif; font-size: 18px; font-weight: 400; line-height: 22px; color: #000000;
+      z-index: 16;
+    }
+
+    .shut-mid {
+      left: -181px; top: 1427px; width: 781px; height: 438px;
+      overflow: hidden; z-index: 30;
+    }
+
+    .espumadeira {
+      left: 155.03px; top: 1659.01px; width: 91.95px; height: 144.98px;
+      transform: rotate(17.425deg); transform-origin: center center;
+      z-index: 39;
+    }
+    .espumadeira img { width: 100%; height: 100%; object-fit: contain; display: block; }
+
+    .ellipse-rosa {
+      left: 19px; top: 1704px; width: 357px; height: 178.5px;
+      border-radius: 178.5px 178.5px 0 0;
+      background: #ff5564;
+      border: 1px solid #ffaa00;
+      border-bottom: 0;
+      z-index: 37;
+    }
+
+    .qualidade {
+      left: 77px; top: 1811px; width: 234px;
+      font-family: "FS Lola", serif; font-size: 24px; font-weight: 700; line-height: 1.14; text-align: center; color: #ffdc00;
+      text-transform: uppercase;
+      z-index: 38;
+    }
+
+    .produz {
+      left: 26px; top: 1908px; width: 350px;
+      font-family: "FS Lola", serif; font-size: 18px; font-weight: 400; line-height: 22px; text-align: center; color: #000000;
+      z-index: 17;
+    }
+
+    .destaque-cuidados {
+      left: 26px; top: 2069px; width: 350px;
+      font-family: "FS Lola", serif; font-size: 20px; font-weight: 700; font-style: italic; line-height: 1.2; text-align: center; color: #ff5564;
+      z-index: 19;
+    }
+
+    .card {
+      left: 22px; width: 359px; height: 131px;
+      background: #f5f5f5;
+      border: 1px solid #ff5564;
+      border-radius: 21px;
+    }
+    .card-1 { top: 2169px; z-index: 9; }
+    .card-2 { top: 2314px; z-index: 10; }
+    .card-3 { top: 2459px; z-index: 11; }
+    .card-4 { left: 21px; top: 2605px; z-index: 1; }
+
+    .card-text {
+      left: 43px; width: 308px;
+      font-family: "FS Lola", serif; font-size: 18px; font-weight: 400; line-height: 22px; text-align: center; color: #000000;
+    }
+    .card-text strong { font-weight: 700; }
+    .card-text-1 { top: 2194px; height: 81px; z-index: 18; }
+    .card-text-2 { top: 2344px; height: 81px; z-index: 20; }
+    .card-text-3 { top: 2494px; height: 61px; z-index: 21; }
+    .card-text-4 { left: 42px; top: 2639px; height: 61px; z-index: 22; }
+
+    .refrigerados {
+      left: 26px; top: 2777px; width: 350px;
+      font-family: "FS Lola", serif; font-size: 20px; font-weight: 700; font-style: italic; line-height: 1.1; text-align: center; color: #ff5564;
+      z-index: 26;
+    }
+
+    .para-aprender {
+      left: 43px; top: 2868px; width: 308px;
+      font-family: "FS Lola", serif; font-size: 18px; font-weight: 400; line-height: 22px; text-align: center; color: #000000;
+      z-index: 23;
+    }
+
+    .cta-btn {
+      left: 24px; top: 2952px; width: 347px; height: 42px;
+      border: 0; border-radius: 10px; background: #b40082;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      font-family: Inter, sans-serif; font-size: 18px; font-weight: 700; color: #ffffff;
+      text-decoration: none;
+      z-index: 49;
+    }
+
+    .shut-aprender {
+      left: -2px; top: 2968px; width: 403px; height: 285px;
+      overflow: hidden; z-index: 48;
+    }
+
+    .como-aumentar {
+      left: 24px; top: 3279px; width: 350px;
+      font-family: "FS Lola", serif; font-size: 24px; font-weight: 700; line-height: 1.14; text-transform: uppercase; color: #ff5564;
+      z-index: 27;
+    }
+
+    .longo {
+      left: 21px; top: 3333px; width: 350px;
+      font-family: "FS Lola", serif; font-size: 18px; font-weight: 400; line-height: 22px; color: #000000;
+      z-index: 24;
+    }
+    .longo em.lead {
+      display: block;
+      font-weight: 700;
+      font-style: italic;
+      font-size: 20px;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .shut-tips {
+      left: -4px; top: 4005px; width: 430px; height: 286px;
+      overflow: hidden; z-index: 31;
+    }
+
+    .bg-rosa-tips {
+      left: -24px; top: 4261px; width: 450px; height: 750px;
+      background: #ff5564; opacity: 0.2; z-index: 2;
+    }
+
+    .alguns-cuidados {
+      left: 24px; top: 4349px; width: 354px;
+      font-family: "FS Lola", serif; font-size: 20px; font-weight: 700; line-height: 1.2; text-align: center; color: #b40082;
+      z-index: 46;
+    }
+
+    .tips-block {
+      left: 60px; top: 4467px; width: 280px;
+      font-family: "FS Lola", serif; font-size: 18px; font-weight: 400; line-height: 22px; text-align: center; color: #000000;
+      z-index: 28;
+    }
+    .tips-item { padding: 12px 0 16px; }
+    .tips-item .tips-title {
+      display: block;
+      font-size: 20px;
+      font-weight: 700;
+      font-style: italic;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+    .tips-divider {
+      width: 352px; height: 6px; z-index: 42;
+    }
+    .tips-divider svg { width: 100%; height: 100%; display: block; }
+    .tips-divider img {
+      display: block;
+      width: 100%;
+      height: auto;
+      transform-origin: center center;
+    }
+    .div-1 { left: 24px; top: 4564px; }
+    .div-2 { left: 24px; top: 4647px; }
+    .div-3 { left: 25px; top: 4768px; }
+    .div-4 { left: 24px; top: 4889px; }
+
+    .luva {
+      left: 518px; top: 4750px; width: 77px; height: 82px;
+      overflow: hidden; z-index: 36;
+    }
+
+    .g5-1 { left: -2px; top: 5005px; width: 406px; height: 235px; overflow: hidden; z-index: 3; }
+    .g5-2 { left: -2px; top: 5239px; width: 406px; height: 234px; overflow: hidden; z-index: 4; }
+    .g5-3 { left: -2px; top: 5473px; width: 406px; height: 234px; overflow: hidden; z-index: 5; }
+    .g5-4 { left: -2px; top: 5707px; width: 406px; height: 235px; overflow: hidden; z-index: 6; }
+    .g5-5 { left: -2px; top: 5941px; width: 408.38px; height: 128px; overflow: hidden; z-index: 7; }
+    .g5-6 { left: -2px; top: 6041px; width: 408.38px; height: 128px; overflow: hidden; z-index: 8; }
+
+    .recipe-card {
+      left: 22px; top: 5079px; width: 360px; height: 958px;
+      background: #ffffff;
+      border-radius: 34px;
+      z-index: 32;
+    }
+    .colheres {
+      left: 156px; top: 5103px; width: 91px; height: 83px;
+      overflow: hidden; z-index: 34;
+    }
+    .recipe-text {
+      left: 50px; top: 5208px; width: 306px;
+      font-family: "FS Lola", serif; font-size: 18px; font-weight: 400; line-height: 22px; color: #000000;
+      z-index: 33;
+    }
+    .recipe-text .rec-title {
+      display: block;
+      font-family: "FS Lola", serif;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 26px;
+      color: #ff5564;
+      margin-bottom: 12px;
+    }
+    .recipe-text .rec-h {
+      font-family: "FS Lola", serif;
+      font-weight: 700;
+      font-style: italic;
+      color: #532f82;
+    }
+    .recipe-text .rec-bullet {
+      color: #532f82;
+    }
+    .recipe-text .rec-block { margin-bottom: 6px; }
+    .recipe-text .rec-gap { display: block; height: 12px; }
+
+    .coco {
+      left: 117px; top: 426px; width: 349px; height: 349px;
+      overflow: hidden; z-index: 29;
+    }
+
+    .deco-mid-coin { left: 497px; top: 2190px; width: 122px; height: 122px; z-index: 5; overflow: hidden; }
+
+    /* HEADER (top of page) */
+    .head-wrap { left: 0; top: 0; width: 402px; height: 182px; z-index: 200; }
+    .head-inner { position: absolute; inset: 0; background: #ffffff; }
+    .head-color { left: 0; top: 0; width: 402px; height: 141px; background: #ffaa00; z-index: 1; }
+    .head-gray { left: 0; top: 141px; width: 402px; height: 41px; background: #d9d9d9; z-index: 1; }
+    .head-logo {
+      left: 54px; top: 78px; width: 282.71px; height: 30.71px; z-index: 3;
+      line-height: 0; pointer-events: none;
+    }
+    .head-logo img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    #menu-principal.head-menu {
+      position: absolute; left: 0; top: 146px; width: 402px; height: 33px; z-index: 4;
+    }
+
+    /* FOOTER */
+    .footer { left: -1px; top: 6060px; width: 403.33px; height: 114px; z-index: 47; }
+    .footer-bg-top { left: 0; top: 0; width: 403.33px; height: 56.9px; }
+    .footer-bg-bottom { left: 1px; top: 45px; width: 402px; height: 69px; }
+    .foot-icon {
+      position: absolute; z-index: 22; display: flex; align-items: center; justify-content: center;
+      text-decoration: none; line-height: 0;
+    }
+    .foot-icon-left { left: 26px; top: 71px; width: 18.02px; height: 18.76px; }
+    .foot-icon-mid { left: 58px; top: 71px; width: 17.06px; height: 19.38px; }
+    .foot-icon-right { left: 361px; top: 71px; width: 20.23px; height: 18.35px; }
+    .foot-brand { left: 174px; top: 61px; width: 50px; height: 36.36px; }
+    .foot-lojas {
+      left: 291px; top: 76px; z-index: 22;
+      font-family: "FS Lola", serif; font-size: 10px; font-weight: 500; color: #ffffff; text-decoration: none;
+    }
+
+@media (min-width: 1024px) {
+  .head-wrap { height: 141px; overflow: hidden; }
+  .head-inner { height: 147px; bottom: auto; }
+}

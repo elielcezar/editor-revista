@@ -1,0 +1,22 @@
+/*
+ * Revista Assaí #73 — Categoria editorial (tema).
+ * Layout compartilhado: css/categoria-lista.css
+ */
+
+.cat-band-azul {
+  background: #666666;
+}
+
+.cat-edition-pill {
+  background: #666666;
+}
+
+.page-categorias--sem-hero .cat-lista {
+  margin-top: 182px;
+}
+
+@media (min-width: 1024px) {
+  .page-categorias--sem-hero .cat-lista {
+    margin-top: 141px;
+  }
+}

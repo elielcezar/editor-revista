@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<!--
+  GESTÃO 01 #73 — Figma node 428:2820 (layout da página: 402×6544 px — alinhado à Home/Principal).
+  Estilos: css/gestao.css (classes .gestao-lay--NNN = posições; re-gerar com tools/hoist_inline_styles.py se precisar hoist de novo).
+  QA lado a lado com o PDF do designer: assets/ref/comparar-gestao.html — regenerar PNGs: assets/ref/atualizar-comparacao-gestao.sh
+  Secções no DOM (ids): #sec-fundos-deco, #sec-hero, #sec-texto-abertura, #sec-infografico-gastos,
+  #sec-entao-margem-foto, #sec-miolo-laranja-academia (nested: #sec-uso-erros, #sec-chamada-calculadora,
+  #sec-icones-miolo, #sec-paragrafos-margem, #sec-diagrama-exemplo, #sec-captura-academia),
+  #sec-calculadora-widget, #sec-publicidade, #sec-deco-moedas, #sec-cta-academia, #sec-rodape, #sec-cabecalho.
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REVISTA Assaí #73 — Gestão</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/gestao.css">
+
+  <link rel="stylesheet" href="css/revista-73-shell.css?v=73-6">
+</head>
+<body>
+  <aside class="dt-sidebar" aria-label="Navegação da revista">
+    <div class="dt-logo-wrap">
+      <img
+        src="assets/home73/dt-logo-assai.png"
+        alt="Assaí Atacadista"
+        class="dt-logo-img"
+        width="124"
+        height="124"
+      />
+    </div>
+    <nav class="dt-nav" aria-label="Seções da revista">
+      <a href="home.html"         class="dt-nav-item dt-nav--cap"       >CAPA</a>
+      <a href="categoria-principal.html"    class="dt-nav-item dt-nav--principal"  >PRINCIPAL</a>
+      <a href="categoria-gestao.html"       class="dt-nav-item dt-nav--gestao is-active"     >GESTÃO</a>
+      <a href="categoria-mkt-digital.html"  class="dt-nav-item dt-nav--mkt"        >MKT DIGITAL</a>
+      <a href="categoria-produto.html"      class="dt-nav-item dt-nav--produto"     >PRODUTO</a>
+      <a href="categoria-consumidor.html"   class="dt-nav-item dt-nav--consumidor"  >CONSUMIDOR</a>
+      <a href="categoria-delivery.html"     class="dt-nav-item dt-nav--delivery"    >DELIVERY</a>
+      <a href="categoria-novo-negocio.html" class="dt-nav-item dt-nav--novo"        >NOVO NEGÓCIO</a>
+      <a href="categoria-academia.html"     class="dt-nav-item dt-nav--academia"    >ACADEMIA ASSAÍ</a>
+      <a href="categoria-noticias.html"     class="dt-nav-item dt-nav--noticias"    >NOTÍCIAS DO ASSAÍ</a>
+      <a href="download.html"     class="dt-nav-item dt-nav--download"    >DOWNLOAD</a>
+      <a href="editorial.html"    class="dt-nav-item dt-nav--neutral"     >EDITORIAL</a>
+      <a href="parceiros.html"    class="dt-nav-item dt-nav--neutral"     >PARCEIROS</a>
+      <a href="expediente.html"   class="dt-nav-item dt-nav--neutral"     >EXPEDIENTE</a>
+    </nav>
+  </aside>
+  <main class="page-gestao" aria-label="Matéria Gestão 01 número 73 — node Figma 428:2820">
+
+    <!-- #sec-fundos-deco — Retângulos, gradientes, cards tracejados (fundo do miolo) -->
+    <section id="sec-fundos-deco" class="sec-gestao" aria-label="Fundos e decorações geométricas">
+    <div class="abs gestao-lay--001"></div>
+    <div class="abs gestao-lay--002"></div>
+    <div class="abs deco-gradient-1372 gestao-lay--003"></div>
+    <div class="abs deco-gradient-1236 gestao-lay--004"></div>
+    <div class="abs stroke-card gestao-lay--005 gestao-conceitos-legacy"></div>
+    <div class="abs stroke-card gestao-lay--006"></div>
+    <div class="abs stroke-card gestao-lay--007 gestao-conceitos-legacy"></div>
+    <div class="abs stroke-card gestao-lay--008"></div>
+    <div class="abs stroke-card--soft gestao-lay--009"></div>
+    </section>
+
+    <!-- #sec-hero — Manchete, selo, Ellipse 116 + Subtract (empilhamento Figma: textos → elipse → subtract) -->
+    <section id="sec-hero" class="sec-gestao" aria-label="Abertura hero">
+    <p class="abs t-manchete-xl gestao-lay--010">O LUCRO?</p>
+    <p class="abs t-manchete-rasp gestao-lay--011">Como calcular</p>
+    <div class="abs badge-edicao gestao-lay--012">
+      <span>#73 mai . jun . 26</span>
+    </div>
+    <p class="abs gestao-lay--013">Por: Manoela Leão</p>
+    <p class="abs t-sub-rasp gestao-lay--014">Sem controle de custos e despesas, o lucro pode desaparecer mesmo quando as vendas estão indo bem</p>
+
+    <div class="hero-ellipse-frame" aria-hidden="true">
+      <img class="hero-ellipse-export" src="assets/gestao73/hero-ellipse-figma-export.png" alt="" width="1182" height="591" decoding="async" />
+    </div>
+    <img class="abs hero-subtract-img gestao-lay--015" src="assets/gestao73/hero-subtract.png" alt="" />
+    </section>
+
+    <!-- #sec-texto-abertura — Primeiros parágrafos de corpo -->
+    <section id="sec-texto-abertura" class="sec-gestao" aria-label="Texto de abertura">
+    <p class="abs t-corp gestao-lay--016">Vender bastante não significa, necessariamente, que o negócio está lucrando. Essa é uma das descobertas mais difíceis para quem empreende: o movimento no caixa não reflete, sozinho, o que de fato sobrou. Para saber se o negócio gerou lucro, é preciso subtrair da receita tudo o que foi gasto para produzir e para manter a operação funcionando. Vamos aprender a calcular?</p>
+    <p class="abs t-corp gestao-lay--017">Nem todo dinheiro sai do caixa pelo mesmo motivo. Parte vai para produzir e manter o negócio funcionando. Parte vai para fazê-lo crescer. Saber distinguir cada tipo de gasto é o que permite calcular o lucro com precisão.</p>
+    </section>
+
+    <!-- #sec-infografico-gastos — Blocos coloridos, rótulos e ícones dos tipos de gasto -->
+    <section id="sec-infografico-gastos" class="sec-gestao" aria-label="Infográfico tipos de gasto">
+
+    <!-- 3 blocos: intro + FATURAMENTO + LUCRO (os 3 empilham no scroll) -->
+    <div class="abs gestao-conceitos" id="gestao-conceitos">
+      <div class="gestao-conceitos__cards" id="gestao-conceitos-cards">
+        <article class="gestao-conceitos-card gestao-conceitos-card--intro">
+          <div class="gestao-conceitos-card__inner">
+            <div class="gestao-conceitos-card__content gestao-conceitos-card__content--intro">
+              <p class="gestao-conceitos__intro">Separando conceitos que costumam ser confundidos.</p>
+            </div>
+          </div>
+        </article>
+        <article class="gestao-conceitos-card gestao-conceitos-card--faturamento">
+          <div class="gestao-conceitos-card__inner">
+            <img class="gestao-conceitos-card__bg" src="assets/gestao73/rectangle-blue.png" alt="" aria-hidden="true" decoding="async" />
+            <div class="gestao-conceitos-card__content">
+              <img class="gestao-conceitos-card__icon" src="assets/gestao73/gestao-dinheiro-8-496ac3.png" alt="" width="52" height="52" decoding="async" />
+              <h3 class="gestao-conceitos-card__title">FATURAMENTO</h3>
+              <p class="gestao-conceitos-card__text">Tudo que entrou com as vendas, antes de descontar qualquer gasto.</p>
+            </div>
+          </div>
+        </article>
+        <article class="gestao-conceitos-card gestao-conceitos-card--lucro">
+          <div class="gestao-conceitos-card__inner">
+            <img class="gestao-conceitos-card__bg" src="assets/gestao73/rectangle-blue.png" alt="" aria-hidden="true" decoding="async" />
+            <div class="gestao-conceitos-card__content">
+              <img class="gestao-conceitos-card__icon" src="assets/gestao73/gestao-ganho.png" alt="" width="52" height="52" decoding="async" />
+              <h3 class="gestao-conceitos-card__title">LUCRO</h3>
+              <p class="gestao-conceitos-card__text">É o que sobra depois que todos os gastos são pagos.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <p class="abs t-corp-ctr gestao-lay--018 gestao-conceitos-legacy">Tudo que entrou com as vendas, antes de descontar qualquer gasto.</p>
+    <p class="abs t-corp-ctr t-infografico-gasto-detalhe gestao-lay--019 gestao-gastos-legacy">São os gastos diretamente ligados ao que você produz ou vende: ingredientes, embalagens, mão de obra de produção.</p>
+    <p class="abs t-corp-ctr gestao-lay--020 gestao-conceitos-legacy">É o que sobra depois que todos os gastos são pagos. </p>
+    <p class="abs t-corp-ctr t-infografico-gasto-detalhe gestao-lay--021 gestao-gastos-legacy">São os gastos necessários para manter o negócio funcionando, mas que não estão ligados diretamente à produção: aluguel, energia elétrica, internet, salários de quem trabalha na parte administrativa.</p>
+    <p class="abs t-corp-ctr gestao-lay--022 gestao-gastos-legacy">Compra de equipamento ou reforma.<br> <span class="hl-yellow">Não entra no cálculo do lucro do mês.</span></p>
+
+    <p class="abs gestao-lay--023 gestao-conceitos-legacy">Separando conceitos que costumam ser confundidos.</p>
+    <img class="abs img-cover gestao-lay--099 gestao-gastos-head-bg" src="assets/gestao73/rectangle-orange.png" alt="" />
+    <p class="abs gestao-lay--024">Tipos de gastos do seu negócio</p>
+
+    <img class="abs img-cover gestao-lay--025 gestao-gastos-legacy" src="assets/gestao73/gestao-carteiras.png" alt="" />
+    <p class="abs t-lbl-amarelo gestao-lay--026 gestao-conceitos-legacy">FATURAMENTO</p>
+    <p class="abs t-lbl-amarelo gestao-lay--027 gestao-gastos-legacy">CUSTOS DIRETOS</p>
+    <p class="abs t-lbl-amarelo gestao-lay--028 gestao-conceitos-legacy">LUCRO</p>
+    <p class="abs t-lbl-amarelo gestao-lay--029 gestao-gastos-legacy">DESPESAS OPERACIONAIS</p>
+    <p class="abs t-lbl-amarelo gestao-lay--030 gestao-gastos-legacy">INVESTIMENTO</p>
+    <img class="abs img-cover gestao-lay--031 gestao-conceitos-legacy" src="assets/gestao73/gestao-ganho.png" alt="" />
+    <img class="abs img-cover gestao-lay--032" src="assets/gestao73/gestao-ganho-3.png" alt="" />
+
+    <!-- Tipos de gastos — stack de cards no scroll -->
+    <div class="abs gestao-gastos" id="gestao-gastos-stack">
+      <div class="gestao-gastos__cards">
+        <article class="gestao-gastos-card gestao-gastos-card--custos">
+          <div class="gestao-gastos-card__inner">
+            <img class="gestao-gastos-card__bg" src="assets/gestao73/rectangle-orange1.png" alt="" aria-hidden="true" decoding="async" />
+            <div class="gestao-gastos-card__content">
+              <img class="gestao-gastos-card__icon" src="assets/gestao73/gestao-caixa.png" alt="" width="52" height="52" decoding="async" />
+              <h3 class="gestao-gastos-card__title">CUSTOS DIRETOS</h3>
+              <p class="gestao-gastos-card__text">São os gastos diretamente ligados ao que você produz ou vende: ingredientes, embalagens, mão de obra de produção.</p>
+            </div>
+          </div>
+        </article>
+        <article class="gestao-gastos-card gestao-gastos-card--despesas">
+          <div class="gestao-gastos-card__inner">
+            <img class="gestao-gastos-card__bg" src="assets/gestao73/rectangle-orange2.png" alt="" aria-hidden="true" decoding="async" />
+            <div class="gestao-gastos-card__content">
+              <img class="gestao-gastos-card__icon" src="assets/gestao73/gestao-licenciamento.png" alt="" width="51" height="51" decoding="async" />
+              <h3 class="gestao-gastos-card__title">DESPESAS OPERACIONAIS</h3>
+              <p class="gestao-gastos-card__text">São os gastos necessários para manter o negócio funcionando, mas que não estão ligados diretamente à produção: aluguel, energia elétrica, internet, salários de quem trabalha na parte administrativa.</p>
+            </div>
+          </div>
+        </article>
+        <article class="gestao-gastos-card gestao-gastos-card--investimento">
+          <div class="gestao-gastos-card__inner">
+            <img class="gestao-gastos-card__bg" src="assets/gestao73/rectangle-orange3.png" alt="" aria-hidden="true" decoding="async" />
+            <div class="gestao-gastos-card__content">
+              <img class="gestao-gastos-card__icon" src="assets/gestao73/gestao-carteiras.png" alt="" width="57" height="57" decoding="async" />
+              <h3 class="gestao-gastos-card__title">INVESTIMENTO</h3>
+              <p class="gestao-gastos-card__text">Compra de equipamento ou reforma.<br><span class="hl-yellow">Não entra no cálculo do lucro do mês.</span></p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+    </section>
+
+    <!-- #sec-entao-margem-foto — Chamada «Então…», cartão laranja translúcido, texto de margem, faixa com foto -->
+    <section id="sec-entao-margem-foto" class="sec-gestao" aria-label="Então: cálculo do lucro, margem e foto">
+    <p class="abs t-inter-ctr gestao-lay--033">ENTÃO, COMO É <br/>CALCULADO O LUCRO?</p>
+    <div class="abs gestao-lay--034"></div>
+    <p class="abs t-margem-bloco gestao-lay--035">A margem de lucro é que mostra quanto de cada real vendido se transformou em ganho real.<br/><br/>No setor de alimentação, a margem costuma variar entre 20% e 40%.</p>
+    <img class="abs img-cover gestao-lay--036" src="assets/gestao73/gestao-foto-bg.png" alt="" />
+    </section>
+
+    <!-- #sec-miolo-laranja-academia — Bloco laranja: cópias, listas, chamada à calculadora, diagrama, captura -->
+    <section id="sec-miolo-laranja-academia" class="sec-gestao" aria-label="Miolo laranja e Academia">
+    <p class="abs t-academia-carlos gestao-lay--037">O economista e educador financeiro Carlos Eduardo Costa explica tudo isso em um curso gratuito na Academia Assaí.</p>
+    <p class="abs gestao-lay--038">Quer entender melhor esses e outros conceitos para ter mais controle do seu negócio?</p>
+
+    <!-- #sec-uso-erros — Bloco interno 4825: uso no dia a dia + erros -->
+    <section id="sec-uso-erros" class="sec-gestao" aria-label="Como usar os números e erros comuns">
+    <div class="abs gestao-lay--039">
+      <p class="t-inter-left gestao-lay--040">COMO USAR ESSES NÚMEROS NO DIA A DIA</p>
+      <div class="t-corp gestao-lay--041">
+        <p class="gestao-lay--042">Calcular o lucro apenas uma vez não é suficiente. Acompanhar esses números todo mês permite tomar decisões com mais segurança. Com eles em mãos, você consegue:</p>
+        <p class="gestao-lay--043"><span class="hl-green">✓</span>  Ajustar preços com base na margem que você quer atingir</p>
+        <p class="gestao-lay--044"><span class="hl-green">✓</span>  Identificar quais gastos podem ser reduzidos sem comprometer a qualidade</p>
+        <p class="gestao-lay--045"><span class="hl-green">✓</span>  Avaliar se o volume de vendas está sustentando a operação</p>
+        <p class="gestao-lay--046"><span class="hl-green">✓</span>  Planejar um investimento novo sem colocar o caixa em risco</p>
+      </div>
+      <p class="t-inter-left gestao-lay--047">ERROS QUE COMPROMETEM O RESULTADO</p>
+      <div class="t-corp gestao-lay--048">
+        <p class="gestao-lay--049">Alguns erros são comuns entre quem está começando a organizar as finanças do negócio.</p>
+        <p class="gestao-lay--050"><span class="hl-red-ico">❌</span> Considerar só o faturamento e ignorar custos e despesas</p>
+        <p class="gestao-lay--051"><span class="hl-red-ico">❌</span> Esquecer gastos fixos como aluguel e energia na hora de calcular</p>
+        <p class="gestao-lay--052"><span class="hl-red-ico">❌</span> Misturar o dinheiro do negócio com as finanças pessoais</p>
+        <p class="gestao-lay--053"><span class="hl-red-ico">❌</span> Deixar de atualizar os custos quando os preços dos insumos sobem</p>
+      </div>
+    </div>
+    </section>
+
+    <!-- #sec-chamada-calculadora — Subtract SVG (arco / meio círculo) Figma 1304:401 + ícone + texto -->
+    <section id="sec-chamada-calculadora" class="sec-gestao" aria-label="Chamada para a calculadora">
+    <img class="abs img-fill gestao-lay--054" src="assets/gestao73/gestao-gradient-subtract.svg" alt="" />
+    <img class="abs img-cover gestao-lay--055" src="assets/gestao73/gestao-calculadora-icon.png" alt="" />
+    <p class="abs gestao-lay--056"><span class="gestao-lay--057">Quer testar na prática?</span><br/><span class="gestao-lay--058">Simule usando a calculadora</span></p>
+    </section>
+
+    <!-- #sec-icones-miolo — Ícones de caixa e licenciamento no fluxo do infográfico -->
+    <section id="sec-icones-miolo" class="sec-gestao" aria-label="Ícones do miolo">
+    <img class="abs img-cover gestao-lay--059 gestao-gastos-legacy" src="assets/gestao73/gestao-caixa.png" alt="" />
+    <img class="abs img-cover gestao-lay--060 gestao-gastos-legacy" src="assets/gestao73/gestao-licenciamento.png" alt="" />
+    </section>
+
+    <!-- #sec-paragrafos-margem — Parágrafos de transição para margem de lucro -->
+    <section id="sec-paragrafos-margem" class="sec-gestao" aria-label="Texto sobre margem">
+    <p class="abs t-corp gestao-lay--061">Essa separação importa porque ela revela onde o dinheiro está sendo consumido e onde há oportunidade para ajuste. Com os gastos organizados por tipo, o cálculo do lucro passa a refletir o que o negócio realmente gerou.</p>
+    <p class="abs t-corp gestao-lay--062">Saber o valor do lucro é o primeiro passo. Mas para entender se esse resultado é saudável para o negócio, você precisa de mais um número: a margem de lucro. Vamos lá!</p>
+    </section>
+
+    <!-- #sec-diagrama-exemplo — Números de exemplo e fórmula da margem -->
+    <section id="sec-diagrama-exemplo" class="sec-gestao" aria-label="Diagrama e exemplo numérico">
+    <p class="abs gestao-lay--063">R$ 30.000</p>
+    <p class="abs gestao-lay--064">R$ 8.000</p>
+    <p class="abs t-corp gestao-lay--065">- R$ 12.000</p>
+    <p class="abs t-corp gestao-lay--066">- R$ 10.000</p>
+    <p class="abs t-corp-ctr gestao-lay--067">(R$ 8.000 ÷ R$ 30.000) x 100 = <span class="italic-q">26,6%</span></p>
+    <p class="abs t-corp-ctr gestao-lay--068">IMPORTANTE: primeiro você divide o que está entre parênteses e, só depois, você multiplica o resultado por cem.</p>
+
+    <div class="abs gestao-lay--069">
+      <p class="t-lbl-amarelo gestao-lay--070">FATURAMENTO</p>
+      <div class="gestao-lay--071"></div>
+      <p class="t-lbl-amarelo gestao-lay--072">CUSTOS</p>
+      <div class="gestao-lay--073"></div>
+      <p class="t-lbl-amarelo gestao-lay--074">DESPESAS</p>
+    </div>
+    <div class="abs gestao-lay--075">
+      <p class="t-lbl-amarelo gestao-lay--076">LUCRO</p>
+    </div>
+    <div class="abs gestao-lay--077">
+      <span class="t-lbl-amarelo gestao-lay--078">(LUCRO ÷ FATURAMENTO) x 100</span>
+    </div>
+    <div class="abs gestao-lay--079"></div>
+    </section>
+
+    <!-- #sec-captura-academia — Print do curso na Academia -->
+    <section id="sec-captura-academia" class="sec-gestao" aria-label="Captura de tela Academia Assaí">
+    <img class="abs caps-academia gestao-lay--080" src="assets/gestao73/gestao-captura-academia.png" alt="" />
+    </section>
+
+    </section>
+    <!-- fim #sec-miolo-laranja-academia -->
+
+    <!-- Calculadora HTML (substitui raster — layout_1C7YM5, layout_D81AC9) -->
+    <section id="sec-calculadora-widget" class="abs calc sec-gestao" aria-label="Calculadora de lucro">
+      <div class="calc__scroll">
+        <div class="calc-block">
+          <p class="calc-h calc-h--azul">Faturamento</p>
+          <div class="calc-field">
+            <span class="calc-lbl">Total de vendas no mês</span>
+            <div class="calc-inputbox">
+              <span class="calc-rs">R$</span>
+              <input type="text" inputmode="decimal" value="0,00" data-calc="faturamento" aria-label="Total de vendas no mês" />
+            </div>
+          </div>
+        </div>
+        <div class="calc-sep" role="presentation"></div>
+        <div class="calc-block">
+          <p class="calc-h calc-h--vm">Custos diretos</p>
+          <div class="calc-field">
+            <span class="calc-lbl">Ingredientes e embalagens</span>
+            <div class="calc-inputbox"><span class="calc-rs">R$</span><input type="text" inputmode="decimal" value="0,00" data-calc="custo-ingredientes" aria-label="Ingredientes e embalagens" /></div>
+          </div>
+          <div class="calc-field">
+            <span class="calc-lbl">Mão de obra de produção</span>
+            <div class="calc-inputbox"><span class="calc-rs">R$</span><input type="text" inputmode="decimal" value="0,00" data-calc="custo-mao-obra" aria-label="Mão de obra de produção" /></div>
+          </div>
+        </div>
+        <div class="calc-sep" role="presentation"></div>
+        <div class="calc-block">
+          <p class="calc-h calc-h--vm">Despesas operacionais</p>
+          <div class="calc-field">
+            <span class="calc-lbl">Aluguel e condomínio</span>
+            <div class="calc-inputbox"><span class="calc-rs">R$</span><input type="text" inputmode="decimal" value="0,00" data-calc="despesa-aluguel" aria-label="Aluguel e condomínio" /></div>
+          </div>
+          <div class="calc-field">
+            <span class="calc-lbl">Energia, água e internet</span>
+            <div class="calc-inputbox"><span class="calc-rs">R$</span><input type="text" inputmode="decimal" value="0,00" data-calc="despesa-energia" aria-label="Energia, água e internet" /></div>
+          </div>
+          <div class="calc-field">
+            <span class="calc-lbl">Salários e encargos</span>
+            <div class="calc-inputbox"><span class="calc-rs">R$</span><input type="text" inputmode="decimal" value="0,00" data-calc="despesa-salarios" aria-label="Salários e encargos" /></div>
+          </div>
+          <div class="calc-field">
+            <span class="calc-lbl">Impostos e taxas</span>
+            <div class="calc-inputbox"><span class="calc-rs">R$</span><input type="text" inputmode="decimal" value="0,00" data-calc="despesa-impostos" aria-label="Impostos e taxas" /></div>
+          </div>
+        </div>
+        <div class="calc-summary" aria-hidden="false">
+          <div class="calc-card">
+            <span class="calc-card__t">Lucro bruto</span>
+            <span class="calc-card__v" data-calc-result="lucro-bruto">R$ 0,00</span>
+            <span class="calc-card__d">receita – custos diretos</span>
+          </div>
+          <div class="calc-card calc-card--blue">
+            <span class="calc-card__t">Lucro líquido</span>
+            <span class="calc-card__v" data-calc-result="lucro-liquido">R$ 0,00</span>
+            <span class="calc-card__d">após todas as despesas</span>
+          </div>
+          <div class="calc-card">
+            <span class="calc-card__t">Margem de lucro</span>
+            <span class="calc-card__v" data-calc-result="margem">0%</span>
+            <span class="calc-card__d">do faturamento</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- #sec-publicidade — Área institucional / anúncio -->
+    <section id="sec-publicidade" class="sec-gestao" aria-label="Publicidade">
+    <p class="abs gestao-lay--081">PUBLICIDADE</p>
+    <div class="abs gestao-lay--082">
+      <img class="img-fill" src="assets/gestao73/gestao-anuncio-56586a.png" alt="" />
+    </div>
+    </section>
+
+    <!-- #sec-deco-moedas — Moedas decorativas sobre o degradê azul -->
+    <section id="sec-deco-moedas" class="sec-gestao" aria-label="Decoração moedas">
+    <img class="abs img-cover gestao-lay--083 gestao-conceitos-legacy" src="assets/gestao73/gestao-dinheiro-8-496ac3.png" alt="" />
+    <img class="abs img-cover gestao-lay--084" src="assets/gestao73/gestao-dinheiro-9-496ac3.png" alt="" />
+    </section>
+
+    <!-- #sec-cta-academia — Botão amarelo Academia -->
+    <section id="sec-cta-academia" class="sec-gestao" aria-label="Chamada Academia Assaí">
+    <a href="https://academiaassai.learningflix.net/course/view.php?id=516" target="_blank" rel="noopener noreferrer" class="abs btn-academia gestao-lay--085" aria-label="Acessar curso gratuito na Academia Assaí">
+      <span>Acessar Curso Gratuito</span>
+      <img class="btn-academia__arrow" src="assets/gestao73/gestao-btn-arrow.svg" width="12" height="12" alt="" decoding="async" aria-hidden="true" />
+    </a>
+    </section>
+
+    <!-- #sec-rodape — Fundo, redes, marca -->
+    <section id="sec-rodape" class="sec-gestao" aria-label="Rodapé">
+    <footer class="abs gestao-lay--086">
+      <img class="abs gestao-lay--087" src="assets/home73/footer-bg.svg" alt="" />
+      <a href="https://www.assai.com.br/nossas-lojas" target="_blank" rel="noopener noreferrer" class="abs foot-lojas gestao-lay--088">NOSSAS LOJAS</a>
+      <a href="home.html" class="abs gestao-lay--089" aria-label="Capa">
+        <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9.87822 1.29971L9.87821 18.9999" stroke="#E4E4E4"/><path d="M19.4025 10.0156L9.87839 0.709835L0.354593 10.0156" stroke="#E4E4E4"/></svg>
+      </a>
+      <a href="https://www.instagram.com/assaiatacadistaoficial/" target="_blank" rel="noopener noreferrer" class="abs gestao-lay--090" aria-label="Instagram">
+        <svg width="19" height="21" viewBox="0 0 19 21" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M14.9491 0.515165C16.6816 0.515165 18.0886 1.92196 18.0886 3.65454C18.0886 5.38712 16.6816 6.79392 14.9491 6.79392C13.2165 6.79392 11.8095 5.38712 11.8095 3.65454C11.8095 1.92196 13.2165 0.515165 14.9491 0.515165Z" stroke="#E4E4E4"/><path d="M14.9491 14.2063C16.6816 14.2063 18.0886 15.6131 18.0886 17.3456C18.0886 19.0782 16.6816 20.485 14.9491 20.485C13.2165 20.485 11.8095 19.0782 11.8095 17.3456C11.8095 15.6131 13.2165 14.2063 14.9491 14.2063Z" stroke="#E4E4E4"/><path d="M3.65464 7.45781C5.38723 7.45781 6.79415 8.86492 6.79415 10.5975C6.79415 12.3301 5.38723 13.7369 3.65464 13.7369C1.92205 13.7369 0.515165 12.3301 0.515165 10.5975C0.515165 8.86492 1.92205 7.45781 3.65464 7.45781Z" stroke="#E4E4E4"/><path d="M5.39917 8.67033L11.9127 4.76225" stroke="#E4E4E4"/><path d="M5.39917 12.5803L11.9127 16.4884" stroke="#E4E4E4"/></svg>
+      </a>
+      <a href="https://www.assai.com.br/nossas-lojas" target="_blank" rel="noopener noreferrer" class="abs gestao-lay--091" aria-label="YouTube">
+        <svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10.7392 2.94724C7.97313 3.25316 8.29179 7.52331 11.1599 7.31936C14.0152 7.11541 13.6711 2.62856 10.7392 2.94724ZM10.3441 13.7056C9.94893 13.3487 8.71246 11.2838 8.34279 10.6847C6.48172 7.67645 4.19999 3.97982 7.76916 1.11174C11.2619 -1.67984 16.5519 1.14997 16.0547 5.56043C15.8763 7.12831 12.9445 12.0105 11.861 13.3235C11.4403 13.8206 10.9559 14.2665 10.3313 13.7056" fill="#E4E4E4"/><path d="M4.41666 10.8479L0.796507 18.496H21.1918L17.5844 10.8479" stroke="#E4E4E4"/></svg>
+      </a>
+      <a href="https://www.assai.com.br" target="_blank" rel="noopener noreferrer" class="abs gestao-lay--092" aria-label="Marca Assaí">
+        <img src="assets/home73/footer-brand.svg" alt="" width="50" height="37" class="gestao-lay--093" />
+      </a>
+    </footer>
+    </section>
+
+    <!-- #sec-cabecalho — Faixas, logo, menu (posição fixa no topo do frame) -->
+    <section id="sec-cabecalho" class="sec-gestao" aria-label="Cabeçalho">
+    <header class="abs head-wrap gestao-lay--094">
+      <div class="abs gestao-lay--095" aria-hidden="true"></div>
+      <div class="head-inner">
+        <div class="abs gestao-lay--096"></div>
+        <div class="abs gestao-lay--097"></div>
+        <img class="abs gestao-lay--098" src="assets/home73/logo-head.svg" alt="" width="283" height="31" />
+        <nav class="head-menu" id="menu-principal" aria-label="Menu">
+          <div class="head-menu-inner">
+            <a class="stroke-cap" href="home.html" data-menu-item>CAPA</a>
+            <a class="stroke-principal" href="categoria-principal.html" data-menu-item>PRINCIPAL</a>
+            <a class="stroke-gestao is-active" href="categoria-gestao.html" data-menu-item>GESTÃO</a>
+            <a class="stroke-mkt" href="categoria-mkt-digital.html" data-menu-item>MKT DIGITAL</a>
+            <a class="stroke-produto" href="categoria-produto.html" data-menu-item>PRODUTO</a>
+            <a class="stroke-consumidor" href="categoria-consumidor.html" data-menu-item>CONSUMIDOR</a>
+            <a class="stroke-delivery" href="categoria-delivery.html" data-menu-item>DELIVERY</a>
+            <a class="stroke-novo" href="categoria-novo-negocio.html" data-menu-item>NOVO NEGÓCIO</a>
+            <a class="stroke-academia" href="categoria-academia.html" data-menu-item>ACADEMIA ASSAÍ</a>
+            <a class="stroke-noticias" href="categoria-noticias.html" data-menu-item>NOTÍCIAS DO ASSAÍ</a>
+            <a class="stroke-download" href="download.html" data-menu-item>DOWNLOAD</a>
+            <a class="stroke-neutral" href="editorial.html" data-menu-item>EDITORIAL</a>
+            <a class="stroke-neutral" href="parceiros.html" data-menu-item>PARCEIROS</a>
+            <a class="stroke-neutral" href="expediente.html" data-menu-item>EXPEDIENTE</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    </section>
+  </main>
+  <script src="js/revista-73-menu.js?v=73-4" defer></script>
+  <script src="js/gestao-conceitos-stack.js?v=4" defer></script>
+  <script src="js/gestao-gastos-stack.js?v=1" defer></script>
+  <script src="js/gestao-calculadora.js?v=1" defer></script>
+</body>
+</html>

@@ -1,0 +1,1071 @@
+/*
+ * Revista Assaí #73 — página Principal (principal.html).
+ * Fontes: ../fonts/. Camadas .principal-lay--NNN: tools/hoist_inline_styles.py
+ */
+
+    @font-face {
+      font-family: "FS Lola";
+      font-weight: 400;
+      font-style: normal;
+      font-display: block;
+      src: url("../fonts/FS Lola-Regular.otf") format("opentype");
+    }
+    @font-face {
+      font-family: "FS Lola";
+      font-weight: 400;
+      font-style: italic;
+      font-display: block;
+      src: url("../fonts/FS Lola-Italic.otf") format("opentype");
+    }
+    @font-face {
+      font-family: "FS Lola";
+      font-weight: 500;
+      font-style: normal;
+      font-display: block;
+      src: url("../fonts/FS Lola-Medium.otf") format("opentype");
+    }
+    @font-face {
+      font-family: "FS Lola";
+      font-weight: 500;
+      font-style: italic;
+      font-display: block;
+      src: url("../fonts/FS Lola-MediumItalic.otf") format("opentype");
+    }
+    @font-face {
+      font-family: "FS Lola";
+      font-weight: 700;
+      font-style: normal;
+      font-display: block;
+      src: url("../fonts/FS Lola-Bold.otf") format("opentype");
+    }
+    @font-face {
+      font-family: "FS Lola";
+      font-weight: 700;
+      font-style: italic;
+      font-display: block;
+      src: url("../fonts/FS Lola-BoldItalic.otf") format("opentype");
+    }
+    @font-face {
+      font-family: "Raspoutine Classic";
+      font-weight: 400;
+      font-style: normal;
+      font-display: block;
+      src: url("../fonts/RaspoutineClassic_TB.otf") format("opentype");
+    }
+    @font-face {
+      font-family: "Raspoutine Medium";
+      font-weight: 500;
+      font-style: italic;
+      font-display: block;
+      src: url("../fonts/RaspoutineMedium_TB.otf") format("opentype");
+    }
+    
+
+    * { box-sizing: border-box; }
+    /* Mesmo canal horizontal em todas as matérias: evita saltos por scrollbar e halo lateral. */
+    html {
+      scrollbar-gutter: stable;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+    html, body {
+      margin: 0;
+      background: #ffffff;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .page-principal {
+      position: relative;
+      width: 402px;
+      height: 6536px;
+      background: #ffffff;
+      overflow-x: clip;
+      overflow-y: visible;
+      flex-shrink: 0;
+    }
+
+    .abs { position: absolute; }
+    .img-fill {
+      display: block;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+      object-position: center center;
+    }
+    .img-cover {
+      display: block;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+    /* Vídeo miolo — Figma: fill_NZD4AD scaleMode FILL + objectFit cover */
+    .video-fill {
+      display: block;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      vertical-align: top;
+    }
+
+    /*
+      Hero — ordem Figma (410:2633): Rectangle 1290 → g11 → IMG → moedas (última = topo).
+      g11: fill_77HCKE scaleMode FILL + objectFit cover (não STRETCH/fill como na capa).
+      Foto Figma: STRETCH; no HTML usamos cover + object-position para alinhar perceção à capa sem distorção lateral.
+    */
+    .hero-principal {
+      position: absolute;
+      left: 0;
+      top: 181px;
+      width: 402px;
+      height: 534px;
+      background: #004696;
+      overflow: hidden;
+      z-index: 4;
+      isolation: isolate;
+    }
+    .hero-principal__g11 {
+      position: absolute;
+      left: -200px;
+      top: 122px;
+      width: 803px;
+      height: 412px;
+      overflow: hidden;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .hero-principal__g11 img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 50%;
+    }
+    .hero-principal__photo {
+      position: absolute;
+      left: -136.77px;
+      top: 51px;
+      width: 581px;
+      height: 484px;
+      overflow: hidden;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .hero-principal__photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      /* Cover em vez de fill: menos distorção horizontal (fill “inchava” a imagem até às bordas). */
+      object-fit: cover;
+      object-position: 48% 42%;
+      transform: scaleX(-1);
+      transform-origin: center center;
+    }
+    .hero-principal__coin {
+      position: absolute;
+      z-index: 3;
+      pointer-events: none;
+      transform-origin: center center;
+    }
+    .hero-principal__coin--1 {
+      left: 306px;
+      top: 59px;
+      width: 50.372px;
+      height: 50.372px;
+      aspect-ratio: 1 / 1;
+    }
+    .hero-principal__coin--2 {
+      left: 292px;
+      top: 176px;
+      width: 40.821px;
+      height: 40.821px;
+      aspect-ratio: 1 / 1;
+    }
+    .hero-principal__coin--3 {
+      left: 74px;
+      top: 170px;
+      width: 44.251px;
+      height: 44.251px;
+      aspect-ratio: 1 / 1;
+    }
+    .hero-principal__coin--4 {
+      left: 46px;
+      top: 59px;
+      width: 60.251px;
+      height: 60.251px;
+      aspect-ratio: 1 / 1;
+    }
+    .hero-principal__coin--5 {
+      left: 37px;
+      top: 424px;
+      width: 35.251px;
+      height: 35.251px;
+      aspect-ratio: 1 / 1;
+    }
+
+    /* Tipografia matéria — valores do get_figma_data (node 410:2633) */
+    .principal-rasp {
+      font-family: "Raspoutine Medium", "Brush Script MT", Georgia, serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: 35.570945739746094px;
+      line-height: 37px;
+      letter-spacing: 0;
+      color: #f0051e;
+    }
+    .principal-mais-vendia {
+      margin: 0;
+      font-family: "FS Lola", Georgia, serif;
+      font-weight: 700;
+      font-size: 59.695526123046875px;
+      line-height: 66px;
+      letter-spacing: 0;
+      color: #004696;
+    }
+    .principal-rasp-classic {
+      font-family: "Raspoutine Classic", Georgia, serif;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 23px;
+      letter-spacing: 0;
+      color: #666666;
+    }
+    .corp {
+      margin: 0;
+      font-family: "FS Lola", Georgia, serif;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 22px;
+      letter-spacing: 0;
+      color: #000000;
+    }
+    .stack-corp > p + p {
+      margin-top: 22px;
+    }
+    .corp strong.red {
+      font-weight: 700;
+      color: #f0051e;
+    }
+    .corp strong.red-big {
+      font-weight: 700;
+      color: #f0051e;
+    }
+    .intertitle {
+      margin: 0;
+      font-family: "FS Lola", Georgia, serif;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 1.08;
+      letter-spacing: 0;
+      color: #f0051e;
+    }
+    .intertitle--2lines {
+      line-height: 31px;
+    }
+    .t-quote-blue {
+      margin: 0;
+      font-family: "FS Lola", Georgia, serif;
+      font-weight: 700;
+      font-style: italic;
+      font-size: 33px;
+      line-height: 1.12;
+      text-align: center;
+      color: #004696;
+    }
+    .t-quote-yellow {
+      margin: 0;
+      font-family: "FS Lola", Georgia, serif;
+      font-weight: 800;
+      font-style: italic;
+      font-size: 26.627132415771484px;
+      line-height: 30px;
+      text-align: center;
+      color: #ffdc00;
+    }
+    .t-autor-nome {
+      margin: 0;
+      font-family: "FS Lola", Georgia, serif;
+      font-weight: 700;
+      font-style: italic;
+      font-size: 18px;
+      line-height: 20px;
+      color: #004696;
+    }
+    .t-operacao-hoje {
+      margin: 0;
+      font-family: "FS Lola", Georgia, serif;
+      font-weight: 700;
+      font-style: italic;
+      font-size: 26px;
+      line-height: 32px;
+      text-align: center;
+      color: #ffdc00;
+    }
+    .t-publicidade {
+      margin: 0;
+      font-family: "FS Lola", Georgia, serif;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 22px;
+      color: #666666;
+    }
+    /*
+      Frame 8661 (Figma layout_UD7ILU): 166×62 em 25,968 — coluna.
+      Frame 37 (badge): layout_EZX44L — row, padding 2px 15px; texto FS Lola Medium 20.
+      O espaço entre badge e “Por: Bruna Cruz” não é space-between máximo: usar gap fixo menor.
+    */
+    .frame-edicao {
+      left: 25px;
+      top: 968px;
+      width: 166px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+      gap: 7px;
+      box-sizing: border-box;
+    }
+    .t-edicao-badge {
+      align-self: stretch;
+      width: 100%;
+      box-sizing: border-box;
+      margin: 0;
+      background: #004696;
+      color: #fff;
+      padding: 4px 15px;
+      font-family: "FS Lola", Georgia, serif;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 24px;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .t-autor-linha {
+      margin: 0;
+      padding: 0;
+      font-family: "FS Lola", Georgia, serif;
+      font-weight: 500;
+      font-style: italic;
+      font-size: 18px;
+      line-height: 23px;
+      height: 23px;
+      color: #000;
+    }
+
+    /* ─── Header layout (específico de principal.html) ─── */
+    .page-principal .head-wrap {
+      width: 402px;
+      height: 182px;
+      z-index: 200;
+    }
+    .page-principal .head-inner {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 402px;
+      height: 182px;
+      background: #ffffff;
+    }
+    .page-principal .head-edition {
+      left: 0;
+      top: 113px;
+      width: 402px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1.544px 11.583px;
+      font-family: "FS Lola", Georgia, serif;
+      font-weight: 500;
+      font-size: 13px;
+      color: #ffffff;
+      z-index: 2;
+    }
+    .page-principal .head-menu {
+      position: absolute;
+      left: 0;
+      top: 146px;
+      width: 402px;
+      height: 33px;
+      z-index: 4;
+    }
+
+    .foot-lojas {
+      font-family: "FS Lola", Georgia, serif;
+      font-weight: 500;
+      font-size: 10px;
+      color: #ffffff;
+      text-decoration: none;
+    }
+    .checklist-box {
+      background: #004696;
+      padding: 16px 14px;
+      border-radius: 2px;
+      /* Altura pelo conteúdo (evita texto vazando para o espaço de 89px até o título dos erros). */
+    }
+    .checklist-box .corp {
+      color: #ffffff;
+      text-align: center;
+      font-weight: 700;
+      font-size: 17px;
+      line-height: 22px;
+    }
+    .checklist-box .chk {
+      color: #44d971;
+      font-size: 17px;
+    }
+    .checklist-box .lbl {
+      font-style: italic;
+      font-weight: 700;
+      font-size: 25px;
+      color: #ffdc00;
+    }
+
+    .erros-box {
+      background: #004696;
+      padding: 12px 14px;
+      border-radius: 2px;
+    }
+    .erros-box .corp {
+      color: #FFDC00;
+      text-align: center;
+      font-weight: 700;
+      font-size: 17px;
+      line-height: 22px;
+    }
+    .erros-box .x {
+      color: #f0051e;
+      font-size: 13px;
+    }
+    .erros-heading {
+      left: 38.23px;
+      /* 2643 + altura real do checklist + 89 */
+      top: 3034px;
+      width: 326px;
+      margin: 0;
+      font-family: "FS Lola", Georgia, serif;
+      font-weight: 700;
+      font-size: 17px;
+      line-height: 1.2;
+      text-align: center;
+      color: #ffdc00;
+    }
+
+    .ops-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: stretch;
+    }
+    .ops-list p {
+      margin: 0;
+      font-family: "FS Lola", Georgia, serif;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 22px;
+      text-align: center;
+      color: #ffdc00;
+    }
+    .ops-list__divider {
+      display: block;
+      width: 100%;
+      height: 6px;
+      flex-shrink: 0;
+      object-fit: contain;
+      object-position: center;
+      transform-origin: center center;
+    }
+
+    /*
+      Empilhamento global (.page-principal), alinhado à árvore do Figma:
+      1–2  fundos decorativos (curva vermelha, bloco azul SVG)
+      8    mídia editorial (açaí, faixa g5, vídeo, anúncio) — antes das moedas no frame
+      9    moedas decorativas miolo (sobre mídia onde há overlap; abaixo do texto)
+      10   texto, fichas, checklist, caixas
+      12   ícone som no vídeo
+      15   rodapé
+      200  header
+    */
+    .z-deco-bg-low {
+      z-index: 1;
+    }
+    .z-deco-bg-mid {
+      z-index: 2;
+      top: 2572px;
+      height: 730px;
+      background: #004696;
+    }
+    .z-media {
+      z-index: 8;
+    }
+    .z-media-fill {
+      z-index: 8;
+    }
+    .z-media-cover {
+      z-index: 9;
+    }
+    .z-deco-coin {
+      z-index: 9;
+      pointer-events: none;
+      transform-origin: center center;
+    }
+    .z-deco-coin--01 {
+      width: 78.372px;
+      height: 78.372px;
+      aspect-ratio: 1 / 1;
+    }
+    .z-deco-coin--02 {
+      left: 45.23px;
+      top: 2946px;
+      width: 53.854px;
+      height: 53.854px;
+      aspect-ratio: 1 / 1;
+      z-index: 11;
+    }
+    .z-deco-coin--03 {
+      left: 31.92px;
+      top: 1666.92px;
+      width: 78.372px;
+      height: 78.372px;
+      aspect-ratio: 1 / 1;
+    }
+    .z-deco-coin--04 {
+      left: 364.23px;
+      top: 3512px;
+      width: 60.821px;
+      height: 60.821px;
+      aspect-ratio: 1 / 1;
+    }
+    .z-deco-coin--05 {
+      left: 294.23px;
+      top: 5420px;
+      width: 60.821px;
+      height: 60.821px;
+      aspect-ratio: 1 / 1;
+    }
+    .z-deco-coin--06 {
+      left: 371.23px;
+      top: 5120px;
+      width: 35.855px;
+      height: 35.855px;
+      aspect-ratio: 1 / 1;
+    }
+    .z-deco-coin--07 {
+      left: -36.77px;
+      top: 3612px;
+      width: 60.821px;
+      height: 60.821px;
+      aspect-ratio: 1 / 1;
+    }
+    .z-deco-coin--08 {
+      left: 310.23px;
+      top: 3276px;
+      width: 44.251px;
+      height: 44.251px;
+      aspect-ratio: 1 / 1;
+    }
+    .z-deco-coin--09 {
+      left: -10.38px;
+      top: 3011px;
+      width: 58.992px;
+      height: 58.992px;
+      aspect-ratio: 1 / 1;
+    }
+    .z-deco-coin--10 {
+      left: 304px;
+      top: 3984px;
+      width: 44.251px;
+      height: 44.251px;
+      aspect-ratio: 1 / 1;
+    }
+    .z-deco-coin--11 {
+      width: 44.251px;
+      height: 44.251px;
+      aspect-ratio: 1 / 1;
+    }
+    .z-copy {
+      z-index: 10;
+    }
+    .z-quote-bg {
+      z-index: 8;
+    }
+    .z-video-ui {
+      z-index: 12;
+    }
+    .video-quote-cap {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .video-quote-cap__bg {
+      display: block;
+      width: 100%;
+      height: auto;
+      vertical-align: bottom;
+    }
+    .video-quote-cap .t-quote-yellow {
+      position: absolute;
+      left: 67.23px;
+      top: 52px;
+      width: 264px;
+      margin: 0;
+      text-align: center;
+    }
+    .video-sound-ico {
+      position: absolute;
+      left: 19px;
+      top: 18px;
+      z-index: 3;
+      width: 45px;
+      height: 45px;
+      padding: 0;
+      margin: 0;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      pointer-events: auto;
+    }
+    .video-sound-ico__disc {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: #ff6800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .video-sound-ico.is-muted .video-sound-ico__disc {
+      opacity: 0.85;
+    }
+    .video-sound-ico__img {
+      display: block;
+      width: 37px;
+      height: 37px;
+      object-fit: cover;
+      object-position: center;
+      pointer-events: none;
+    }
+    .video-sound-ico:focus {
+      outline: none;
+    }
+    .video-sound-ico:focus-visible .video-sound-ico__disc {
+      outline: 2px solid #fff;
+      outline-offset: 2px;
+    }
+    .z-foot {
+      z-index: 15;
+    }
+    h2.intertitle {
+      z-index: 10;
+    }
+  
+
+/* ─── Layout (hoist de styles inline — principal) ─── */
+.principal-lay--001 { left:19px; top:696px; width:332px; }
+.principal-lay--002 { left:19px; top:764px; width:361px; }
+.principal-lay--003 { left:24px; top:842px; width:344px; margin:0; }
+.principal-lay--004 { left:26px; top:1063px; width:352px; }
+.principal-lay--005 { left:108px; top:1657px; width:154px; height:259px; overflow:hidden; }
+.principal-lay--006 { left:285.23px; top:2530px; }
+.principal-lay--007 { left:271px; top:1712px; }
+.principal-lay--008 { left:-1px; top:1778px; width:403px; height:165px; overflow:hidden; }
+.principal-lay--009 { left:23.23px; top:2000px; width:354px; }
+.principal-lay--010 { left:140.23px; top:2163px; width:122px; }
+.principal-lay--011 { left:24px; top:2268px; width:350px; }
+.principal-lay--012 { left:24.23px; top:2342px; width:352px; }
+.principal-lay--013 { left:-1px; width:403px; pointer-events:none; }
+.principal-lay--014 { left:23.23px; top:2643px; width:352px; }
+.principal-lay--015 { color:#fff; }
+.principal-lay--016 { left:23px; top:3096px; width:352px; min-height:149px; }
+.principal-lay--017 { left:24.23px; top:3388px; width:350px; }
+.principal-lay--018 { left:24.23px; top:3453px; width:352px; }
+.principal-lay--019 { left:24.23px; top:4089px; width:354px; }
+.principal-lay--020 { left:47.23px; top:4145px; width:301px; }
+.principal-lay--021 { left:-0.01px; top:4364.49px; width:402px; height:537px; border-radius:40px 40px 0 0; overflow:hidden; }
+.principal-lay--022 { left:-277.28px; top:4038.96px; width:957.51px; height:396.22px; pointer-events:none; }
+.principal-lay--023 { left:24.23px; top:4942px; width:350px; }
+.principal-lay--024 { left:24.23px; top:4995px; width:352px; }
+.principal-lay--025 { left:24px; top:5464px; width:350px; }
+.principal-lay--026 { left:24.23px; top:5510px; width:352px; }
+.principal-lay--027 { left:21px; top:5864px; width:349px; }
+.principal-lay--028 { left:0; top:5886px; width:402px; height:536px; overflow:hidden; }
+.principal-lay--029 { left:-1px; top:6422px; width:403px; height:114px; }
+.principal-lay--030 { left:1px; top:45px; width:402px; height:69px; }
+.principal-lay--031 { left:291px; top:76px; z-index:2; }
+.principal-lay--032 { left:25.63px; top:71.37px; width:18.76px; height:18.02px; z-index:2; display:flex; align-items:center; justify-content:center; }
+.principal-lay--033 { left:68px; top:71px; width:17.06px; height:19.38px; z-index:2; display:flex; align-items:center; justify-content:center; }
+.principal-lay--034 { left:361px; top:71px; width:20.23px; height:18.35px; z-index:2; display:flex; align-items:center; justify-content:center; }
+.principal-lay--035 { left:174px; top:61px; width:50px; height:36.36px; z-index:2; display:block; line-height:0; }
+.principal-lay--036 { width:100%; height:auto; object-fit:contain; display:block; }
+.principal-lay--037 { left:0; top:0; }
+.principal-lay--038 { right:0; top:0; width:1px; height:182px; background:#004696; z-index:250; }
+.principal-lay--039 { left:0; top:0; width:402px; height:141px; background:#004696; z-index:1; }
+.principal-lay--040 { left:0; top:141px; width:402px; height:41px; background:#d9d9d9; z-index:1; }
+.principal-lay--041 { left:54px; top:78px; width:282.71px; height:30.71px; z-index:3; pointer-events:none; object-fit:contain; }
+
+@media (min-width: 1024px) {
+  .hero-principal { top: 140px; }
+}
+
+@media (min-width: 1024px) {
+  .page-principal .head-wrap { height: 141px; overflow: hidden; }
+  .principal-lay--040 { display: none; }
+}
+
+/* animações sem variáveis CSS */
+
+@keyframes coin-fall-hero-principal-coin-1 {
+  0% { transform: translateY(calc(-1 * 480px)) rotate(0deg); opacity: 0; }
+  70% { opacity: 1; }
+  100% { transform: translateY(0) rotate(0deg); opacity: 1; }
+}
+.hero-principal__coin.coin-fall {
+  animation: coin-fall-hero-principal-coin-1 0.85s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s both;
+}
+.hero-principal__coin[data-animista="coin-fall"]:not(.coin-fall) {
+  opacity: 0;
+  transform: translateY(calc(-1 * 480px)) rotate(0deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-principal__coin.coin-fall,
+  .hero-principal__coin[data-animista="coin-fall"]:not(.coin-fall) {
+    animation: none; opacity: 1; transform: rotate(0deg);
+  }
+}
+
+@keyframes coin-fall-hero-principal-coin--1-2 {
+  0% { transform: translateY(calc(-1 * 320px)) rotate(-72deg); opacity: 0; }
+  70% { opacity: 1; }
+  100% { transform: translateY(0) rotate(13.97deg); opacity: 1; }
+}
+.hero-principal__coin--1.coin-fall {
+  animation: coin-fall-hero-principal-coin--1-2 0.75s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.08s both;
+}
+.hero-principal__coin--1[data-animista="coin-fall"]:not(.coin-fall) {
+  opacity: 0;
+  transform: translateY(calc(-1 * 320px)) rotate(-72deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-principal__coin--1.coin-fall,
+  .hero-principal__coin--1[data-animista="coin-fall"]:not(.coin-fall) {
+    animation: none; opacity: 1; transform: rotate(13.97deg);
+  }
+}
+
+@keyframes coin-fall-hero-principal-coin--2-3 {
+  0% { transform: translateY(calc(-1 * 420px)) rotate(58deg); opacity: 0; }
+  70% { opacity: 1; }
+  100% { transform: translateY(0) rotate(-12.268deg); opacity: 1; }
+}
+.hero-principal__coin--2.coin-fall {
+  animation: coin-fall-hero-principal-coin--2-3 0.82s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.26s both;
+}
+.hero-principal__coin--2[data-animista="coin-fall"]:not(.coin-fall) {
+  opacity: 0;
+  transform: translateY(calc(-1 * 420px)) rotate(58deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-principal__coin--2.coin-fall,
+  .hero-principal__coin--2[data-animista="coin-fall"]:not(.coin-fall) {
+    animation: none; opacity: 1; transform: rotate(-12.268deg);
+  }
+}
+
+@keyframes coin-fall-hero-principal-coin--3-4 {
+  0% { transform: translateY(calc(-1 * 380px)) rotate(-95deg); opacity: 0; }
+  70% { opacity: 1; }
+  100% { transform: translateY(0) rotate(15.391deg); opacity: 1; }
+}
+.hero-principal__coin--3.coin-fall {
+  animation: coin-fall-hero-principal-coin--3-4 0.88s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.62s both;
+}
+.hero-principal__coin--3[data-animista="coin-fall"]:not(.coin-fall) {
+  opacity: 0;
+  transform: translateY(calc(-1 * 380px)) rotate(-95deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-principal__coin--3.coin-fall,
+  .hero-principal__coin--3[data-animista="coin-fall"]:not(.coin-fall) {
+    animation: none; opacity: 1; transform: rotate(15.391deg);
+  }
+}
+
+@keyframes coin-fall-hero-principal-coin--4-5 {
+  0% { transform: translateY(calc(-1 * 450px)) rotate(80deg); opacity: 0; }
+  70% { opacity: 1; }
+  100% { transform: translateY(0) rotate(-16.609deg); opacity: 1; }
+}
+.hero-principal__coin--4.coin-fall {
+  animation: coin-fall-hero-principal-coin--4-5 0.8s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.44s both;
+}
+.hero-principal__coin--4[data-animista="coin-fall"]:not(.coin-fall) {
+  opacity: 0;
+  transform: translateY(calc(-1 * 450px)) rotate(80deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-principal__coin--4.coin-fall,
+  .hero-principal__coin--4[data-animista="coin-fall"]:not(.coin-fall) {
+    animation: none; opacity: 1; transform: rotate(-16.609deg);
+  }
+}
+
+@keyframes coin-fall-hero-principal-coin--5-6 {
+  0% { transform: translateY(calc(-1 * 360px)) rotate(-95deg); opacity: 0; }
+  70% { opacity: 1; }
+  100% { transform: translateY(0) rotate(15.391deg); opacity: 1; }
+}
+.hero-principal__coin--5.coin-fall {
+  animation: coin-fall-hero-principal-coin--5-6 0.86s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.78s both;
+}
+.hero-principal__coin--5[data-animista="coin-fall"]:not(.coin-fall) {
+  opacity: 0;
+  transform: translateY(calc(-1 * 360px)) rotate(-95deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-principal__coin--5.coin-fall,
+  .hero-principal__coin--5[data-animista="coin-fall"]:not(.coin-fall) {
+    animation: none; opacity: 1; transform: rotate(15.391deg);
+  }
+}
+
+@keyframes coin-fall-z-deco-coin-7 {
+  0% { transform: translateY(calc(-1 * 380px)) rotate(-95deg); opacity: 0; }
+  70% { opacity: 1; }
+  100% { transform: translateY(0) rotate(15.391deg); opacity: 1; }
+}
+.z-deco-coin.coin-fall {
+  animation: coin-fall-z-deco-coin-7 0.85s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.78s both;
+}
+.z-deco-coin[data-animista="coin-fall"]:not(.coin-fall) {
+  opacity: 0;
+  transform: translateY(calc(-1 * 380px)) rotate(-95deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .z-deco-coin.coin-fall,
+  .z-deco-coin[data-animista="coin-fall"]:not(.coin-fall) {
+    animation: none; opacity: 1; transform: rotate(15.391deg);
+  }
+}
+
+@keyframes coin-fall-z-deco-coin--01-8 {
+  0% { transform: translateY(calc(-1 * 420px)) rotate(-72deg); opacity: 0; }
+  70% { opacity: 1; }
+  100% { transform: translateY(0) rotate(13.97deg); opacity: 1; }
+}
+.z-deco-coin--01.coin-fall {
+  animation: coin-fall-z-deco-coin--01-8 0.8s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s both;
+}
+.z-deco-coin--01[data-animista="coin-fall"]:not(.coin-fall) {
+  opacity: 0;
+  transform: translateY(calc(-1 * 420px)) rotate(-72deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .z-deco-coin--01.coin-fall,
+  .z-deco-coin--01[data-animista="coin-fall"]:not(.coin-fall) {
+    animation: none; opacity: 1; transform: rotate(13.97deg);
+  }
+}
+
+@keyframes coin-fall-z-deco-coin--02-9 {
+  0% { transform: translateY(calc(-1 * 360px)) rotate(68deg); opacity: 0; }
+  70% { opacity: 1; }
+  100% { transform: translateY(0) rotate(-22.244deg); opacity: 1; }
+}
+.z-deco-coin--02.coin-fall {
+  animation: coin-fall-z-deco-coin--02-9 0.78s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s both;
+}
+.z-deco-coin--02[data-animista="coin-fall"]:not(.coin-fall) {
+  opacity: 0;
+  transform: translateY(calc(-1 * 360px)) rotate(68deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .z-deco-coin--02.coin-fall,
+  .z-deco-coin--02[data-animista="coin-fall"]:not(.coin-fall) {
+    animation: none; opacity: 1; transform: rotate(-22.244deg);
+  }
+}
+
+@keyframes coin-fall-z-deco-coin--03-10 {
+  0% { transform: translateY(calc(-1 * 400px)) rotate(62deg); opacity: 0; }
+  70% { opacity: 1; }
+  100% { transform: translateY(0) rotate(-20.841deg); opacity: 1; }
+}
+.z-deco-coin--03.coin-fall {
+  animation: coin-fall-z-deco-coin--03-10 0.82s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s both;
+}
+.z-deco-coin--03[data-animista="coin-fall"]:not(.coin-fall) {
+  opacity: 0;
+  transform: translateY(calc(-1 * 400px)) rotate(62deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .z-deco-coin--03.coin-fall,
+  .z-deco-coin--03[data-animista="coin-fall"]:not(.coin-fall) {
+    animation: none; opacity: 1; transform: rotate(-20.841deg);
+  }
+}
+
+@keyframes coin-fall-z-deco-coin--04-11 {
+  0% { transform: translateY(calc(-1 * 380px)) rotate(58deg); opacity: 0; }
+  70% { opacity: 1; }
+  100% { transform: translateY(0) rotate(-12.268deg); opacity: 1; }
+}
+.z-deco-coin--04.coin-fall {
+  animation: coin-fall-z-deco-coin--04-11 0.84s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s both;
+}
+.z-deco-coin--04[data-animista="coin-fall"]:not(.coin-fall) {
+  opacity: 0;
+  transform: translateY(calc(-1 * 380px)) rotate(58deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .z-deco-coin--04.coin-fall,
+  .z-deco-coin--04[data-animista="coin-fall"]:not(.coin-fall) {
+    animation: none; opacity: 1; transform: rotate(-12.268deg);
+  }
+}
+
+@keyframes coin-fall-z-deco-coin--05-12 {
+  0% { transform: translateY(calc(-1 * 390px)) rotate(-80deg); opacity: 0; }
+  70% { opacity: 1; }
+  100% { transform: translateY(0) rotate(19.682deg); opacity: 1; }
+}
+.z-deco-coin--05.coin-fall {
+  animation: coin-fall-z-deco-coin--05-12 0.81s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s both;
+}
+.z-deco-coin--05[data-animista="coin-fall"]:not(.coin-fall) {
+  opacity: 0;
+  transform: translateY(calc(-1 * 390px)) rotate(-80deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .z-deco-coin--05.coin-fall,
+  .z-deco-coin--05[data-animista="coin-fall"]:not(.coin-fall) {
+    animation: none; opacity: 1; transform: rotate(19.682deg);
+  }
+}
+
+@keyframes coin-fall-z-deco-coin--06-13 {
+  0% { transform: translateY(calc(-1 * 320px)) rotate(70deg); opacity: 0; }
+  70% { opacity: 1; }
+  100% { transform: translateY(0) rotate(-14.646deg); opacity: 1; }
+}
+.z-deco-coin--06.coin-fall {
+  animation: coin-fall-z-deco-coin--06-13 0.76s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s both;
+}
+.z-deco-coin--06[data-animista="coin-fall"]:not(.coin-fall) {
+  opacity: 0;
+  transform: translateY(calc(-1 * 320px)) rotate(70deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .z-deco-coin--06.coin-fall,
+  .z-deco-coin--06[data-animista="coin-fall"]:not(.coin-fall) {
+    animation: none; opacity: 1; transform: rotate(-14.646deg);
+  }
+}
+
+@keyframes coin-fall-z-deco-coin--07-14 {
+  0% { transform: translateY(calc(-1 * 400px)) rotate(58deg); opacity: 0; }
+  70% { opacity: 1; }
+  100% { transform: translateY(0) rotate(-12.268deg); opacity: 1; }
+}
+.z-deco-coin--07.coin-fall {
+  animation: coin-fall-z-deco-coin--07-14 0.83s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s both;
+}
+.z-deco-coin--07[data-animista="coin-fall"]:not(.coin-fall) {
+  opacity: 0;
+  transform: translateY(calc(-1 * 400px)) rotate(58deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .z-deco-coin--07.coin-fall,
+  .z-deco-coin--07[data-animista="coin-fall"]:not(.coin-fall) {
+    animation: none; opacity: 1; transform: rotate(-12.268deg);
+  }
+}
+
+@keyframes coin-fall-z-deco-coin--08-15 {
+  0% { transform: translateY(calc(-1 * 350px)) rotate(-95deg); opacity: 0; }
+  70% { opacity: 1; }
+  100% { transform: translateY(0) rotate(15.391deg); opacity: 1; }
+}
+.z-deco-coin--08.coin-fall {
+  animation: coin-fall-z-deco-coin--08-15 0.79s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s both;
+}
+.z-deco-coin--08[data-animista="coin-fall"]:not(.coin-fall) {
+  opacity: 0;
+  transform: translateY(calc(-1 * 350px)) rotate(-95deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .z-deco-coin--08.coin-fall,
+  .z-deco-coin--08[data-animista="coin-fall"]:not(.coin-fall) {
+    animation: none; opacity: 1; transform: rotate(15.391deg);
+  }
+}
+
+@keyframes coin-fall-z-deco-coin--09-16 {
+  0% { transform: translateY(calc(-1 * 370px)) rotate(72deg); opacity: 0; }
+  70% { opacity: 1; }
+  100% { transform: translateY(0) rotate(-22.514deg); opacity: 1; }
+}
+.z-deco-coin--09.coin-fall {
+  animation: coin-fall-z-deco-coin--09-16 0.8s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s both;
+}
+.z-deco-coin--09[data-animista="coin-fall"]:not(.coin-fall) {
+  opacity: 0;
+  transform: translateY(calc(-1 * 370px)) rotate(72deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .z-deco-coin--09.coin-fall,
+  .z-deco-coin--09[data-animista="coin-fall"]:not(.coin-fall) {
+    animation: none; opacity: 1; transform: rotate(-22.514deg);
+  }
+}
+
+@keyframes coin-fall-z-deco-coin--10-17 {
+  0% { transform: translateY(calc(-1 * 340px)) rotate(-95deg); opacity: 0; }
+  70% { opacity: 1; }
+  100% { transform: translateY(0) rotate(15.391deg); opacity: 1; }
+}
+.z-deco-coin--10.coin-fall {
+  animation: coin-fall-z-deco-coin--10-17 0.77s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s both;
+}
+.z-deco-coin--10[data-animista="coin-fall"]:not(.coin-fall) {
+  opacity: 0;
+  transform: translateY(calc(-1 * 340px)) rotate(-95deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .z-deco-coin--10.coin-fall,
+  .z-deco-coin--10[data-animista="coin-fall"]:not(.coin-fall) {
+    animation: none; opacity: 1; transform: rotate(15.391deg);
+  }
+}
+
+@keyframes coin-fall-z-deco-coin--11-18 {
+  0% { transform: translateY(calc(-1 * 360px)) rotate(-95deg); opacity: 0; }
+  70% { opacity: 1; }
+  100% { transform: translateY(0) rotate(15.391deg); opacity: 1; }
+}
+.z-deco-coin--11.coin-fall {
+  animation: coin-fall-z-deco-coin--11-18 0.8s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s both;
+}
+.z-deco-coin--11[data-animista="coin-fall"]:not(.coin-fall) {
+  opacity: 0;
+  transform: translateY(calc(-1 * 360px)) rotate(-95deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .z-deco-coin--11.coin-fall,
+  .z-deco-coin--11[data-animista="coin-fall"]:not(.coin-fall) {
+    animation: none; opacity: 1; transform: rotate(15.391deg);
+  }
+}

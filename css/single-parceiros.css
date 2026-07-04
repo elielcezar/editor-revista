@@ -1,0 +1,401 @@
+/*
+ * Revista Assaí #73 — Parceiros / Template Itabom (parceiros.html).
+ * Figma: TEMPLATE PARCEIROS · frame 1659:541 · 402×1997.
+ */
+
+@font-face {
+  font-family: "FS Lola";
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+  src: url("../fonts/FS Lola-Regular.otf") format("opentype");
+}
+@font-face {
+  font-family: "FS Lola";
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+  src: url("../fonts/FS Lola-Medium.otf") format("opentype");
+}
+@font-face {
+  font-family: "FS Lola";
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+  src: url("../fonts/FS Lola-Bold.otf") format("opentype");
+}
+@font-face {
+  font-family: "Raspoutine Classic";
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+  src: url("../fonts/RaspoutineClassic_TB.otf") format("opentype");
+}
+
+
+
+* { box-sizing: border-box; }
+
+html {
+  scrollbar-gutter: stable;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+html,
+body {
+  margin: 0;
+  background: #ffffff;
+}
+body {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.page-parceiros {
+  position: relative;
+  width: 402px;
+  min-height: 100vh;
+  background: #ffffff;
+  /* clip: evita scroll horizontal interno (scrollIntoView do menu empurrava o miolo) */
+  overflow-x: clip;
+  overflow-y: visible;
+  isolation: isolate;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  flex-shrink: 0;
+}
+
+.abs { position: absolute; }
+
+.page-parceiros h1 {
+  margin: 35px 0 25px;
+}
+
+/* ─── Miolo em fluxo: imagens seguem o texto (sem z-index sobre corpo) ─── */
+.parc-miolo {
+  width: 100%;
+  max-width: 402px;
+  overflow-x: clip;
+  padding-bottom: 0;
+}
+
+.parc-hero-stack {
+  position: relative;
+  margin-top: 182px;
+  width: 407px;
+  max-width: 100%;
+  height: 403px;
+  overflow-x: clip;
+}
+
+.parc-hero-bg {
+  width: 407px;
+  height: 403px;
+  background: #666666;
+}
+
+.parc-ellipse {
+  position: absolute;
+  left: 218px;
+  top: 325px;
+  width: 156px;
+  height: 156px;
+  border-radius: 50%;
+  background: #666666;
+  border: 6px solid #ff7300;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.parc-logo-placeholder {
+  position: absolute;
+  left: 271px;
+  top: 391px;
+  width: 165px;
+  margin: 0;
+  padding: 0;
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  text-align: left;
+  color: #ffffff;
+}
+
+.parc-title {
+  padding: 0 24px;
+  max-width: 402px;
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 42.046px;
+  line-height: 38.45px;
+  letter-spacing: 0;
+  text-align: left;
+  color: #ff7300;
+}
+
+.parc-subtitle {
+  padding: 0 24px;
+  margin: 7px 0 0 0;
+  max-width: 354px;
+  font-family: "Raspoutine Classic", Georgia, serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: left;
+  color: #666666;
+}
+
+.parc-body-lead,
+.parc-body-close {
+  margin: 26px 0 0 0;
+  padding: 0 24px;
+  max-width: 350px;
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.35;
+  text-align: left;
+  color: #000000;
+}
+
+.parc-img-a {
+  display: block;
+  width: 366px;
+  height: auto;
+  max-width: calc(100% - 18px);
+  margin: 24px 0 0 18px;
+  object-fit: cover;
+}
+
+.parc-intertitle {
+  padding: 0 24px;
+  margin: 40px 0 0 0;
+  max-width: 350px;
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 1.15;
+  text-align: left;
+  color: #ff7300;
+}
+
+.parc-body-close {
+  margin-top: 10px;
+}
+
+.parc-img-b {
+  display: block;
+  width: 374px;
+  height: auto;
+  max-width: calc(100% - 16px);
+  margin: 24px 0 0 16px;
+  object-fit: cover;
+}
+
+/* ─── Rodapé Figma 1659:572 (fluxo após o miolo) ─── */
+.page-parceiros .foot-wrap {
+  position: relative;
+  width: 403.33px;
+  height: 114px;
+  margin-left: -1px;
+  z-index: 500;
+}
+
+.page-parceiros .exp-lay--foot-bg {
+  position: absolute;
+  left: 1px;
+  top: 45px;
+  width: 402px;
+  height: 69px;
+}
+
+.page-parceiros .foot-lojas {
+  font-family: "FS Lola", Georgia, serif;
+  font-weight: 500;
+  font-size: 10px;
+  color: #ffffff;
+  text-decoration: none;
+}
+.page-parceiros .exp-lay--foot-lojas {
+  left: 291px;
+  top: 76px;
+  z-index: 2;
+}
+.page-parceiros .exp-lay--foot-inst {
+  left: 25.24px;
+  top: 71px;
+  width: 18.76px;
+  height: 18.02px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-parceiros .exp-lay--foot-fb {
+  left: 63px;
+  top: 71px;
+  width: 17.06px;
+  height: 19.38px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-parceiros .exp-lay--foot-yt {
+  left: 361px;
+  top: 71px;
+  width: 20.23px;
+  height: 18.35px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-parceiros .exp-lay--foot-brand {
+  left: 174px;
+  top: 61px;
+  width: 50px;
+  height: 36.36px;
+  z-index: 2;
+  display: block;
+  line-height: 0;
+}
+.page-parceiros .exp-lay--foot-brand-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* ─── Cabeçalho · node 1659:618 HEAD NOVO NEGÓCIO ─── */
+.page-parceiros header.head-wrap.exp-lay--head {
+  box-sizing: border-box;
+  left: -1px;
+  top: 0;
+  width: 403px;
+  height: 182px;
+  z-index: 600;
+}
+
+.page-parceiros .head-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 402px;
+  height: 182px;
+  background: #ffffff;
+}
+
+.page-parceiros .exp-lay--head-rail {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1px;
+  height: 182px;
+  background: #000000;
+  z-index: 250;
+}
+
+.page-parceiros .exp-lay--head-band {
+  left: 0;
+  top: 0;
+  width: 402px;
+  height: 141px;
+  background: #000000;
+  z-index: 1;
+}
+
+.page-parceiros .exp-lay--head-cinza {
+  left: 0;
+  top: 141px;
+  width: 402px;
+  height: 41px;
+  background: #d9d9d9;
+  z-index: 1;
+}
+
+.page-parceiros .exp-lay--head-logo {
+  left: 54px;
+  top: 78px;
+  width: 282.71px;
+  height: 30.71px;
+  z-index: 3;
+  pointer-events: none;
+  object-fit: contain;
+}
+
+.page-parceiros .head-menu {
+  position: absolute;
+  left: 0;
+  top: 146px;
+  width: 402px;
+  height: 33px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  z-index: 4;
+  scrollbar-width: none;
+  cursor: grab;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.page-parceiros .head-menu.is-dragging { cursor: grabbing; }
+.page-parceiros .head-menu::-webkit-scrollbar { display: none; }
+.page-parceiros .head-menu-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  padding-left: 8px;
+  padding-right: 8px;
+  height: 33px;
+  width: max-content;
+}
+.page-parceiros .head-menu a {
+  flex: 0 0 auto;
+  font-family: Inter, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: normal;
+  color: #000000;
+  text-decoration: none;
+  padding: 10px 0;
+  border-bottom: 5px solid;
+  box-sizing: border-box;
+}
+/* Traços inferiores — instance TEXTOS MENU 1659:633 */
+.page-parceiros .head-menu a.stroke-cap { border-bottom-color: #000000; }
+.page-parceiros .head-menu a.stroke-principal { border-bottom-color: #004696; }
+.page-parceiros .head-menu a.stroke-gestao { border-bottom-color: #f0051e; }
+.page-parceiros .head-menu a.stroke-mkt { border-bottom-color: #ff7300; }
+.page-parceiros .head-menu a.stroke-produto { border-bottom-color: #ffaa00; }
+.page-parceiros .head-menu a.stroke-consumidor { border-bottom-color: #ffdc00; }
+.page-parceiros .head-menu a.stroke-delivery { border-bottom-color: #532f82; }
+.page-parceiros .head-menu a.stroke-novo { border-bottom-color: #000000; }
+.page-parceiros .head-menu a.stroke-academia { border-bottom-color: #ff5564; }
+.page-parceiros .head-menu a.stroke-coluna { border-bottom-color: #00bebe; }
+.page-parceiros .head-menu a.stroke-noticias { border-bottom-color: #0082c8; }
+.page-parceiros .head-menu a.stroke-neutral { border-bottom-color: #666666; }
+.page-parceiros .head-menu a:not(.is-active) { font-weight: 400; }
+.page-parceiros .head-menu a.is-active { font-weight: 700; }
+
+.sec-parc {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+@media (min-width: 1024px) {
+  .page-parceiros header.head-wrap.exp-lay--head {
+    height: 141px;
+    overflow: hidden;
+  }
+
+  .parc-hero-stack {
+    margin-top: 141px;
+  }
+}

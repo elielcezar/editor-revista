@@ -1,0 +1,13 @@
+{
+  "name": "revista-assai-73-visual",
+  "private": true,
+  "scripts": {
+    "postinstall": "npx playwright install chromium",
+    "test:visual": "node scripts/compare-lista-parceiros.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "pixelmatch": "^7.1.0",
+    "pngjs": "^7.0.0"
+  }
+}

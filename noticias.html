@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<!--
+  Notícias do Assaí — Figma 454:106 “NOTÍCIAS #73” (402×5575).
+  Ordem no DOM segue a draw-order do Figma (bottom→top). Estilos em css/noticias.css.
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REVISTA Assaí #73 — Notícias do Assaí</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/animista.css">
+  <link rel="stylesheet" href="css/noticias.css?v=73-not-8">
+
+  <link rel="stylesheet" href="css/revista-73-shell.css?v=73-18">
+</head>
+<body>
+  <aside class="dt-sidebar" aria-label="Navegação da revista">
+    <div class="dt-logo-wrap">
+      <img
+        src="assets/home73/dt-logo-assai.png"
+        alt="Assaí Atacadista"
+        class="dt-logo-img"
+        width="124"
+        height="124"
+      />
+    </div>
+    <nav class="dt-nav" aria-label="Seções da revista">
+      <a href="home.html"         class="dt-nav-item dt-nav--cap"       >CAPA</a>
+      <a href="categoria-principal.html"    class="dt-nav-item dt-nav--principal"  >PRINCIPAL</a>
+      <a href="categoria-gestao.html"       class="dt-nav-item dt-nav--gestao"     >GESTÃO</a>
+      <a href="categoria-mkt-digital.html"  class="dt-nav-item dt-nav--mkt"        >MKT DIGITAL</a>
+      <a href="categoria-produto.html"      class="dt-nav-item dt-nav--produto"     >PRODUTO</a>
+      <a href="categoria-consumidor.html"   class="dt-nav-item dt-nav--consumidor"  >CONSUMIDOR</a>
+      <a href="categoria-delivery.html"     class="dt-nav-item dt-nav--delivery"    >DELIVERY</a>
+      <a href="categoria-novo-negocio.html" class="dt-nav-item dt-nav--novo"        >NOVO NEGÓCIO</a>
+      <a href="categoria-academia.html"     class="dt-nav-item dt-nav--academia"    >ACADEMIA ASSAÍ</a>
+      <a href="categoria-noticias.html"     class="dt-nav-item dt-nav--noticias is-active"    >NOTÍCIAS DO ASSAÍ</a>
+      <a href="download.html"     class="dt-nav-item dt-nav--download"    >DOWNLOAD</a>
+      <a href="editorial.html"    class="dt-nav-item dt-nav--neutral"     >EDITORIAL</a>
+      <a href="parceiros.html"    class="dt-nav-item dt-nav--neutral"     >PARCEIROS</a>
+      <a href="expediente.html"   class="dt-nav-item dt-nav--neutral"     >EXPEDIENTE</a>
+    </nav>
+  </aside>
+  <main class="page-noticias" aria-label="Notícias do Assaí — Figma 454:106">
+
+    <!-- 1. Background bands (lowest z) -->
+    <div class="abs bg-yellow-bottom" aria-hidden="true"></div>
+    <div class="abs bg-yellow-mid" aria-hidden="true"></div>
+
+    <!-- 2. Rect-trip image collage (3 retângulos exportados individualmente do Figma) -->
+    <div class="abs rect-trip-3"><img class="img-cover" src="assets/noticias73/rect-trip-3.png" alt=""></div>
+    <div class="abs rect-trip-2"><img class="img-cover" src="assets/noticias73/rect-trip-2.png" alt=""></div>
+    <div class="abs rect-trip-1"><img class="img-cover" src="assets/noticias73/rect-trip-1.png" alt=""></div>
+
+    <!-- 3. Gradient block — degradê azul + meia-lua num único stacking context (lua sempre sobre o azul) -->
+    <div class="abs gradient-blue-stack" aria-hidden="true">
+      <div class="gradient-block-bg"></div>
+      <div class="ellipse-moon">
+        <span class="ellipse-moon__fill"></span>
+      </div>
+    </div>
+    <div class="abs ellipse-vector" aria-hidden="true">
+      <img src="assets/noticias73/logo-sacola.png" alt="" width="103" height="119">
+    </div>
+    <div class="abs gradient-block-text">
+      <p>O Assaí está presente em todas as regiões do Brasil e conhece de perto a diversidade de quem trabalha com alimentação por aqui.</p>
+      <p>Foi observando esse jeito de ser só nosso que a rede lançou uma nova coleção de sacolas retornáveis com referências culturais brasileiras, unindo identidade, praticidade e sustentabilidade num item do dia a dia.</p>
+      <p>Disponível em todas as lojas do país, a coleção mostra como carregar contexto e identidade até no mais simples. A sacola que sai da loja leva um pedaço do Brasil junto.</p>
+    </div>
+
+    <!-- 4. Imagem 55138 com cantos arredondados no topo -->
+    <div class="abs img-55138" data-parallax data-parallax-factor="0.45" data-parallax-max="90">
+      <img class="img-cover" src="assets/noticias73/img-55138-748c05.png" alt="">
+    </div>
+
+    <!-- 6. Vídeo sacola (hero) — sem controles; play ao rolar até a área -->
+    <div class="abs video-wrap video-wrap--hero z-video-sacola" id="wrap-video-sacola">
+      <video
+        id="video-sacola-miolo"
+        class="video-fill"
+        muted
+        loop
+        playsinline
+        preload="none"
+        poster="assets/noticias73/video-sacola.png"
+        disablePictureInPicture
+        controlsList="nodownload nofullscreen noplaybackrate"
+        tabindex="-1"
+        aria-label="Vídeo — sacolas Assaí"
+      >
+        <source src="assets/noticias73/Jingle_SacolaAssai_2026_Vertical_30seg_.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- 7. Títulos hero -->
+    <p class="abs title-o-brasil">O Brasil&nbsp;&nbsp;está</p>
+    <h1 class="abs title-em-alta">EM ALTA</h1>
+
+    <!-- 8. Body 2 — “Aproveitar essa tendência…” (sobre o bloco amarelo) -->
+    <div class="abs body-text body-2">
+      <p>Aproveitar essa tendência não exige grandes investimentos. Muitas vezes, o caminho pode estar no ingrediente local, na história que você ainda não contou, no detalhe que o cliente vê antes mesmo de provar.</p>
+      <p>Além disso, 2026 é ano de Copa do Mundo. Para o empreendedor, essa é uma janela de oportunidade que só se repete a cada quatro anos.</p>
+    </div>
+
+    <!-- 9. Section title — Como aproveitar a brasilidade no seu negócio -->
+    <h2 class="abs h-como">Como aproveitar a brasilidade no seu negócio</h2>
+
+    <!-- 10. Subtítulo gray (Brasilidade gera conexão…) -->
+    <p class="abs subtitle-brasil">Brasilidade gera conexão e, em ano de Copa, o orgulho de ser brasileiro transborda em oportunidade para quem souber aproveitar</p>
+
+    <!-- 11. Body 1 — “Pesquisas mostram…” -->
+    <div class="abs body-text body-1">
+      <p>Pesquisas mostram que os consumidores brasileiros têm valorizado cada vez mais produtos, marcas e experiências que refletem a nossa cultura.</p>
+      <p>No cardápio, na embalagem, na decoração do espaço e na forma de se comunicar com o cliente, a brasilidade aparece como diferencial. As receitas que remetem à memória afetiva das pessoas criam uma identificação que produto importado nenhum consegue imitar.</p>
+    </div>
+
+    <!-- 12. Vídeo ação sacolas (rodapé do miolo) -->
+    <div class="abs video-wrap video-wrap--acao z-video-acao" id="wrap-video-acao">
+      <video
+        id="video-acao-miolo"
+        class="video-fill"
+        muted
+        loop
+        playsinline
+        preload="none"
+        poster="assets/noticias73/video-acao-sacolas.png"
+        disablePictureInPicture
+        controlsList="nodownload nofullscreen noplaybackrate"
+        tabindex="-1"
+        aria-label="Vídeo — ação sacolas retornáveis Assaí"
+      >
+        <source src="assets/noticias73/snapinsta.com.br-69eb7820e36c4.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- 13. Body 4 — “NO ASSAÍ / EM CASA / NO NEGÓCIO / EM DESLOCAMENTOS / NA PRAIA OU LAZER” -->
+    <div class="abs body-4">
+      <p>NO ASSAÍ<br><span class="small">Para transportar as compras de abastecimento ou reposição</span></p>
+      <p>EM CASA<br><span class="small">Para organizar e facilitar o transporte do dia a dia</span></p>
+      <p>NO NEGÓCIO<br><span class="small">No apoio à reposição de produtos e na rotina do comércio</span></p>
+      <p>EM DESLOCAMENTOS<br><span class="small">Para levar itens no carro, no transporte ou em trajetos curtos</span></p>
+      <p>NA PRAIA OU LAZER<br><span class="small">Com espaço para roupas, alimentos e o que mais precisar</span></p>
+    </div>
+
+    <!-- 14. Chip “#73 mai . jun . 26” + Autor -->
+    <div class="abs chip-frame">
+      <div class="chip">#73 mai . jun . 26</div>
+      <p class="autor">Por: Vania Nocchi</p>
+    </div>
+
+    <!-- 15. Carrossel horizontal (gradient + 5 sacolas + g1 strips) -->
+    <section class="abs carrossel-section" aria-label="Galeria de sacolas">
+      <div class="carrossel-track" id="carrossel-noticias">
+        <div class="carrossel-inner">
+          <div class="carrossel-bg" aria-hidden="true"></div>
+          <div class="abs c-g1-a"><img class="img-cover" src="assets/noticias73/carrossel-g1.png" alt="" draggable="false"></div>
+          <div class="abs c-g1-b"><img class="img-cover" src="assets/noticias73/carrossel-g1.png" alt="" draggable="false"></div>
+          <div class="abs c-sacola1"><img class="img-cover" src="assets/noticias73/sacola1.png" alt="Sacola retornável Assaí - estampa 1" draggable="false"></div>
+          <div class="abs c-sacolas2"><img class="img-cover" src="assets/noticias73/sacolas2.png" alt="Sacola retornável Assaí - estampa 2" draggable="false"></div>
+          <div class="abs c-sacolas3"><img class="img-cover" src="assets/noticias73/sacolas3.png" alt="Sacola retornável Assaí - estampa 3" draggable="false"></div>
+          <div class="abs c-sacolas4"><img class="img-cover" src="assets/noticias73/sacolas4.png" alt="Sacola retornável Assaí - estampa 4" draggable="false"></div>
+          <div class="abs c-sacolas5"><img class="img-cover" src="assets/noticias73/sacolas5.png" alt="Sacola retornável Assaí - estampa 5" draggable="false"></div>
+        </div>
+      </div>
+      <div class="tres-setas" aria-hidden="true">
+        <img src="assets/noticias73/tres-setas.svg" alt="" width="55" height="19">
+      </div>
+    </section>
+
+    <!-- 16. Section title — Veja como trazer o Brasil para o seu negócio -->
+    <h2 class="abs h-veja">Veja como trazer o Brasil para o seu negócio</h2>
+
+    <!-- 17. Body 3 — “Identidade visual / Alimentos regionais / Datas e sazonalidades” -->
+    <div class="abs body-text body-3">
+      <p>
+        <strong class="sub-green">Identidade visual</strong>
+        Trabalhe com cores, estampas e desenhos que você já conhece. Os elementos que remetem à cultura brasileira também geram conexão imediata com o seu cliente.
+      </p>
+      <p>
+        <strong class="sub-green">Alimentos regionais</strong>
+        Ingredientes locais e pratos típicos criam pertencimento para quem é da região e curiosidade para quem veio de fora.
+      </p>
+      <p>
+        <strong class="sub-green">Datas e sazonalidades</strong>
+        Decorar o espaço para a Copa, o São João, o Carnaval e as datas da sua região é uma forma barata de criar ambiente e puxar movimento.
+      </p>
+    </div>
+
+    <!-- 18. Intertítulo — Olha onde fomos parar -->
+    <div class="abs intertitulo">
+      <p>Olha onde fomos parar.</p>
+      <p>Na final do Campeonato Carioca de Futebol deste ano, no Maracanã, a bola da partida foi levada ao campo dentro de uma sacola retornável do Assaí</p>
+    </div>
+
+    <!-- 19. Section title — Onde usar sua sacola retornável -->
+    <h2 class="abs h-onde-usar">ONDE USAR SUA<br>SACOLA RETORNÁVEL</h2>
+
+    <!-- 20. Decorações (pássaros / animais) — ordem do Figma do menor z para o maior -->
+    <div class="abs deco-passaro" aria-hidden="true" data-animista="passaro-fly-across">
+      <div class="deco-passaro__bob">
+        <img class="img-cover" src="assets/noticias73/passaro.png" alt="">
+      </div>
+    </div>
+    <div class="abs deco-gralha-crop-top" aria-hidden="true">
+      <img class="img-cover" src="assets/noticias73/gralha-rect-1433.png" alt="">
+    </div>
+    <div class="abs deco-gralha-azul" aria-hidden="true">
+      <img class="img-cover" src="assets/noticias73/gralha-azul.png" alt="">
+    </div>
+    <div class="abs deco-gralha-crop-bot" aria-hidden="true">
+      <img class="img-cover" src="assets/noticias73/gralha-rect-1437.png" alt="">
+    </div>
+    <div class="abs deco-arara" aria-hidden="true">
+      <img class="img-cover" src="assets/noticias73/arara.png" alt="">
+    </div>
+
+    <!-- 21. Botões de som (cada um sincroniza mute com o vídeo correspondente) -->
+    <button type="button" class="abs sound-btn sound-azul is-muted" id="btn-sound-acao" aria-pressed="true" aria-controls="video-acao-miolo" aria-label="Som do vídeo de ação sacolas desligado — toque para ligar">
+      <img src="assets/noticias73/sound.gif" alt="" width="37" height="37" decoding="async">
+    </button>
+    <button type="button" class="abs sound-btn sound-anil is-muted" id="btn-sound-sacola" aria-pressed="true" aria-controls="video-sacola-miolo" aria-label="Som do vídeo principal desligado — toque para ligar">
+      <img src="assets/noticias73/sound.gif" alt="" width="37" height="37" decoding="async">
+    </button>
+
+    <!-- 22. HEAD NOTICIAS -->
+    <header class="abs head-wrap" aria-label="Cabeçalho">
+      <div class="head-inner">
+        <div class="abs head-color-band" aria-hidden="true"></div>
+        <div class="abs head-gray-band" aria-hidden="true"></div>
+        <img class="abs head-logo" src="assets/home73/logo-head.svg" alt="Revista Assaí" width="283" height="31">
+        <nav class="head-menu" id="menu-principal" aria-label="Menu">
+          <div class="head-menu-inner">
+            <a class="stroke-cap" href="home.html" data-menu-item>CAPA</a>
+            <a class="stroke-principal" href="categoria-principal.html" data-menu-item>PRINCIPAL</a>
+            <a class="stroke-gestao" href="categoria-gestao.html" data-menu-item>GESTÃO</a>
+            <a class="stroke-mkt" href="categoria-mkt-digital.html" data-menu-item>MKT DIGITAL</a>
+            <a class="stroke-produto" href="categoria-produto.html" data-menu-item>PRODUTO</a>
+            <a class="stroke-consumidor" href="categoria-consumidor.html" data-menu-item>CONSUMIDOR</a>
+            <a class="stroke-delivery" href="categoria-delivery.html" data-menu-item>DELIVERY</a>
+            <a class="stroke-novo" href="categoria-novo-negocio.html" data-menu-item>NOVO NEGÓCIO</a>
+            <a class="stroke-academia" href="categoria-academia.html" data-menu-item>ACADEMIA ASSAÍ</a>
+            <a class="stroke-noticias is-active" href="categoria-noticias.html" data-menu-item>NOTÍCIAS DO ASSAÍ</a>
+            <a class="stroke-download" href="download.html" data-menu-item>DOWNLOAD</a>
+            <a class="stroke-neutral" href="editorial.html" data-menu-item>EDITORIAL</a>
+            <a class="stroke-neutral" href="parceiros.html" data-menu-item>PARCEIROS</a>
+            <a class="stroke-neutral" href="expediente.html" data-menu-item>EXPEDIENTE</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- 23. FOOTER -->
+    <footer class="abs foot-wrap" aria-label="Rodapé">
+      <svg class="foot-bg-top" viewBox="0 0 403.33 56.9" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M403.33 0H0V56.9H403.33V0Z" fill="none"/>
+      </svg>
+      <div class="foot-bg-bottom" aria-hidden="true"></div>
+
+      <a href="#" class="foot-icon foot-icon-left" aria-label="Instagram">
+        <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M9.87822 1.29971L9.87821 18.9999" stroke="#E4E4E4"/>
+          <path d="M19.4025 10.0156L9.87839 0.709835L0.354593 10.0156" stroke="#E4E4E4"/>
+        </svg>
+      </a>
+      <a href="#" class="foot-icon foot-icon-mid" aria-label="Facebook">
+        <svg width="19" height="21" viewBox="0 0 19 21" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M14.9491 0.515165C16.6816 0.515165 18.0886 1.92196 18.0886 3.65454C18.0886 5.38712 16.6816 6.79392 14.9491 6.79392C13.2165 6.79392 11.8095 5.38712 11.8095 3.65454C11.8095 1.92196 13.2165 0.515165 14.9491 0.515165Z" stroke="#E4E4E4"/>
+          <path d="M14.9491 14.2063C16.6816 14.2063 18.0886 15.6131 18.0886 17.3456C18.0886 19.0782 16.6816 20.485 14.9491 20.485C13.2165 20.485 11.8095 19.0782 11.8095 17.3456C11.8095 15.6131 13.2165 14.2063 14.9491 14.2063Z" stroke="#E4E4E4"/>
+          <path d="M3.65464 7.45781C5.38723 7.45781 6.79415 8.86492 6.79415 10.5975C6.79415 12.3301 5.38723 13.7369 3.65464 13.7369C1.92205 13.7369 0.515165 12.3301 0.515165 10.5975C0.515165 8.86492 1.92205 7.45781 3.65464 7.45781Z" stroke="#E4E4E4"/>
+          <path d="M5.39917 8.67033L11.9127 4.76225" stroke="#E4E4E4"/>
+          <path d="M5.39917 12.5803L11.9127 16.4884" stroke="#E4E4E4"/>
+        </svg>
+      </a>
+      <a href="https://www.assai.com.br/nossas-lojas" target="_blank" rel="noopener noreferrer" class="foot-icon foot-icon-right" aria-label="Nossas lojas">
+        <svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M10.7392 2.94724C7.97313 3.25316 8.29179 7.52331 11.1599 7.31936C14.0152 7.11541 13.6711 2.62856 10.7392 2.94724ZM10.3441 13.7056C9.94893 13.3487 8.71246 11.2838 8.34279 10.6847C6.48172 7.67645 4.19999 3.97982 7.76916 1.11174C11.2619 -1.67984 16.5519 1.14997 16.0547 5.56043C15.8763 7.12831 12.9445 12.0105 11.861 13.3235C11.4403 13.8206 10.9559 14.2665 10.3313 13.7056" fill="#E4E4E4"/>
+          <path d="M4.41666 10.8479L0.796507 18.496H21.1918L17.5844 10.8479" stroke="#E4E4E4"/>
+        </svg>
+      </a>
+      <a href="https://www.assai.com.br" target="_blank" rel="noopener noreferrer" class="foot-icon foot-brand" aria-label="Marca Assaí Atacadista">
+        <img src="assets/home73/footer-brand.svg" alt="Assaí Atacadista" width="50" height="37">
+      </a>
+      <a href="https://www.assai.com.br/nossas-lojas" target="_blank" rel="noopener noreferrer" class="foot-lojas">NOSSAS LOJAS</a>
+    </footer>
+  </main>
+
+  <script src="js/revista-73-menu.js?v=73-9" defer></script>
+  <script src="js/animista-scroll.js" defer></script>
+  <script src="js/animista-parallax.js?v=73-4" defer></script>
+  <script>
+    /* Galeria horizontal: swipe no touch (pan-x); arrastar com o mouse também */
+    (function () {
+      var track = document.getElementById('carrossel-noticias');
+      if (!track) return;
+
+      var active = false;
+      var capId = null;
+      var startX = 0;
+      var scroll0 = 0;
+
+      track.addEventListener('pointerdown', function (e) {
+        if (e.pointerType !== 'mouse') return;
+        if (e.button !== 0) return;
+        active = true;
+        capId = e.pointerId;
+        startX = e.clientX;
+        scroll0 = track.scrollLeft;
+        track.classList.add('is-dragging');
+        try {
+          track.setPointerCapture(e.pointerId);
+        } catch (err) {}
+      });
+
+      track.addEventListener('pointermove', function (e) {
+        if (!active || e.pointerId !== capId) return;
+        track.scrollLeft = scroll0 - (e.clientX - startX);
+      });
+
+      function endPointer(e) {
+        if (!active || (e && e.pointerId !== capId)) return;
+        active = false;
+        capId = null;
+        track.classList.remove('is-dragging');
+        try {
+          if (e) track.releasePointerCapture(e.pointerId);
+        } catch (err) {}
+      }
+
+      track.addEventListener('pointerup', endPointer);
+      track.addEventListener('pointercancel', endPointer);
+    })();
+
+    (function () {
+      function wireInlineVideo(wrapId, videoId, btnId, labelOn, labelOff) {
+        var wrap = document.getElementById(wrapId);
+        var video = document.getElementById(videoId);
+        var btn = document.getElementById(btnId);
+        if (!wrap || !video) return;
+
+        function syncSoundButton() {
+          if (!btn) return;
+          var muted = video.muted;
+          btn.classList.toggle('is-muted', muted);
+          btn.setAttribute('aria-pressed', muted ? 'true' : 'false');
+          btn.setAttribute('aria-label', muted ? labelOff : labelOn);
+        }
+
+        function playWhenVisible() {
+          var p = video.play().catch(function () {
+            video.muted = true;
+            return video.play();
+          });
+          if (p && typeof p.finally === 'function') {
+            p.finally(syncSoundButton);
+          } else {
+            syncSoundButton();
+          }
+        }
+
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                playWhenVisible();
+              } else {
+                video.pause();
+              }
+            });
+          },
+          { root: null, threshold: 0.35 }
+        );
+        io.observe(wrap);
+
+        video.addEventListener('volumechange', syncSoundButton);
+
+        if (btn) {
+          btn.addEventListener('click', function () {
+            video.muted = !video.muted;
+            syncSoundButton();
+            if (!video.muted && video.paused) {
+              video.play().catch(function () {});
+            }
+          });
+        }
+
+        syncSoundButton();
+      }
+
+      wireInlineVideo(
+        'wrap-video-sacola',
+        'video-sacola-miolo',
+        'btn-sound-sacola',
+        'Som do vídeo principal ligado — toque para desligar',
+        'Som do vídeo principal desligado — toque para ligar'
+      );
+      wireInlineVideo(
+        'wrap-video-acao',
+        'video-acao-miolo',
+        'btn-sound-acao',
+        'Som do vídeo de ação sacolas ligado — toque para desligar',
+        'Som do vídeo de ação sacolas desligado — toque para ligar'
+      );
+    })();
+  </script>
+</body>
+</html>
