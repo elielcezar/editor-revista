@@ -49,7 +49,7 @@ body {
 .page-download {
   position: relative;
   width: 403px;
-  height: 967px;
+  height: 927px;
   min-height: 967px;
   align-self: flex-start;
   background: #ffffff;
@@ -80,7 +80,7 @@ body {
 
 .page-download .dl-bar--files {
   left: 24px;
-  top: 259px;
+  top: 219px;
   width: 353px;
   height: 34px;
   background: #004696;
@@ -89,7 +89,7 @@ body {
 
 .page-download .dl-bar--sheets {
   left: 25px;
-  top: 588px;
+  top: 548px;
   width: 353px;
   height: 34px;
   background: #004696;
@@ -118,13 +118,13 @@ body {
 
 .page-download .dl-deco-slot--arquivos {
   left: 73.75px;
-  top: 204px;
+  top: 164px;
   height: 120px;
 }
 
 .page-download .dl-deco-slot--planilhas {
   left: 73.75px;
-  top: 533px;
+  top: 493px;
   height: 120.5px;
 }
 
@@ -142,12 +142,12 @@ body {
 
 .page-download .dl-h-sec--files {
   left: 150px;
-  top: 266px;
+  top: 226px;
 }
 
 .page-download .dl-h-sec--sheets {
   left: 151px;
-  top: 594px;
+  top: 554px;
 }
 
 /* Blocos de texto — estilo Texto / ts1 ts2 ts3 */
@@ -159,12 +159,12 @@ body {
 
 .page-download .dl-body--1 {
   left: 97px;
-  top: 318px;
+  top: 278px;
 }
 
 .page-download .dl-body--2 {
   left: 96px;
-  top: 655px;
+  top: 615px;
 }
 
 .page-download .dl-t-line1 {
@@ -212,28 +212,28 @@ body {
 
 .page-download .dl-ico--1a {
   left: 38px;
-  top: 323px;
+  top: 283px;
   width: 22px;
   height: 23px;
 }
 
 .page-download .dl-ico--1b {
   left: 38px;
-  top: 423px;
+  top: 383px;
   width: 22px;
   height: 23px;
 }
 
 .page-download .dl-ico--2a {
   left: 43px;
-  top: 655px;
+  top: 615px;
   width: 22px;
   height: 23px;
 }
 
 .page-download .dl-ico--2b {
   left: 43px;
-  top: 755px;
+  top: 715px;
   width: 22px;
   height: 23px;
 }
@@ -380,7 +380,7 @@ body {
 .page-download .foot-wrap {
   position: absolute;
   left: -1px;
-  top: 853px;
+  top: 813px;
   width: 403.33px;
   height: 114px;
   z-index: 500;
