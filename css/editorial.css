@@ -193,11 +193,73 @@ body {
   font-weight: 700;
 }
 
-/* Miolo — texto 1624:1079 · x:28 y:286 · 350×140 · centrado · «Corpo de texto» */
+/* Hero vídeo — mesmo miolo de noticias.html (sacola Assaí) */
+.page-editorial .ed-video-wrap {
+  left: 0;
+  top: 182px;
+  width: 402px;
+  height: 544px;
+  overflow: hidden;
+  z-index: 3;
+}
+
+.page-editorial .ed-video-fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.page-editorial .ed-video-fill::-webkit-media-controls,
+.page-editorial .ed-video-fill::-webkit-media-controls-enclosure,
+.page-editorial .ed-video-fill::-webkit-media-controls-panel {
+  display: none !important;
+}
+
+.page-editorial .ed-sound-btn {
+  left: 330px;
+  top: 705px;
+  width: 45px;
+  height: 45px;
+  border: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  background: #00bebe;
+  z-index: 9;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.page-editorial .ed-sound-btn:hover {
+  transform: scale(1.05);
+}
+
+.page-editorial .ed-sound-btn:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.page-editorial .ed-sound-btn img {
+  width: 37px;
+  height: 37px;
+  display: block;
+  border-radius: 50%;
+}
+
+.page-editorial .ed-sound-btn.is-muted img {
+  filter: grayscale(1) brightness(0.75);
+  opacity: 0.85;
+}
+
+/* Miolo — texto abaixo do hero vídeo */
 .page-editorial .editorial-miolo {
   width: 100%;
   min-height: 0;
-  padding: 286px 24px 48px 28px;
+  padding: 750px 24px 48px 28px;
   margin: 0;
   box-sizing: border-box;
   flex: 1 0 auto;
@@ -307,5 +369,7 @@ body {
 
 @media (min-width: 1024px) {
   .page-editorial .head-wrap.exp-lay--head { height: 141px; overflow: hidden; }
-  .page-editorial .editorial-miolo { padding-top: 245px; }
+  .page-editorial .ed-video-wrap { top: 141px; }
+  .page-editorial .ed-sound-btn { top: 664px; }
+  .page-editorial .editorial-miolo { padding-top: 636px; }
 }

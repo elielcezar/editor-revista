@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/editorial.css?v=73-ed-3">
+  <link rel="stylesheet" href="css/editorial.css?v=73-ed-4">
 
   <link rel="stylesheet" href="css/revista-73-shell.css?v=73-6">
 </head>
@@ -72,13 +72,40 @@
         </div>
       </header>
 
+    <!-- Hero vídeo (mesmo de noticias.html) — mudo; play ao rolar; botão de som -->
+    <div class="abs ed-video-wrap" id="wrap-video-editorial-hero" aria-hidden="false">
+      <video
+        id="video-editorial-hero"
+        class="ed-video-fill"
+        muted
+        loop
+        playsinline
+        preload="none"
+        poster="assets/noticias73/video-sacola.png?v=2"
+        disablePictureInPicture
+        controlsList="nodownload nofullscreen noplaybackrate"
+        tabindex="-1"
+        aria-label="Vídeo — sacolas Assaí"
+      >
+        <source src="assets/noticias73/Jingle_SacolaAssai_2026_Vertical_30seg_.mp4?v=2" type="video/mp4">
+      </video>
+    </div>
+    <button
+      type="button"
+      class="abs ed-sound-btn is-muted"
+      id="btn-sound-editorial-hero"
+      aria-pressed="true"
+      aria-controls="video-editorial-hero"
+      aria-label="Som do vídeo desligado — toque para ligar"
+    >
+      <img src="assets/noticias73/sound.gif" alt="" width="37" height="37" decoding="async">
+    </button>
+
     <section id="sec-miolo" class="sec-ed editorial-miolo" aria-label="Texto editorial">
-      <p class="editorial-lead">
+      <!-- <p class="editorial-lead">
         EDITORIAL<br><br>
-        LAGUARDANDO DECISÃO DO ASSAÍ.<br><br>
-        VÍDEO BELMIRO<br>
-        VÍDEO SOL
-      </p>
+        LAGUARDANDO DECISÃO DO ASSAÍ.
+      </p> -->
     </section>
 
     <section id="sec-rodape" class="sec-ed" aria-label="Rodapé">
@@ -101,5 +128,71 @@
     </section>
   </main>
   <script src="js/revista-73-menu.js?v=73-4" defer></script>
+  <script>
+    (function () {
+      function wireInlineVideo(wrapId, videoId, btnId, labelOn, labelOff) {
+        var wrap = document.getElementById(wrapId);
+        var video = document.getElementById(videoId);
+        var btn = document.getElementById(btnId);
+        if (!wrap || !video) return;
+
+        function syncSoundButton() {
+          if (!btn) return;
+          var muted = video.muted;
+          btn.classList.toggle('is-muted', muted);
+          btn.setAttribute('aria-pressed', muted ? 'true' : 'false');
+          btn.setAttribute('aria-label', muted ? labelOff : labelOn);
+        }
+
+        function playWhenVisible() {
+          var p = video.play().catch(function () {
+            video.muted = true;
+            return video.play();
+          });
+          if (p && typeof p.finally === 'function') {
+            p.finally(syncSoundButton);
+          } else {
+            syncSoundButton();
+          }
+        }
+
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                playWhenVisible();
+              } else {
+                video.pause();
+              }
+            });
+          },
+          { root: null, threshold: 0.35 }
+        );
+        io.observe(wrap);
+
+        video.addEventListener('volumechange', syncSoundButton);
+
+        if (btn) {
+          btn.addEventListener('click', function () {
+            video.muted = !video.muted;
+            syncSoundButton();
+            if (!video.muted && video.paused) {
+              video.play().catch(function () {});
+            }
+          });
+        }
+
+        syncSoundButton();
+      }
+
+      wireInlineVideo(
+        'wrap-video-editorial-hero',
+        'video-editorial-hero',
+        'btn-sound-editorial-hero',
+        'Som do vídeo ligado — toque para desligar',
+        'Som do vídeo desligado — toque para ligar'
+      );
+    })();
+  </script>
 </body>
 </html>

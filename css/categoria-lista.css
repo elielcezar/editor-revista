@@ -259,7 +259,7 @@ body {
   flex-direction: column;
   gap: 33px;
   width: 402px;
-  padding: 31px 0 36px;
+  padding: 31px 0 0;
   flex-shrink: 0;
 }
 
