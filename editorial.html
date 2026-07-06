@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/editorial.css?v=73-ed-3">
+  <link rel="stylesheet" href="css/editorial.css?v=73-ed-4">
 
   <link rel="stylesheet" href="css/revista-73-shell.css?v=73-6">
 </head>
@@ -48,9 +48,9 @@
 
       <header class="abs head-wrap exp-lay--head">
         <div class="head-inner">
-          <div class="abs exp-lay--head-band"></div>
+          <a href="https://www.assai.com.br/revistadigital/" class="abs exp-lay--head-band" aria-label="Capa"></a>
           <div class="abs exp-lay--head-cinza"></div>
-          <img class="abs exp-lay--head-logo" src="assets/home73/logo-head.svg" alt="" width="283" height="31" />
+          <a href="https://www.assai.com.br/revistadigital/" class="abs exp-lay--head-logo" aria-label="Capa"><img src="assets/home73/logo-head.svg" alt="" width="283" height="31" /></a>
           <nav class="head-menu" id="menu-principal" aria-label="Menu">
             <div class="head-menu-inner">
               <a class="stroke-cap" href="home.html" data-menu-item>CAPA</a>
@@ -72,20 +72,47 @@
         </div>
       </header>
 
+    <!-- Hero vídeo (mesmo de noticias.html) — mudo; play ao rolar; botão de som -->
+    <div class="abs ed-video-wrap" id="wrap-video-editorial-hero" aria-hidden="false">
+      <video
+        id="video-editorial-hero"
+        class="ed-video-fill"
+        muted
+        loop
+        playsinline
+        preload="none"
+        poster="assets/noticias73/video-sacola.png?v=2"
+        disablePictureInPicture
+        controlsList="nodownload nofullscreen noplaybackrate"
+        tabindex="-1"
+        aria-label="Vídeo — sacolas Assaí"
+      >
+        <source src="assets/noticias73/Jingle_SacolaAssai_2026_Vertical_30seg_.mp4?v=2" type="video/mp4">
+      </video>
+    </div>
+    <button
+      type="button"
+      class="abs ed-sound-btn is-muted"
+      id="btn-sound-editorial-hero"
+      aria-pressed="true"
+      aria-controls="video-editorial-hero"
+      aria-label="Som do vídeo desligado — toque para ligar"
+    >
+      <img src="assets/noticias73/sound.gif" alt="" width="37" height="37" decoding="async">
+    </button>
+
     <section id="sec-miolo" class="sec-ed editorial-miolo" aria-label="Texto editorial">
-      <p class="editorial-lead">
+      <!-- <p class="editorial-lead">
         EDITORIAL<br><br>
-        LAGUARDANDO DECISÃO DO ASSAÍ.<br><br>
-        VÍDEO BELMIRO<br>
-        VÍDEO SOL
-      </p>
+        LAGUARDANDO DECISÃO DO ASSAÍ.
+      </p> -->
     </section>
 
     <section id="sec-rodape" class="sec-ed" aria-label="Rodapé">
       <footer class="foot-wrap exp-lay--foot">
         <img class="abs exp-lay--foot-bg" src="assets/home73/footer-bg.svg" alt="" />
         <a href="https://www.assai.com.br/nossas-lojas" target="_blank" rel="noopener noreferrer" class="abs foot-lojas exp-lay--foot-lojas">NOSSAS LOJAS</a>
-        <a href="home.html" class="abs exp-lay--foot-inst" aria-label="home">
+        <a href="editorial.html#" class="abs exp-lay--foot-inst" aria-label="Topo da página">
           <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9.87822 1.29971L9.87821 18.9999" stroke="#E4E4E4"/><path d="M19.4025 10.0156L9.87839 0.709835L0.354593 10.0156" stroke="#E4E4E4"/></svg>
         </a>
         <a href="https://www.facebook.com/assaiatacadistaoficial" target="_blank" rel="noopener noreferrer" class="abs exp-lay--foot-fb" aria-label="Facebook">
@@ -101,5 +128,71 @@
     </section>
   </main>
   <script src="js/revista-73-menu.js?v=73-4" defer></script>
+  <script>
+    (function () {
+      function wireInlineVideo(wrapId, videoId, btnId, labelOn, labelOff) {
+        var wrap = document.getElementById(wrapId);
+        var video = document.getElementById(videoId);
+        var btn = document.getElementById(btnId);
+        if (!wrap || !video) return;
+
+        function syncSoundButton() {
+          if (!btn) return;
+          var muted = video.muted;
+          btn.classList.toggle('is-muted', muted);
+          btn.setAttribute('aria-pressed', muted ? 'true' : 'false');
+          btn.setAttribute('aria-label', muted ? labelOff : labelOn);
+        }
+
+        function playWhenVisible() {
+          var p = video.play().catch(function () {
+            video.muted = true;
+            return video.play();
+          });
+          if (p && typeof p.finally === 'function') {
+            p.finally(syncSoundButton);
+          } else {
+            syncSoundButton();
+          }
+        }
+
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                playWhenVisible();
+              } else {
+                video.pause();
+              }
+            });
+          },
+          { root: null, threshold: 0.35 }
+        );
+        io.observe(wrap);
+
+        video.addEventListener('volumechange', syncSoundButton);
+
+        if (btn) {
+          btn.addEventListener('click', function () {
+            video.muted = !video.muted;
+            syncSoundButton();
+            if (!video.muted && video.paused) {
+              video.play().catch(function () {});
+            }
+          });
+        }
+
+        syncSoundButton();
+      }
+
+      wireInlineVideo(
+        'wrap-video-editorial-hero',
+        'video-editorial-hero',
+        'btn-sound-editorial-hero',
+        'Som do vídeo ligado — toque para desligar',
+        'Som do vídeo desligado — toque para ligar'
+      );
+    })();
+  </script>
 </body>
 </html>

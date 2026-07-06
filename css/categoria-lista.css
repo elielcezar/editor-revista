@@ -109,8 +109,6 @@ body {
   width: 282.71px;
   height: 30.71px;
   z-index: 3;
-  pointer-events: none;
-  object-fit: contain;
 }
 
 .page-categorias .head-menu {
@@ -261,7 +259,7 @@ body {
   flex-direction: column;
   gap: 33px;
   width: 402px;
-  padding: 31px 0 36px;
+  padding: 31px 0 0;
   flex-shrink: 0;
 }
 

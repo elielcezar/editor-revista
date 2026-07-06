@@ -190,8 +190,6 @@ body {
   width: 282.71px;
   height: 30.71px;
   z-index: 3;
-  pointer-events: none;
-  object-fit: contain;
 }
 
 .page-gestao-2 .head-menu {

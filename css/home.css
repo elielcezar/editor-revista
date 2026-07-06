@@ -542,7 +542,7 @@
 .home-lay--002 { right:0; top:0; width:1px; height:182px; background:#004696; z-index:250; }
 .home-lay--003 { left:0; top:0; width:402px; height:141px; background:#000000; z-index:1; }
 .home-lay--004 { left:0; top:141px; width:402px; height:41px; background:#d9d9d9; z-index:1; }
-.home-lay--005 { left:54px; top:78px; width:282.71px; height:30.71px; z-index:3; pointer-events:none; }
+.home-lay--005 { left:54px; top:78px; width:282.71px; height:30.71px; z-index:3; }
 .home-lay--006 { left:0; top:179px; width:402px; height:462px; background:#004696; }
 .home-lay--007 { left:36px; top:20.49px; width:55px; height:51.5px; z-index:2; }
 .home-lay--008 { left:0; top:288px; width:402px; height:174px; z-index:4; }
