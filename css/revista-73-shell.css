@@ -29,6 +29,57 @@ body > main[class^="page-"] {
   box-sizing: border-box;
 }
 
+/* Logo do header — link clicável para home.html */
+.head-inner > a.head-logo,
+.head-inner > a.home-lay--005,
+.head-inner > a.principal-lay--041,
+.head-inner > a.gestao-lay--098,
+.head-inner > a.academia-lay--050,
+.head-inner > a.nn-head-logo,
+.head-inner > a.dl-logo-head,
+.head-inner > a.gx2-lay--head-logo,
+.head-inner > a.exp-lay--head-logo,
+.cat-head-inner > a.cat-head-logo {
+  display: block;
+  text-decoration: none;
+  line-height: 0;
+}
+
+.head-inner > a.head-logo img,
+.head-inner > a.home-lay--005 img,
+.head-inner > a.principal-lay--041 img,
+.head-inner > a.gestao-lay--098 img,
+.head-inner > a.academia-lay--050 img,
+.head-inner > a.nn-head-logo img,
+.head-inner > a.dl-logo-head img,
+.head-inner > a.gx2-lay--head-logo img,
+.head-inner > a.exp-lay--head-logo img,
+.cat-head-inner > a.cat-head-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Faixa colorida do header — link para capa */
+.head-inner > a.cat-band-azul,
+.head-inner > a.home-lay--003,
+.head-inner > a.principal-lay--039,
+.head-inner > a.gestao-lay--096,
+.head-inner > a.gx2-lay--head-band-vm,
+.head-inner > a.academia-lay--048,
+.head-inner > a.head-blue,
+.head-inner > a.head-yellow,
+.head-inner > a.head-color,
+.head-inner > a.head-color-band,
+.head-inner > a.nn-head-band,
+.head-inner > a.exp-lay--head-band,
+.head-inner > a.dl-head-purple,
+.cat-head-inner > a.cat-band-azul {
+  display: block;
+  text-decoration: none;
+}
+
 /*
  * Mobile (<402px): frame Figma 402px reduz proporcionalmente (zoom) para caber na tela.
  * width:100% sozinho não escala posições absolutas em px; o zoom encolhe o miolo inteiro.

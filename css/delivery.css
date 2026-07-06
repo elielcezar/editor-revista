@@ -817,7 +817,6 @@ body {
   height: 141px;
   background: #532f82;
   z-index: 1;
-  pointer-events: none;
 }
 
 .page-delivery .dl-head-cinza {
@@ -835,10 +834,8 @@ body {
   top: 78px;
   width: 282.71px;
   height: 30.71px;
-  object-fit: contain;
   display: block;
   z-index: 3;
-  pointer-events: none;
 }
 
 .page-delivery .head-menu {

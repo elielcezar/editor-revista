@@ -635,8 +635,6 @@ p, h1, h2, h3, h4 { margin: 0; }
   left: 54px; top: 78px;
   width: 282.71px; height: 30.71px;
   z-index: 3;
-  pointer-events: none;
-  object-fit: contain;
 }
 
 .head-menu {

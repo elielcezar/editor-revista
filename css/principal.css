@@ -715,7 +715,7 @@
 .principal-lay--038 { right:0; top:0; width:1px; height:182px; background:#004696; z-index:250; }
 .principal-lay--039 { left:0; top:0; width:402px; height:141px; background:#004696; z-index:1; }
 .principal-lay--040 { left:0; top:141px; width:402px; height:41px; background:#d9d9d9; z-index:1; }
-.principal-lay--041 { left:54px; top:78px; width:282.71px; height:30.71px; z-index:3; pointer-events:none; object-fit:contain; }
+.principal-lay--041 { left:54px; top:78px; width:282.71px; height:30.71px; z-index:3; }
 
 @media (min-width: 1024px) {
   .hero-principal { top: 140px; }

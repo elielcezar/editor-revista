@@ -630,7 +630,7 @@
 .gestao-lay--095 { right:0; top:0; width:1px; height:182px; background:#004696; z-index:250; }
 .gestao-lay--096 { left:0; top:0; width:402px; height:141px; background:#f0051e; z-index:1; }
 .gestao-lay--097 { left:0; top:141px; width:402px; height:41px; background:#ffffff; z-index:1; }
-.gestao-lay--098 { left:54px; top:78px; width:282.71px; height:30.71px; z-index:3; pointer-events:none; object-fit:contain; }
+.gestao-lay--098 { left:54px; top:78px; width:282.71px; height:30.71px; z-index:3; }
 .gestao-lay--099 { left:-2px; top:1661px; width:404px; height:161px; z-index:13; }
 
 .gestao-gastos-head-bg {

@@ -331,7 +331,7 @@
     .head-gray { left: 0; top: 141px; width: 402px; height: 41px; background: #d9d9d9; z-index: 1; }
     .head-logo {
       left: 54px; top: 78px; width: 282.71px; height: 30.71px; z-index: 3;
-      line-height: 0; pointer-events: none;
+      line-height: 0;
     }
     .head-logo img { width: 100%; height: 100%; object-fit: contain; display: block; }
     #menu-principal.head-menu {
