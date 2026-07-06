@@ -662,9 +662,9 @@ img.academia-lay--012 {
 
 .academia-lay--046 { left: -2px; top: 0; z-index: 600; }
 .academia-lay--047 { right: 0; top: 0; width: 1px; height: 182px; background: #004696; z-index: 250; pointer-events: none; }
-.academia-lay--048 { left: 0; top: 0; width: 402px; height: 141px; background: #ff5564; z-index: 1; display: block; }
+.academia-lay--048 { left: 0; top: 0; width: 402px; height: 141px; background: #ff5564; z-index: 1; pointer-events: none; }
 .academia-lay--049 { left: 0; top: 141px; width: 402px; height: 41px; background: #d9d9d9; z-index: 1; pointer-events: none; }
-.academia-lay--050 { left: 54px; top: 78px; width: 282.71px; height: 30.71px; z-index: 3; display: block; }
+.academia-lay--050 { left: 54px; top: 78px; width: 282.71px; height: 30.71px; z-index: 3; pointer-events: none; object-fit: contain; display: block; }
 
 .academia-lay--051 { left: 25px; top: 2057px; width: 350px; height: 66px; z-index: 15; margin: 0; }
 .academia-lay--052 { left: 22px; top: 2707px; width: 350px; z-index: 17; margin: 0; }

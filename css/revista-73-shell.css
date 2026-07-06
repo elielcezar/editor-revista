@@ -29,7 +29,7 @@ body > main[class^="page-"] {
   box-sizing: border-box;
 }
 
-/* Logo do header — link clicável para home.html */
+/* Logo e faixa colorida do header — link clicável para a capa */
 .head-inner > a.head-logo,
 .head-inner > a.home-lay--005,
 .head-inner > a.principal-lay--041,
@@ -43,6 +43,7 @@ body > main[class^="page-"] {
   display: block;
   text-decoration: none;
   line-height: 0;
+  pointer-events: auto !important;
 }
 
 .head-inner > a.head-logo img,
@@ -58,26 +59,25 @@ body > main[class^="page-"] {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  display: block;
+  pointer-events: none;
 }
 
-/* Faixa colorida do header — link para capa */
-.head-inner > a.cat-band-azul,
-.head-inner > a.home-lay--003,
-.head-inner > a.principal-lay--039,
-.head-inner > a.gestao-lay--096,
-.head-inner > a.gx2-lay--head-band-vm,
-.head-inner > a.academia-lay--048,
 .head-inner > a.head-blue,
 .head-inner > a.head-yellow,
 .head-inner > a.head-color,
 .head-inner > a.head-color-band,
+.head-inner > a.home-lay--003,
+.head-inner > a.principal-lay--039,
+.head-inner > a.gestao-lay--096,
+.head-inner > a.academia-lay--048,
 .head-inner > a.nn-head-band,
 .head-inner > a.exp-lay--head-band,
 .head-inner > a.dl-head-purple,
+.head-inner > a.gx2-lay--head-band-vm,
 .cat-head-inner > a.cat-band-azul {
   display: block;
   text-decoration: none;
+  pointer-events: auto !important;
 }
 
 /*
@@ -569,6 +569,10 @@ a:focus-visible {
     top: 0 !important;
     bottom: auto !important;
     right: auto !important;
+  }
+
+  header.head-wrap > .head-inner {
+    min-height: 149px !important;
   }
 
   .head-wrap::after,
