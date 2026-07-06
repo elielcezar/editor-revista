@@ -179,7 +179,7 @@
     </div>
 
     <div class="abs z-video-ui principal-lay--021">
-      <video id="video-principal-miolo" class="video-fill" poster="assets/principal73/principal-video.png" loop playsinline preload="metadata" disablePictureInPicture aria-label="Vídeo Pede Bis">
+      <video id="video-principal-miolo" class="video-fill" muted poster="assets/principal73/principal-video.png" loop playsinline preload="metadata" disablePictureInPicture aria-label="Vídeo Pede Bis">
         <source src="assets/principal73/principal-video.mp4" type="video/mp4" />
       </video>
       <button type="button" class="video-sound-ico" id="video-sound-toggle" aria-label="Ativar som do vídeo" title="Som">
@@ -217,10 +217,10 @@
     <footer class="abs z-foot principal-lay--029">
       <img class="abs principal-lay--030" src="assets/home73/footer-bg.svg" alt="" />
       <a href="https://www.assai.com.br/nossas-lojas" target="_blank" rel="noopener noreferrer" class="abs foot-lojas principal-lay--031">NOSSAS LOJAS</a>
-      <a href="#" class="abs principal-lay--032">
+      <a href="home.html" class="abs principal-lay--032" aria-label="home">
         <img src="assets/home73/footer-icon-left.svg" alt="" width="19" height="18" />
       </a>
-      <a href="#" class="abs principal-lay--033">
+      <a href="https://www.facebook.com/assaiatacadistaoficial" target="_blank" rel="noopener noreferrer" class="abs principal-lay--033" aria-label="Facebook">
         <img src="assets/home73/footer-icon-middle.svg" alt="" width="17" height="19" />
       </a>
       <a href="https://www.assai.com.br/nossas-lojas" target="_blank" rel="noopener noreferrer" class="abs principal-lay--034">
@@ -281,11 +281,8 @@
   }
 
   function playEntry() {
-    video.muted = false;
-    var p = video.play().catch(function () {
-      video.muted = true;
-      return video.play();
-    });
+    video.muted = true;
+    var p = video.play();
     if (p && typeof p.finally === 'function') {
       p.finally(syncSoundButton);
     } else if (p && p.then) {
