@@ -3,6 +3,10 @@
  * Layout compartilhado: css/categoria-lista.css
  */
 
+.cat-head-shell {
+  background: #ffdc00;
+}
+
 .cat-band-azul {
   background: #ffdc00;
 }
