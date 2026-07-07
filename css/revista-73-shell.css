@@ -255,6 +255,12 @@ nav#menu-principal.head-menu::-webkit-scrollbar {
   font-weight: 700;
 }
 
+/* Parceiros oculto do menu (mobile + sidebar desktop) — link permanece no HTML */
+#menu-principal.head-menu .head-menu-inner a[href="parceiros.html"],
+.dt-nav a[href="parceiros.html"] {
+  display: none !important;
+}
+
 /* Titulos clicaveis das paginas categoria-* sem estilo de link. */
 .page-categorias a.t-titulo-ficha,
 .page-categorias a.t-titulo-ficha:visited,
