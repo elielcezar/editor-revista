@@ -604,6 +604,9 @@
 
   /* ── Header: fundo preto contínuo, 147px (sem espaço vazio abaixo) ── */
   .head-inner { background: #000000; height: 147px; }
+  header.head-wrap > .head-inner {
+    min-height: 147px !important;
+  }
   .head-wrap  { height: 141px; }
   .home-lay--002 { display: none; }
   .home-lay--003 { background: transparent; }
