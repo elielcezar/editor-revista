@@ -98,6 +98,112 @@
     window.visualViewport.addEventListener("resize", scheduleMobileScale);
   }
 
+  /* Ícone central do rodapé (SVG share) — compartilhar a página atual */
+  var SHARE_SVG_SEL = 'svg[viewBox="0 0 19 21"]';
+
+  function isShareLink(link) {
+    return !!(link && link.querySelector(SHARE_SVG_SEL));
+  }
+
+  function initShareButtons() {
+    document.querySelectorAll(SHARE_SVG_SEL).forEach(function (svg) {
+      var link = svg.closest("a");
+      if (!link || link.classList.contains("rev-share-page")) return;
+      link.classList.add("rev-share-page");
+      link.setAttribute("aria-label", "Compartilhar página");
+      link.setAttribute("href", "#");
+      link.removeAttribute("target");
+      link.removeAttribute("rel");
+    });
+  }
+
+  function showShareFeedback(message) {
+    var toast = document.createElement("div");
+    toast.className = "rev-share-toast";
+    toast.setAttribute("role", "status");
+    toast.textContent = message;
+    toast.style.cssText =
+      "position:fixed;bottom:24px;left:50%;transform:translateX(-50%);" +
+      "padding:10px 16px;background:#000;color:#fff;font:500 13px/1.3 Inter,sans-serif;" +
+      "border-radius:6px;z-index:99999;pointer-events:none;opacity:0;transition:opacity .2s";
+    document.body.appendChild(toast);
+    requestAnimationFrame(function () {
+      toast.style.opacity = "1";
+    });
+    setTimeout(function () {
+      toast.style.opacity = "0";
+      setTimeout(function () {
+        toast.remove();
+      }, 200);
+    }, 2200);
+  }
+
+  function fallbackCopy(url) {
+    var input = document.createElement("textarea");
+    input.value = url;
+    input.setAttribute("readonly", "");
+    input.style.position = "fixed";
+    input.style.top = "0";
+    input.style.left = "0";
+    input.style.width = "2em";
+    input.style.height = "2em";
+    input.style.opacity = "0";
+    document.body.appendChild(input);
+    input.focus();
+    input.select();
+    input.setSelectionRange(0, url.length);
+    var copied = false;
+    try {
+      copied = document.execCommand("copy");
+    } catch (err) {
+      copied = false;
+    }
+    input.remove();
+    if (copied) {
+      showShareFeedback("Link copiado!");
+      return;
+    }
+    window.prompt("Copie o link da página:", url);
+  }
+
+  function copyShareLink(url) {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(url).then(function () {
+        showShareFeedback("Link copiado!");
+      }).catch(function () {
+        fallbackCopy(url);
+      });
+    }
+    fallbackCopy(url);
+    return Promise.resolve();
+  }
+
+  function shareCurrentPage() {
+    var url = window.location.href;
+    var title = document.title || "Revista Assaí";
+
+    if (navigator.share) {
+      return navigator.share({ title: title, url: url }).catch(function (err) {
+        if (err && err.name === "AbortError") return;
+        return copyShareLink(url);
+      });
+    }
+    return copyShareLink(url);
+  }
+
+  document.addEventListener("click", function (e) {
+    var link = e.target.closest("a.rev-share-page, a");
+    if (!isShareLink(link)) return;
+    e.preventDefault();
+    shareCurrentPage();
+  });
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initShareButtons);
+  } else {
+    initShareButtons();
+  }
+
   var nav = document.getElementById("menu-principal");
 
   function centerInScrollContainer(container, item, axis) {
