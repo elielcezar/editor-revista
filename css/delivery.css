@@ -166,6 +166,7 @@ body {
   object-fit: fill;
 }
 
+/* Elipse degradê — CSS nativo (o PNG 402×305 ficava pixelado ao esticar para 610×610). */
 .dl-elipse-degrade {
   left: -116px;
   top: 446px;
@@ -173,15 +174,9 @@ body {
   height: 610px;
   z-index: 17;
   pointer-events: none;
-  overflow: hidden;
-  line-height: 0;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #c71327 0%, #524b7b 100%);
   clip-path: inset(0 0 276px 0);
-}
-.dl-elipse-degrade img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
 }
 
 .dl-hero-gemini {
@@ -389,7 +384,7 @@ body {
   width: 350px;
   margin: 0;
   padding: 0;
-  font-family: "Raspoutine Classic", Georgia, serif;
+  font-family: "FS Lola", Georgia, serif;
   font-weight: 400;
   font-size: 20px;
   line-height: 23px;
