@@ -1013,8 +1013,16 @@ body {
   width: 404px;
   height: 376px;
   -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+  overscroll-behavior-x: contain;
   scrollbar-width: none;     /* Firefox */
   -ms-overflow-style: none;  /* Edge/IE legado */
+  cursor: grab;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.gx2-cmp-scroll.is-dragging {
+  cursor: grabbing;
 }
 .gx2-cmp-scroll::-webkit-scrollbar {
   display: none;             /* Chrome/Safari/Opera */
@@ -1023,6 +1031,39 @@ body {
   left: 0;
   top: 5172px;
   z-index: 60;
+}
+
+/* Bolinhas de paginação do comparativo (4 painéis) */
+.gx2-cmp-dots {
+  position: absolute;
+  left: 0;
+  top: 5556px;
+  width: 404px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  z-index: 61;
+  pointer-events: auto;
+}
+.gx2-cmp-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(154, 9, 114, 0.28);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.gx2-cmp-dot.is-active {
+  background: #9a0972;
+  transform: scale(1.15);
+}
+.gx2-cmp-dot:focus-visible {
+  outline: 2px solid #9a0972;
+  outline-offset: 2px;
 }
 .gx2-cmp-frame {
   position: relative;
@@ -1201,6 +1242,24 @@ body {
   height: 30px;
   object-fit: cover;
   object-position: center;
+  animation: gx2-cmp-arrow-nudge 1.4s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes gx2-cmp-arrow-nudge {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gx2-cmp-arrow {
+    animation: none;
+  }
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────

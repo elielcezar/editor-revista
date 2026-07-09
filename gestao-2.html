@@ -238,7 +238,7 @@
 
     <!-- Tabela comparativa horizontal — frame 1507:5 (Frame 8649) -->
     <section id="sec-comparison" class="sec-gx2" aria-label="MEI e SLU — comparativo horizontal">
-      <div class="abs gx2-cmp-scroll gx2-lay--cmp-scroll" role="region" aria-label="Tabela comparativa rolável horizontalmente">
+      <div id="gx2-cmp-scroll" class="abs gx2-cmp-scroll gx2-lay--cmp-scroll" role="region" aria-label="Tabela comparativa rolável horizontalmente" tabindex="0">
         <div class="gx2-cmp-frame">
           <!-- Coluna 1: Título -->
           <p class="abs gx2-cmp-title">MEI <span class="gx2-cmp-title-e">e</span> SLU:</p>
@@ -276,6 +276,12 @@
           <p class="abs gx2-cmp-mini-slu gx2-cmp-slu--3">SLU</p>
           <p class="abs gx2-cmp-slu-text gx2-cmp-slu-text--3">Exige contrato social na Junta Comercial, certificado digital e contabilidade mensal obrigatória<br/><br/>Custos variam por estado e atividade</p>
         </div>
+      </div>
+      <div class="gx2-cmp-dots" role="tablist" aria-label="Painéis do comparativo">
+        <button type="button" class="gx2-cmp-dot is-active" role="tab" aria-selected="true" aria-label="Painel 1 de 4" data-gx2-cmp-dot="0"></button>
+        <button type="button" class="gx2-cmp-dot" role="tab" aria-selected="false" aria-label="Painel 2 de 4" data-gx2-cmp-dot="1"></button>
+        <button type="button" class="gx2-cmp-dot" role="tab" aria-selected="false" aria-label="Painel 3 de 4" data-gx2-cmp-dot="2"></button>
+        <button type="button" class="gx2-cmp-dot" role="tab" aria-selected="false" aria-label="Painel 4 de 4" data-gx2-cmp-dot="3"></button>
       </div>
     </section>
 
@@ -369,5 +375,102 @@
   </main>
   <script src="js/revista-73-menu.js?v=73-share" defer></script>
   <script src="js/animista-scroll.js" defer></script>
+  <script>
+    /* Comparativo MEI/SLU: arraste no desktop + bolinhas de paginação */
+    (function () {
+      var track = document.getElementById('gx2-cmp-scroll');
+      if (!track) return;
+
+      var dots = Array.prototype.slice.call(
+        document.querySelectorAll('[data-gx2-cmp-dot]')
+      );
+      var panelCount = Math.max(dots.length, 1);
+      var active = false;
+      var capId = null;
+      var startX = 0;
+      var scroll0 = 0;
+
+      function maxScroll() {
+        return Math.max(0, track.scrollWidth - track.clientWidth);
+      }
+
+      function panelWidth() {
+        return maxScroll() / Math.max(panelCount - 1, 1);
+      }
+
+      function setActiveDot(index) {
+        dots.forEach(function (dot, i) {
+          var on = i === index;
+          dot.classList.toggle('is-active', on);
+          dot.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+      }
+
+      function syncDots() {
+        var max = maxScroll();
+        if (max <= 0) {
+          setActiveDot(0);
+          return;
+        }
+        var idx = Math.round((track.scrollLeft / max) * (panelCount - 1));
+        idx = Math.max(0, Math.min(panelCount - 1, idx));
+        setActiveDot(idx);
+      }
+
+      function goToPanel(index) {
+        var max = maxScroll();
+        var target = (index / Math.max(panelCount - 1, 1)) * max;
+        if (typeof track.scrollTo === 'function') {
+          track.scrollTo({ left: target, behavior: 'smooth' });
+        } else {
+          track.scrollLeft = target;
+        }
+        setActiveDot(index);
+      }
+
+      track.addEventListener('pointerdown', function (e) {
+        if (e.pointerType !== 'mouse') return;
+        if (e.button !== 0) return;
+        active = true;
+        capId = e.pointerId;
+        startX = e.clientX;
+        scroll0 = track.scrollLeft;
+        track.classList.add('is-dragging');
+        try {
+          track.setPointerCapture(e.pointerId);
+        } catch (err) {}
+      });
+
+      track.addEventListener('pointermove', function (e) {
+        if (!active || e.pointerId !== capId) return;
+        track.scrollLeft = scroll0 - (e.clientX - startX);
+      });
+
+      function endPointer(e) {
+        if (!active || (e && e.pointerId !== capId)) return;
+        active = false;
+        capId = null;
+        track.classList.remove('is-dragging');
+        try {
+          if (e) track.releasePointerCapture(e.pointerId);
+        } catch (err) {}
+        syncDots();
+      }
+
+      track.addEventListener('pointerup', endPointer);
+      track.addEventListener('pointercancel', endPointer);
+      track.addEventListener('scroll', syncDots, { passive: true });
+
+      dots.forEach(function (dot) {
+        dot.addEventListener('click', function () {
+          var index = parseInt(dot.getAttribute('data-gx2-cmp-dot'), 10);
+          if (isNaN(index)) return;
+          goToPanel(index);
+        });
+      });
+
+      syncDots();
+    })();
+  </script>
 </body>
 </html>
