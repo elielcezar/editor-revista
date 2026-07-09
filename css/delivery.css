@@ -150,10 +150,11 @@ body {
   object-fit: cover;
 }
 
-/* 495:125 — caixa igual ao raster do utilizador · 402×389 */
+/* 495:125 — caixa igual ao raster do utilizador · 402×389
+   Mobile: encosta no header (174px). Desktop sobrescreve para 147px. */
 .page-delivery .dl-hero-shutter-wrap {
   left: 0px;
-  top: -222px;
+  top: 157px;
   width: 402px;
   height: 389px;
   z-index: 16;

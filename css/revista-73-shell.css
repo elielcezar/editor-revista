@@ -445,6 +445,7 @@ a:focus-visible {
 
   /* Hero encosta no header (157px mobile) */
   .page-principal .hero-principal,
+  .page-delivery .dl-hero-shutter-wrap,
   .page-delivery .dl-hero-gemini,
   .page-noticias .video-wrap--hero,
   .page .band-amarelo-1,
