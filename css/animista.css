@@ -140,11 +140,11 @@
 
 @keyframes pen-enter {
   0% {
-    transform: translateX(-110px);
+    transform: translateY(-110px);
     opacity: 0;
   }
   100% {
-    transform: translateX(0);
+    transform: translateY(0);
     opacity: 1;
   }
 }
