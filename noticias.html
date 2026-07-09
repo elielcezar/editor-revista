@@ -153,7 +153,7 @@
 
     <!-- 15. Carrossel horizontal (gradient + 5 sacolas + g1 strips) -->
     <section class="abs carrossel-section" aria-label="Galeria de sacolas">
-      <div class="carrossel-track" id="carrossel-noticias">
+      <div class="carrossel-track" id="carrossel-noticias" tabindex="0">
         <div class="carrossel-inner">
           <div class="carrossel-bg" aria-hidden="true"></div>
           <div class="abs c-g1-a"><img class="img-cover" src="assets/noticias73/carrossel-g1.png?v=2" alt="" draggable="false"></div>
@@ -167,6 +167,13 @@
       </div>
       <div class="tres-setas" aria-hidden="true">
         <img src="assets/noticias73/tres-setas.svg" alt="" width="55" height="19">
+      </div>
+      <div class="carrossel-dots" role="tablist" aria-label="Sacolas do carrossel">
+        <button type="button" class="carrossel-dot is-active" role="tab" aria-selected="true" aria-label="Sacola 1 de 5" data-carrossel-dot="0"></button>
+        <button type="button" class="carrossel-dot" role="tab" aria-selected="false" aria-label="Sacola 2 de 5" data-carrossel-dot="1"></button>
+        <button type="button" class="carrossel-dot" role="tab" aria-selected="false" aria-label="Sacola 3 de 5" data-carrossel-dot="2"></button>
+        <button type="button" class="carrossel-dot" role="tab" aria-selected="false" aria-label="Sacola 4 de 5" data-carrossel-dot="3"></button>
+        <button type="button" class="carrossel-dot" role="tab" aria-selected="false" aria-label="Sacola 5 de 5" data-carrossel-dot="4"></button>
       </div>
     </section>
 
@@ -291,15 +298,53 @@
   <script src="js/animista-scroll.js" defer></script>
   <script src="js/animista-parallax.js?v=73-4" defer></script>
   <script>
-    /* Galeria horizontal: swipe no touch (pan-x); arrastar com o mouse também */
+    /* Galeria horizontal: swipe no touch (pan-x); arrastar com o mouse + bolinhas */
     (function () {
       var track = document.getElementById('carrossel-noticias');
       if (!track) return;
 
+      var dots = Array.prototype.slice.call(
+        document.querySelectorAll('[data-carrossel-dot]')
+      );
+      var panelCount = Math.max(dots.length, 1);
       var active = false;
       var capId = null;
       var startX = 0;
       var scroll0 = 0;
+
+      function maxScroll() {
+        return Math.max(0, track.scrollWidth - track.clientWidth);
+      }
+
+      function setActiveDot(index) {
+        dots.forEach(function (dot, i) {
+          var on = i === index;
+          dot.classList.toggle('is-active', on);
+          dot.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+      }
+
+      function syncDots() {
+        var max = maxScroll();
+        if (max <= 0) {
+          setActiveDot(0);
+          return;
+        }
+        var idx = Math.round((track.scrollLeft / max) * (panelCount - 1));
+        idx = Math.max(0, Math.min(panelCount - 1, idx));
+        setActiveDot(idx);
+      }
+
+      function goToPanel(index) {
+        var max = maxScroll();
+        var target = (index / Math.max(panelCount - 1, 1)) * max;
+        if (typeof track.scrollTo === 'function') {
+          track.scrollTo({ left: target, behavior: 'smooth' });
+        } else {
+          track.scrollLeft = target;
+        }
+        setActiveDot(index);
+      }
 
       track.addEventListener('pointerdown', function (e) {
         if (e.pointerType !== 'mouse') return;
@@ -327,10 +372,22 @@
         try {
           if (e) track.releasePointerCapture(e.pointerId);
         } catch (err) {}
+        syncDots();
       }
 
       track.addEventListener('pointerup', endPointer);
       track.addEventListener('pointercancel', endPointer);
+      track.addEventListener('scroll', syncDots, { passive: true });
+
+      dots.forEach(function (dot) {
+        dot.addEventListener('click', function () {
+          var index = parseInt(dot.getAttribute('data-carrossel-dot'), 10);
+          if (isNaN(index)) return;
+          goToPanel(index);
+        });
+      });
+
+      syncDots();
     })();
 
     (function () {
