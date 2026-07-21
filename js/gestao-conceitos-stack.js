@@ -1,90 +1,51 @@
 /**
- * gestao.html — blocos FATURAMENTO / LUCRO empilham no scroll
- * Ref.: https://codepen.io/tahazsh/pen/WNYKage
+ * gestao.html — blocos FATURAMENTO / LUCRO empilham no scroll.
+ * Cards com position: sticky (CSS) + escala/opacidade/brilho calculados a
+ * partir da sobreposição real entre cards (getBoundingClientRect), em vez de
+ * uma janela de scroll estimada manualmente.
+ * Baseado no protótipo _components/cards-conceito (ref.: https://codepen.io/tahazsh/pen/WNYKage).
  */
 (function () {
   "use strict";
 
-  var section = document.getElementById("gestao-conceitos");
-  var cardIntro = document.querySelector(".gestao-conceitos-card--intro");
-  var cardFaturamento = document.querySelector(".gestao-conceitos-card--faturamento");
-  var cardLucro = document.querySelector(".gestao-conceitos-card--lucro");
-  if (!section || !cardIntro || !cardFaturamento || !cardLucro) return;
+  var cards = Array.prototype.slice.call(
+    document.querySelectorAll("#gestao-conceitos-cards .gestao-conceitos-card")
+  );
+  if (cards.length < 2) return;
 
-  var innerIntro = cardIntro.querySelector(".gestao-conceitos-card__inner");
-  var innerFaturamento = cardFaturamento.querySelector(".gestao-conceitos-card__inner");
-  if (!innerIntro || !innerFaturamento) return;
+  var inners = cards.map(function (card) {
+    return card.querySelector(".gestao-conceitos-card__inner");
+  });
+  if (inners.indexOf(null) !== -1) return;
 
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  var INTRO_TRANSLATE_END = -18;
-  var INTRO_SCALE_END = 0.92;
-  var INTRO_BRIGHTNESS_END = 0.58;
-  var FATURAMENTO_TRANSLATE_END = -22;
-  var FATURAMENTO_SCALE_END = 0.9;
-  var FATURAMENTO_BRIGHTNESS_END = 0.66;
-  var LUCRO_TRANSLATE_END = -150;
-  var startScroll = 0;
-  var endScroll = 1;
+  var MAX_SCALE_DROP = 0.06;
+  var MAX_OPACITY_DROP = 0.35;
+  var MAX_BRIGHTNESS_DROP = 0.42;
   var ticking = false;
 
-  function mix(from, to, percentage) {
-    var p = Math.max(0, Math.min(1, percentage));
-    return from + (to - from) * p;
-  }
-
-  function remapProgress(value, start, end) {
-    if (end <= start) return value >= end ? 1 : 0;
-    return Math.max(0, Math.min(1, (value - start) / (end - start)));
-  }
-
-  function recalcRange() {
-    var sectionTop = section.getBoundingClientRect().top + window.scrollY;
-    var sectionHeight = section.offsetHeight || 420;
-    var vh = window.innerHeight || 800;
-
-    // Janela estável para diferentes telas:
-    // começa antes do centro da seção e termina quando o bloco principal já passou.
-    startScroll = sectionTop - vh * 0.35;
-    endScroll = sectionTop + sectionHeight * 0.55;
-
-    if (endScroll <= startScroll) {
-      endScroll = startScroll + 320;
-    }
-  }
-
-  function getProgress() {
-    var range = endScroll - startScroll;
-    if (range <= 0) return 0;
-    return Math.max(0, Math.min(1, (window.scrollY - startScroll) / range));
-  }
-
   function updateCards() {
-    var progress = getProgress();
-    // Mantem mais tempo de leitura no bloco 2 (FATURAMENTO):
-    // o bloco 3 (LUCRO) acelera um pouco antes, para reduzir o atraso percebido.
-    var lucroProgress = remapProgress(progress, 0.30, 1);
+    var lastIndex = cards.length - 1;
+    for (var i = 0; i < cards.length; i++) {
+      var inner = inners[i];
 
-    innerIntro.style.transform =
-      "translate3d(0," +
-      mix(0, INTRO_TRANSLATE_END, progress).toFixed(2) +
-      "px,0) scale(" +
-      mix(1, INTRO_SCALE_END, progress).toFixed(4) +
-      ")";
-    innerIntro.style.filter =
-      "brightness(" + mix(1, INTRO_BRIGHTNESS_END, progress).toFixed(4) + ")";
+      if (i === lastIndex) {
+        inner.style.transform = "";
+        inner.style.opacity = "";
+        inner.style.filter = "";
+        continue;
+      }
 
-    innerFaturamento.style.transform =
-      "translate3d(0," +
-      mix(0, FATURAMENTO_TRANSLATE_END, progress).toFixed(2) +
-      "px,0) scale(" +
-      mix(1, FATURAMENTO_SCALE_END, progress).toFixed(4) +
-      ")";
-    innerFaturamento.style.filter =
-      "brightness(" + mix(1, FATURAMENTO_BRIGHTNESS_END, progress).toFixed(4) + ")";
+      var rect = cards[i].getBoundingClientRect();
+      var nextRect = cards[i + 1].getBoundingClientRect();
+      var overlap = rect.bottom - nextRect.top;
+      var progress = Math.max(0, Math.min(1, overlap / rect.height));
 
-    cardLucro.style.transform =
-      "translate3d(0," + mix(0, LUCRO_TRANSLATE_END, lucroProgress).toFixed(2) + "px,0)";
+      inner.style.transform = "scale(" + (1 - progress * MAX_SCALE_DROP).toFixed(4) + ")";
+      inner.style.opacity = (1 - progress * MAX_OPACITY_DROP).toFixed(3);
+      inner.style.filter = "brightness(" + (1 - progress * MAX_BRIGHTNESS_DROP).toFixed(3) + ")";
+    }
   }
 
   function onScroll() {
@@ -96,16 +57,8 @@
     });
   }
 
-  recalcRange();
   updateCards();
-
   window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", function () {
-    recalcRange();
-    updateCards();
-  });
-  window.addEventListener("load", function () {
-    recalcRange();
-    updateCards();
-  });
+  window.addEventListener("resize", onScroll);
+  window.addEventListener("load", updateCards);
 })();
